@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Customer List";
+}
+<div class="container mt-4">
+<div class="card">
+    <div class="card-header">
+        <h4 class="mb-0">@ViewData["Title"]</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="customersTable" class="table table-striped table-bordered" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>BirtDate</th>
+                        <th>Gender</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        @* <th>CreatedOn</th> *@
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#customersTable').DataTable({
+                "processing": true,
+                "serverSide": false,
+                "ajax": {
+                    "url": "@Url.Action("GetCustomers", "Customer")",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "Firstname" },
+                    { "data": "Lastname" },
+                    { "data": "BirtDate" },
+                    { "data": "Gender" },
+                    { "data": "Mobile" },
+                    { "data": "Email" },
+                    // { "data": "CreatedOn" }
+                ]
+            });
+        });
+    </script>
+
+}

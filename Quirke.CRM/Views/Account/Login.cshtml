@@ -1,0 +1,115 @@
+﻿@model UserLoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quirke | Login Page</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="~/lib/icheck-bootstrap/icheck-bootstrap.css" />
+
+        @* <link rel="stylesheet" href="~/css/animation.css" /> *@
+
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/icheck-bootstrap/icheck-bootstrap.min.css" asp-append-version="true" />
+
+        <link rel="stylesheet" href="~/css/animation.css" asp-append-version="true" />
+
+    </environment>
+
+</head>
+<body class="login-page bg-body-secondary app-loaded">
+    <div class="login-box">
+        <div class="login-logo animated fadeInDown">
+            <a href="/"><b>Quirke </b>CRM</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form asp-controller="Account" asp-action="Login" asp-id="SignIn" id="SignIn" method="post" class="form-horizontal">
+                    <div class="input-group mb-3">
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email" autofocus />
+                        <div class="input-group-text">
+                            <span class="bi bi-envelope"></span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Password" />
+                        <div class="input-group-text">
+                            <span class="bi bi-lock-fill"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="RememberMe" type="checkbox" class="form-check-input" id="remember">
+                                <label class="form-check-label" for="remember">
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Sign In</button>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+             
+
+                <p class="mb-1">
+                    <a asp-action="ForgotPassword">I forgot my password</a>
+                </p>
+                <p class="mb-0">
+                    <a asp-action="SignUp" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-center">Register a new membership</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <environment names="Development">
+        <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js" asp-append-version="true"></script>
+        <script src="~/lib/admin-lte/dist/js/adminlte.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/lib/admin-lte/dist/js/adminlte.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>
+@if (ViewBag.Message != null)
+{
+    <script>toastr.error('@ViewBag.Message')</script>
+}
