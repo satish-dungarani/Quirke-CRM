@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -37,6 +38,67 @@ namespace Quirke.CRM.Controllers
             .ToList();
 
             return Json(new { data = customers });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Manage(int? id)
+        {
+            CustomerModel customerModel;
+
+            if (id == null)
+            {
+                customerModel = new CustomerModel();
+            }
+            else
+            {
+                var customer = await _customerService.GetCustomerByIdAsync(id.Value);
+                customerModel = new CustomerModel
+                {
+                    Id = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirtDate = customer.BirtDate,
+                    Gender = customer.Gender,
+                    Mobile = customer.Mobile,
+                    Email = customer.Email,
+                    CreatedOn = customer.CreatedOn
+                };
+            }
+
+            return View(customerModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Manage(CustomerModel customerModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var customer = new Customer
+                {
+                    Id = customerModel.Id,
+                    Firstname = customerModel.Firstname,
+                    Lastname = customerModel.Lastname,
+                    BirtDate = customerModel.BirtDate ?? DateTime.Now,
+                    Gender = customerModel.Gender,
+                    Mobile = customerModel.Mobile,
+                    Email = customerModel.Email,
+                    CreatedOn = DateTime.UtcNow
+                };
+
+                if (customer.Id == 0)
+                {
+                    await _customerService.CreateCustomerAsync(customer);
+                }
+                else
+                {
+                    await _customerService.UpdateCustomerAsync(customer);
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(customerModel);
         }
     }
 }

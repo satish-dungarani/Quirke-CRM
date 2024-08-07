@@ -3,18 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quirke | Dashboard</title>
+    <title>Quirke | @ViewData["Title"]</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="~/WebCore/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <link rel="stylesheet" href="~/WebCore/plugins/jqvmap/jqvmap.min.css">
+  
+    @* <link rel="stylesheet" href="~/WebCore/plugins/jqvmap/jqvmap.min.css"> *@
     <link rel="stylesheet" href="~/WebCore/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="~/WebCore/plugins/summernote/summernote-bs4.min.css">
-    <link href="~/webcore/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+    @* <link href="~/webcore/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" /> *@
+    <link href="~/lib/datatable/datatables.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -50,13 +52,13 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item ">
-                            <a href="/Home" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a href="/Home" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a>
                         </li>
                         <li class="nav-item ">
-                            <a href="/Customer" class="nav-link "><i class="nav-icon fas fa-users"></i>Customers</a>
+                            <a href="/Customer" class="nav-link "><i class="nav-icon fas fa-users"></i><p>Customers</p></a>
                         </li>
                         <li class="nav-item ">
-                            <a href="/Employee" class="nav-link "><i class="nav-icon fas fa-user"></i>Employees</a>
+                            <a href="/Employee" class="nav-link "><i class="nav-icon fas fa-user"></i><p>Employees</p></a>
                         </li>
 
                         <li class="nav-item ">
@@ -161,7 +163,8 @@
     </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
-    <script src="~/WebCore/plugins/jquery/jquery.min.js"></script>
+    @* <script src="~/WebCore/plugins/jquery/jquery.min.js"></script> *@
+    <script src="~/lib/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="~/WebCore/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -170,7 +173,8 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="~/WebCore/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
+
+   @*  <!-- ChartJS -->
     <script src="~/WebCore/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
     <script src="~/WebCore/plugins/sparklines/sparkline.js"></script>
@@ -178,7 +182,7 @@
     <script src="~/WebCore/plugins/jqvmap/jquery.vmap.min.js"></script>
     <script src="~/WebCore/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
     <!-- jQuery Knob Chart -->
-    <script src="~/WebCore/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="~/WebCore/plugins/jquery-knob/jquery.knob.min.js"></script> *@
     <!-- daterangepicker -->
     <script src="~/WebCore/plugins/moment/moment.min.js"></script>
     <script src="~/WebCore/plugins/daterangepicker/daterangepicker.js"></script>
@@ -186,15 +190,30 @@
     <script src="~/WebCore/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
     <script src="~/WebCore/plugins/summernote/summernote-bs4.min.js"></script>
-    <script src="~/webcore/plugins/datatables-bs4/js/datatables.bootstrap4.min.js"></script>
+    @* <script src="~/webcore/plugins/datatables-bs4/js/datatables.bootstrap4.min.js"></script> *@
+
+    <!-- DataTables JavaScript -->
+    <script src="~/lib/datatable/datatables.min.js"></script>
+    <script src="~/lib/datatable/datatables.buttons.js"></script>
+    <script src="~/lib/datatable/buttons.datatables.js"></script>
+    <script src="~/lib/jquery/select2/select2.full.js"></script>
+    <!-- JSZip for Excel export -->
+    <script src="~/lib/datatable/jszip.min.js"></script>
+    <!-- pdfmake for PDF export -->
+    <script src="~/lib/datatable/pdfmake.min.js"></script>
+    <script src="~/lib/datatable/vfs_fonts.js"></script>
+    <!-- DataTables buttons extensions -->
+    <script src="~/lib/datatable/buttons.html5.min.js"></script>
+    <script src="~/lib/datatable/buttons.print.min.js"></script>
+
     <!-- overlayScrollbars -->
     <script src="~/WebCore/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/WebCore/dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
+@*     <!-- AdminLTE for demo purposes -->
     <script src="~/WebCore/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/WebCore/dist/js/pages/dashboard.js"></script>
+    <script src="~/WebCore/dist/js/pages/dashboard.js"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

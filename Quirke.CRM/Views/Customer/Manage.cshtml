@@ -1,0 +1,117 @@
+﻿@model CustomerModel
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Customer" : "Edit Customer";
+}
+
+
+<section class="content pt-3">
+    <div class="container-fluid">
+        <div class="card card-default color-palette-box">
+            <div class="card-header">
+                <h1 class="card-title">
+                    @* <i class="fas fa-tag"></i> *@
+                    Customers - @ViewData["Title"]
+                </h1>
+                <a class="btn btn-primary  btn-sm float-right" href="@Url.Action("Index","Customer")">Back to list</a>
+            </div>
+            <div class="card-body">
+                <form asp-action="Manage" method="post" id="customerForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Firstname" class="control-label"></label>
+                                <input asp-for="Firstname" class="form-control" />
+                                <span asp-validation-for="Firstname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Lastname" class="control-label"></label>
+                                <input asp-for="Lastname" class="form-control" />
+                                <span asp-validation-for="Lastname" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="BirtDate" class="control-label"></label>
+                                <input asp-for="BirtDate" class="form-control" />
+                                <span asp-validation-for="BirtDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Gender" class="control-label"></label>
+                                <select asp-for="Gender" class="form-control">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Non-binary">Non-binary</option>
+                                    <option value="Genderqueer">Genderqueer</option>
+                                    <option value="Genderfluid">Genderfluid</option>
+                                    <option value="Agender">Agender</option>
+                                    <option value="Bigender">Bigender</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Mobile" class="control-label"></label>
+                                <input asp-for="Mobile" class="form-control" />
+                                <span asp-validation-for="Mobile" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm float-right">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.0/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // $('#customerForm').validate({
+        //     rules: {
+        //         BirtDate: {
+        //             required: function () {
+        //                 return $('#birthDateInput').val() === '';
+        //             }
+        //         }
+        //     },
+        //     messages: {
+        //         BirtDate: {
+        //             required: "Birth date is required."
+        //         }
+        //     },
+        //     errorPlacement: function (error, element) {
+        //         if (element.attr("name") == "Email") {
+        //             error.appendTo(element.parent()).addClass("text-danger");
+        //         } else {
+        //             error.insertAfter(element).addClass("text-danger");
+        //         }
+        //     }
+        // });
+    });
+</script>

@@ -1,0 +1,41 @@
+.form-floating > span .select2-selection--multiple {
+    min-height: calc(3.5rem + 2px);
+    line-height: 1.25;
+    padding-top: 1.625rem;
+    padding-bottom: .625rem;
+}
+
+.form-floating > .select2-container--default.select2-container--focus > .select2-selection--multiple ~ label,
+.form-floating > .select2-container--default > .select2-selection--multiple ~ label,
+.form-floating > .select2-container--default > .select2-selection--single ~ label {
+    opacity: .65;
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+}
+
+/* Ensure label floats correctly when Select2 is active */
+.form-floating > .select2-container--default.select2-container--focus > .select2-selection--multiple ~ label {
+    opacity: 1;
+    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    padding: 0 .75rem;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding: 0 .75rem;
+}
+
+.form-floating > label {
+    z-index: 1;
+}
+
+    .form-floating > label.selected {
+        opacity: .65;
+        transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+    }
+
+.select2-container .select2-selection--single {
+    padding-top: 1.625rem;
+    padding-bottom: .625rem;
+    height: calc(3.5rem + 2px);
+}

@@ -16,6 +16,7 @@ namespace Quirke.CRM.DataContext
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerCompliance> CustomerCompliances { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -98,6 +99,56 @@ namespace Quirke.CRM.DataContext
                       .IsRequired(false)
                       .HasColumnType("datetime");
             });
+
+            modelBuilder.Entity<Employee>(entity =>
+              {
+                  entity.HasKey(e => e.Id); // Primary key
+
+                  entity.Property(e => e.Firstname)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.Lastname)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.Gender)
+                      .IsRequired(false); // Nullable
+
+                  entity.Property(e => e.BirthDate)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.PhoneNumber)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.EmergencyContact)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.Email)
+                      .IsRequired(false); // Nullable
+
+                  entity.Property(e => e.HireDate)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.JobTitle)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.Salary)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.Picture)
+                      .IsRequired(false); // Nullable
+
+                  entity.Property(e => e.IdentityDocument)
+                      .IsRequired(false); // Nullable
+
+                  entity.Property(e => e.IsDeleted)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.CreatedOn)
+                      .IsRequired(); // Not null
+
+                  entity.Property(e => e.UpdatedOn)
+                      .IsRequired(false); // Nullable
+              });
         }
     }
 }

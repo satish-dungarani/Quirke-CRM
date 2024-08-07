@@ -72,8 +72,9 @@ builder.Services.AddMvc();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register the CustomerService
+// Register the services
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 
 var app = builder.Build();
