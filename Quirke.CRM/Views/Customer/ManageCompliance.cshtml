@@ -1,0 +1,157 @@
+﻿@model CustomerComplianceModel
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Compliance" : "Edit Compliance";
+}
+
+<section class="content pt-3">
+    <div class="container-fluid">
+        <div class="card card-default color-palette-box">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>
+                            <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
+                            <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
+                            <strong>Mobile:</strong> @Model.Mobile
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("Manage", "Customer", new { id = Model.CustomerId})">Back to Customer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-action="ManageCompliance" method="post" id="complianceForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="CustomerId" />
+                    <input type="hidden" asp-for="BirthDate" />
+                    <input type="hidden" asp-for="Firstname" />
+                    <input type="hidden" asp-for="Lastname" />
+                    <input type="hidden" asp-for="Mobile" />
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="IsAllergicToColour" />
+                        <label class="form-check-label" asp-for="IsAllergicToColour" style="font-weight: 700 !important;"></label>
+                        <span asp-validation-for="IsAllergicToColour" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <span asp-for="AllergicColourDetails" class="control-label">Allergic Colour Details</span>
+                        <textarea asp-for="AllergicColourDetails" class="form-control"></textarea>
+                        <span asp-validation-for="AllergicColourDetails" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="IsDamagedScalp" />
+                        <label class="form-check-label" asp-for="IsDamagedScalp" style="font-weight: 700 !important;"></label>
+                        <span asp-validation-for="IsDamagedScalp" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <span asp-for="ScalpDetails" class="control-label">Scalp Details</span>
+                        <textarea asp-for="ScalpDetails" class="form-control"></textarea>
+                        <span asp-validation-for="ScalpDetails" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="HasTattoo" />
+                        <label class="form-check-label" asp-for="HasTattoo" style="font-weight: 700 !important;"></label>
+                        <span asp-validation-for="HasTattoo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <span asp-for="TattooDetails" class="control-label">Tattoo Details</span>
+                        <textarea asp-for="TattooDetails" class="form-control"></textarea>
+                        <span asp-validation-for="TattooDetails" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="IsAllergicToProduct" />
+                        <label class="form-check-label" asp-for="IsAllergicToProduct" style="font-weight: 700 !important;"></label>
+                        <span asp-validation-for="IsAllergicToProduct" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <span asp-for="AllergicProductDetails" class="control-label">Allergic Product Details</span>
+                        <textarea asp-for="AllergicProductDetails" class="form-control"></textarea>
+                        <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <hr />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="TestScheduleOn" class="control-label">Test Schedule On</label>
+                                <input asp-for="TestScheduleOn" class="form-control" />
+                                <span asp-validation-for="TestScheduleOn" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="TestDate" class="control-label">Test Date</label>
+                                <input asp-for="TestDate" class="form-control" />
+                                <span asp-validation-for="TestDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label">Status</label>
+                                <select asp-for="Status" class="form-control">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Expired">Compeleted</option>
+                                    <option value="Active">Failed</option>
+                                </select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>  
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="ObservedBy" class="control-label"></label>
+                                <input asp-for="ObservedBy" class="form-control" />
+                                <span asp-validation-for="ObservedBy" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                  
+                   
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="CanTakeService" />
+                        <label class="form-check-label" asp-for="CanTakeService"></label>
+                        <span asp-validation-for="CanTakeService" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="IsAllergyTestDone" />
+                        <label class="form-check-label" asp-for="IsAllergyTestDone"></label>?
+                        <span asp-validation-for="IsAllergyTestDone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm float-right">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.0/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        // Check if there's a success message
+        var successMessage = '@TempData["SuccessMessage"]';
+        if (successMessage) {
+            Swal.fire({
+                title: 'Success!',
+                text: successMessage,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+</script>

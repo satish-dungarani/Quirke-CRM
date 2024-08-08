@@ -17,9 +17,9 @@
         public required string Status { get; set; } // Nullable
         public bool CanTakeService { get; set; } // Nullable (bit)
         public bool IsAllergyTestDone { get; set; } // Nullable (bit)
-        public string? TestScheduleOn { get; set; } // Nullable
+        public DateTime? TestScheduleOn { get; set; } // Nullable
         public DateTime? TestDate { get; set; } // Nullable
-        public int? ObservedBy { get; set; } // Nullable
+        public string? ObservedBy { get; set; } // Nullable
 
         public DateTime CreatedOn { get; set; } // Nullable
         public DateTime? UpdatedOn { get; set; } // Nullable

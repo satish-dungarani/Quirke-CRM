@@ -50,12 +50,6 @@ namespace Quirke.CRM.Models
         [Display(Name = "Job Title")]
         public string JobTitle { get; set; }
 
-        [Required(ErrorMessage = "Salary is required")]
-        [Range(0, double.MaxValue, ErrorMessage = "Salary must be a positive number")]
-        [DataType(DataType.Currency)]
-        [Display(Name = "Salary")]
-        public decimal Salary { get; set; }
-
         [Display(Name = "Picture")]
         public string Picture { get; set; }
 

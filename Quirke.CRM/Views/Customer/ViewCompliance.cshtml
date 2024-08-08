@@ -1,0 +1,111 @@
+﻿@model CustomerComplianceModel
+
+@{
+    ViewData["Title"] = "View Compliance";
+}
+
+<section class="content pt-3">
+    <div class="container-fluid">
+        <div class="card card-default color-palette-box">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>
+                            <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
+                            <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
+                            <strong>Mobile:</strong> @Model.Mobile
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("Manage", "Customer", new { id = Model.CustomerId})">Back to Customer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="IsAllergicToColour"></label>
+                            <p>@(Model.IsAllergicToColour ? "Yes" : "No")</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Allergic Colour Details:</label>
+                            <p>@Model.AllergicColourDetails</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="IsDamagedScalp"></label>
+                            <p>@(Model.IsDamagedScalp ? "Yes" : "No")</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Scalp Details:</label>
+                            <p>@Model.ScalpDetails</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="HasTattoo"></label>
+                            <p>@(Model.HasTattoo ? "Yes" : "No")</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Tattoo Details:</label>
+                            <p>@Model.TattooDetails</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="IsAllergicToProduct"></label>
+                            <p>@(Model.IsAllergicToProduct ? "Yes" : "No")</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Allergic Product Details:</label>
+                            <p>@Model.AllergicProductDetails</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Test Schedule On:</label>
+                            <p>@Model.TestScheduleOn?.ToString("yyyy-MM-dd")</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Test Date:</label>
+                            <p>@Model.TestDate?.ToString("yyyy-MM-dd")</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="Status"></label>
+                            <p>@Model.Status</p>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-weight: 700;">Observed By:</label>
+                            <p>@Model.ObservedBy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="CanTakeService"></label>
+                            <p>@(Model.CanTakeService ? "Yes" : "No")</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-weight: 700;" asp-for="IsAllergyTestDone"></label>
+                            <p>@(Model.IsAllergyTestDone ? "Yes" : "No")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

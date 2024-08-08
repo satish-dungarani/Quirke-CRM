@@ -12,7 +12,6 @@
         public string? Email { get; set; } // Nullable
         public DateTime HireDate { get; set; } // Not null
         public string JobTitle { get; set; } // Not null
-        public decimal Salary { get; set; } // Not null
         public string? Picture { get; set; } // Nullable
         public string? IdentityDocument { get; set; } // Nullable
         public bool IsDeleted { get; set; } // Not Null

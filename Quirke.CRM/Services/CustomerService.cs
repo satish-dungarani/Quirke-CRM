@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Services
 {
@@ -58,17 +60,56 @@ namespace Quirke.CRM.Services
             return await _context.CustomerCompliances.FindAsync(customerComplianceId);
         }
 
-        public async Task<CustomerCompliance> CreateCustomerComplianceAsync(CustomerCompliance customerCompliance)
+        public async Task<int> CreateCustomerComplianceAsync(CustomerComplianceModel model)
         {
-            _context.CustomerCompliances.Add(customerCompliance);
+            var compliance = new CustomerCompliance
+            {
+                CustomerId = model.CustomerId,
+                IsAllergicToColour = model.IsAllergicToColour,
+                AllergicColourDetails = model.AllergicColourDetails,
+                IsDamagedScalp = model.IsDamagedScalp,
+                ScalpDetails = model.ScalpDetails,
+                HasTattoo = model.HasTattoo,
+                TattooDetails = model.TattooDetails,
+                IsAllergicToProduct = model.IsAllergicToProduct,
+                AllergicProductDetails = model.AllergicProductDetails,
+                TestScheduleOn = model.TestScheduleOn,
+                TestDate = model.TestDate,
+                Status = model.Status,
+                ObservedBy = model.ObservedBy,
+                CanTakeService = model.CanTakeService,
+                IsAllergyTestDone = model.IsAllergyTestDone,
+                CreatedOn = DateTime.UtcNow,
+            };
+
+            _context.CustomerCompliances.Add(compliance);
             await _context.SaveChangesAsync();
-            return customerCompliance;
+            return compliance.Id;
         }
 
-        public async Task UpdateCustomerComplianceAsync(CustomerCompliance customerCompliance)
+        public async Task UpdateCustomerComplianceAsync(CustomerComplianceModel model)
         {
-            _context.Entry(customerCompliance).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            var compliance = await _context.CustomerCompliances.FindAsync(model.Id);
+            if (compliance != null)
+            {
+                compliance.IsAllergicToColour = model.IsAllergicToColour;
+                compliance.AllergicColourDetails = model.AllergicColourDetails;
+                compliance.IsDamagedScalp = model.IsDamagedScalp;
+                compliance.ScalpDetails = model.ScalpDetails;
+                compliance.HasTattoo = model.HasTattoo;
+                compliance.TattooDetails = model.TattooDetails;
+                compliance.IsAllergicToProduct = model.IsAllergicToProduct;
+                compliance.AllergicProductDetails = model.AllergicProductDetails;
+                compliance.TestScheduleOn = model.TestScheduleOn;
+                compliance.TestDate = model.TestDate;
+                compliance.Status = model.Status;
+                compliance.ObservedBy = model.ObservedBy;
+                compliance.CanTakeService = model.CanTakeService;
+                compliance.IsAllergyTestDone = model.IsAllergyTestDone;
+
+                _context.CustomerCompliances.Update(compliance);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task DeleteCustomerComplianceAsync(int customerComplianceId)
@@ -99,6 +140,15 @@ namespace Quirke.CRM.Services
 
             return await _context.CustomerCompliances
                                  .AnyAsync(cc => cc.CustomerId == customer.Id && cc.Status.ToLower() == "active"); 
+        }
+
+        public async Task<bool> HasActiveComplianceAsync(int customerId)
+        {
+            DateTime sixMonthsAgo = DateTime.UtcNow.AddMonths(-6);
+
+            var isActive = await _context.CustomerCompliances.AnyAsync(c => c.CustomerId == customerId && c.TestDate >= sixMonthsAgo);
+
+            return isActive;
         }
     }
 }

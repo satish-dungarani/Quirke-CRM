@@ -85,8 +85,8 @@ namespace Quirke.CRM.DataContext
                 entity.Property(e => e.IsAllergyTestDone)
                       .IsRequired();
                 entity.Property(e => e.TestScheduleOn)
-                      .HasMaxLength(20)
-                      .IsRequired(false);
+                      .IsRequired(false)
+                      .HasColumnType("datetime");
                 entity.Property(e => e.TestDate)
                       .IsRequired(false)
                       .HasColumnType("datetime");
@@ -129,9 +129,6 @@ namespace Quirke.CRM.DataContext
                       .IsRequired(); // Not null
 
                   entity.Property(e => e.JobTitle)
-                      .IsRequired(); // Not null
-
-                  entity.Property(e => e.Salary)
                       .IsRequired(); // Not null
 
                   entity.Property(e => e.Picture)

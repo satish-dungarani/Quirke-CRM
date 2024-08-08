@@ -1,4 +1,5 @@
 ﻿using Quirke.CRM.Domain;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Services
 {
@@ -14,10 +15,11 @@ namespace Quirke.CRM.Services
         // CustomerCompliance methods
         Task<IEnumerable<CustomerCompliance>> GetAllCustomerCompliancesAsync();
         Task<CustomerCompliance> GetCustomerComplianceByIdAsync(int customerComplianceId);
-        Task<CustomerCompliance> CreateCustomerComplianceAsync(CustomerCompliance customerCompliance);
-        Task UpdateCustomerComplianceAsync(CustomerCompliance customerCompliance);
+        Task<int> CreateCustomerComplianceAsync(CustomerComplianceModel model);
+        Task UpdateCustomerComplianceAsync(CustomerComplianceModel customerCompliance);
         Task DeleteCustomerComplianceAsync(int customerComplianceId);
         Task<IEnumerable<CustomerCompliance>> GetCustomerComplianceByCustomerIdAsync(int customerId);
         Task<bool> IsAnyCustomerRegisteredByMobileNumberWithActiveComplianceAsync(string mobileNumber);
+        Task<bool> HasActiveComplianceAsync(int customerId);
     }
 }

@@ -27,7 +27,6 @@ namespace Quirke.CRM.Services
                 Email = employee.Email,
                 HireDate = employee.HireDate,
                 JobTitle = employee.JobTitle,
-                Salary = employee.Salary,
                 Picture = employee.Picture,
                 IdentityDocument = employee.IdentityDocument,
                 IsDeleted = false,
@@ -59,7 +58,6 @@ namespace Quirke.CRM.Services
                 Email = entity.Email,
                 HireDate = entity.HireDate,
                 JobTitle = entity.JobTitle,
-                Salary = entity.Salary,
                 Picture = entity.Picture,
                 IdentityDocument = entity.IdentityDocument,
                 IsDeleted = entity.IsDeleted,
@@ -70,28 +68,36 @@ namespace Quirke.CRM.Services
 
         public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesAsync()
         {
-            return await _context.Employees
-                .Where(e => !e.IsDeleted)
-                .Select(e => new EmployeeModel
-                {
-                    Id = e.Id,
-                    Firstname = e.Firstname,
-                    Lastname = e.Lastname,
-                    Gender = e.Gender,
-                    BirthDate = e.BirthDate,
-                    PhoneNumber = e.PhoneNumber,
-                    EmergencyContact = e.EmergencyContact,
-                    Email = e.Email,
-                    HireDate = e.HireDate,
-                    JobTitle = e.JobTitle,
-                    Salary = e.Salary,
-                    Picture = e.Picture,
-                    IdentityDocument = e.IdentityDocument,
-                    IsDeleted = e.IsDeleted,
-                    CreatedOn = e.CreatedOn,
-                    UpdatedOn = e.UpdatedOn
-                })
-                .ToListAsync();
+            try
+            {
+                return await _context.Employees
+               .Where(e => !e.IsDeleted)
+               .Select(e => new EmployeeModel
+               {
+                   Id = e.Id,
+                   Firstname = e.Firstname,
+                   Lastname = e.Lastname,
+                   Gender = e.Gender,
+                   BirthDate = e.BirthDate,
+                   PhoneNumber = e.PhoneNumber,
+                   EmergencyContact = e.EmergencyContact,
+                   Email = e.Email,
+                   HireDate = e.HireDate,
+                   JobTitle = e.JobTitle,
+                   Picture = e.Picture,
+                   IdentityDocument = e.IdentityDocument,
+                   IsDeleted = e.IsDeleted,
+                   CreatedOn = e.CreatedOn,
+                   UpdatedOn = e.UpdatedOn
+               })
+               .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         public async Task<bool> UpdateEmployeeAsync(EmployeeModel employee)
@@ -111,7 +117,6 @@ namespace Quirke.CRM.Services
             entity.Email = employee.Email;
             entity.HireDate = employee.HireDate;
             entity.JobTitle = employee.JobTitle;
-            entity.Salary = employee.Salary;
             entity.Picture = employee.Picture;
             entity.IdentityDocument = employee.IdentityDocument;
             entity.UpdatedOn = DateTime.UtcNow;
@@ -154,7 +159,6 @@ namespace Quirke.CRM.Services
                     Email = e.Email,
                     HireDate = e.HireDate,
                     JobTitle = e.JobTitle,
-                    Salary = e.Salary,
                     Picture = e.Picture,
                     IdentityDocument = e.IdentityDocument,
                     IsDeleted = e.IsDeleted,
@@ -180,7 +184,6 @@ namespace Quirke.CRM.Services
                     Email = e.Email,
                     HireDate = e.HireDate,
                     JobTitle = e.JobTitle,
-                    Salary = e.Salary,
                     Picture = e.Picture,
                     IdentityDocument = e.IdentityDocument,
                     IsDeleted = e.IsDeleted,

@@ -16,6 +16,9 @@ namespace Quirke.CRM.Controllers
         {
             _customerService = customerService;
         }
+
+        #region Customer
+
         public IActionResult Index()
         {
             return View();
@@ -94,11 +97,169 @@ namespace Quirke.CRM.Controllers
                 {
                     await _customerService.UpdateCustomerAsync(customer);
                 }
-
-                return RedirectToAction(nameof(Index));
+                // Use TempData to pass success message
+                TempData["SuccessMessage"] = "Customer details saved successfully!";
+                // return RedirectToAction(nameof(Index));
             }
 
             return View(customerModel);
         }
+        #endregion
+
+        #region Compliance
+        [HttpGet]
+        public async Task<IActionResult> GetCustomerCompliances(int customerId)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
+
+            var compliances = await _customerService.GetCustomerComplianceByCustomerIdAsync(customerId);
+            var data = compliances.Select(c => new
+            {
+                Id = c.Id,
+                CustomerId = customer.Id,
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                ComplianceStatus = c.Status,
+                TestDate = c.TestDate?.ToString("dd/MM/yyyy"),
+                ObservedBy = c.ObservedBy,
+                CanTakeService = c.CanTakeService ? "Yes" : "No",
+                IsAllergyTestDone = c.IsAllergyTestDone ? "Yes" : "No",
+                IsValid = c.TestDate > DateTime.Now.AddMonths(-6)
+            }).ToList();
+
+            return Json(new { data });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ManageCompliance(int customerId, int? id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
+            if (customer == null)
+                return NotFound();
+           
+            var model = new CustomerComplianceModel();
+            {
+                model.CustomerId = customer.Id;
+                model.Firstname = customer.Firstname;
+                model.Lastname = customer.Lastname;
+                model.BirthDate = customer.BirtDate;
+                model.Mobile = customer.Mobile;
+            }
+            if (id == null)
+            {
+                var hasActive = await _customerService.HasActiveComplianceAsync(customerId);
+                if (hasActive)
+                {
+                    var customerModel = new CustomerModel
+                    {
+                        Id = customer.Id,
+                        Firstname = customer.Firstname,
+                        Lastname = customer.Lastname,
+                        BirtDate = customer.BirtDate,
+                        Gender = customer.Gender,
+                        Mobile = customer.Mobile,
+                        Email = customer.Email,
+                        CreatedOn = customer.CreatedOn
+                    };
+                    TempData["WarningMessage"] = "Customer already have active compliance!";
+
+                    return View("~/Views/Customer/Manage.cshtml", customerModel);
+                }
+            }
+            else
+            {
+                var compliance = await _customerService.GetCustomerComplianceByIdAsync(id.Value);
+                if (compliance == null)
+                {
+                    return NotFound();
+                }
+
+                model.Status = compliance.Status;
+                model.IsAllergicToColour = compliance.IsAllergicToColour;
+                model.AllergicColourDetails = compliance.AllergicColourDetails;
+                model.IsDamagedScalp = compliance.IsDamagedScalp;
+                model.ScalpDetails = compliance.ScalpDetails;
+                model.HasTattoo = compliance.HasTattoo;
+                model.TattooDetails = compliance.TattooDetails;
+                model.IsAllergicToProduct = compliance.IsAllergicToProduct;
+                model.AllergicProductDetails = compliance.AllergicProductDetails;
+                model.CanTakeService = compliance.CanTakeService;
+                model.IsAllergyTestDone = compliance.IsAllergyTestDone;
+                model.TestScheduleOn = compliance.TestScheduleOn;
+                model.TestDate = compliance.TestDate;
+                model.ObservedBy = compliance.ObservedBy;
+                model.CreatedOn = compliance.CreatedOn;
+                model.UpdatedOn = compliance.UpdatedOn;
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ManageCompliance(CustomerComplianceModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.Id == 0)
+            {
+                model.Id = await _customerService.CreateCustomerComplianceAsync(model);
+                TempData["SuccessMessage"] = "Compliance created successfully!";
+            }
+            else
+            {
+                await _customerService.UpdateCustomerComplianceAsync(model);
+                TempData["SuccessMessage"] = "Compliance updated successfully!";
+            }
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> ViewCompliance(int customerId, int id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
+            if (customer == null)
+                return NotFound();
+
+            var compliance = await _customerService.GetCustomerComplianceByIdAsync(id);
+            if (compliance == null)
+                return NotFound();
+
+
+            var model = new CustomerComplianceModel();
+            {
+                model.CustomerId = customer.Id;
+                model.Firstname = customer.Firstname;
+                model.Lastname = customer.Lastname;
+                model.BirthDate = customer.BirtDate;
+                model.Mobile = customer.Mobile;
+                model.Status = compliance.Status;
+                model.IsAllergicToColour = compliance.IsAllergicToColour;
+                model.AllergicColourDetails = compliance.AllergicColourDetails;
+                model.IsDamagedScalp = compliance.IsDamagedScalp;
+                model.ScalpDetails = compliance.ScalpDetails;
+                model.HasTattoo = compliance.HasTattoo;
+                model.TattooDetails = compliance.TattooDetails;
+                model.IsAllergicToProduct = compliance.IsAllergicToProduct;
+                model.AllergicProductDetails = compliance.AllergicProductDetails;
+                model.CanTakeService = compliance.CanTakeService;
+                model.IsAllergyTestDone = compliance.IsAllergyTestDone;
+                model.TestScheduleOn = compliance.TestScheduleOn;
+                model.TestDate = compliance.TestDate;
+                model.ObservedBy = compliance.ObservedBy;
+                model.CreatedOn = compliance.CreatedOn;
+                model.UpdatedOn = compliance.UpdatedOn;
+                model.IsValid = compliance.TestDate > DateTime.Now.AddMonths(-6);
+            }
+            return View(model);
+        }
+        #endregion
+
+        #region Record
+
+        #endregion
     }
 }

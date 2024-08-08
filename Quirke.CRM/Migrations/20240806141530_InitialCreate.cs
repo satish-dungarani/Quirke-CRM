@@ -195,7 +195,7 @@ namespace Quirke.CRM.Migrations
                     Status = table.Column<string>(nullable: false),
                     CanTakeService = table.Column<bool>(nullable: false),
                     IsAllergyTestDone = table.Column<bool>(nullable: false),
-                    TestScheduleOn = table.Column<string>(maxLength: 20, nullable: true),
+                    TestScheduleOn = table.Column<DateTime>(nullable: true),
                     TestDate = table.Column<DateTime>(nullable: true),
                     ObservedBy = table.Column<int>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -212,6 +212,30 @@ namespace Quirke.CRM.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+            name: "Employee",
+            columns: table => new
+            {
+                Id = table.Column<int>(nullable: false).Annotation("SqlServer:Identity", "1, 1"),
+                Firstname = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                Lastname = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                Gender = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                BirthDate = table.Column<DateTime>(type: "date", nullable: false),
+                PhoneNumber = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                EmergencyContact = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                Email = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                HireDate = table.Column<DateTime>(type: "date", nullable: false),
+                Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                IdentityDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                JobTitle = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
+                CreatedOn = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
+                UpdatedOn = table.Column<DateTime>(type: "datetime", nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_Employee", x => x.Id);
+            });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -287,6 +311,9 @@ namespace Quirke.CRM.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+            name: "Employee");
         }
     }
 }
