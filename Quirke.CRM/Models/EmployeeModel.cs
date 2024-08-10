@@ -24,10 +24,10 @@ namespace Quirke.CRM.Models
         [Required(ErrorMessage = "Birth date is required")]
         [DataType(DataType.Date)]
         [Display(Name = "Birth Date")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [Required(ErrorMessage = "Phone number is required")]
-        [Phone(ErrorMessage = "Invalid phone number format")]
+        [RegularExpression(@"^07\d{9}$", ErrorMessage = "Please enter a valid UK mobile number.")]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
@@ -43,7 +43,7 @@ namespace Quirke.CRM.Models
         [Required(ErrorMessage = "Hire date is required")]
         [DataType(DataType.Date)]
         [Display(Name = "Hire Date")]
-        public DateTime HireDate { get; set; }
+        public DateTime? HireDate { get; set; }
 
         [Required(ErrorMessage = "Job title is required")]
         [StringLength(100, ErrorMessage = "Job title cannot be longer than 100 characters")]

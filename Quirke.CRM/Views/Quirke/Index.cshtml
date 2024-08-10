@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quirke & Co Hairdressers - Scan QR Code</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #555;
+            }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                <div class="text-center">
+                    <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo">
+                </div>
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">
+                        <h2>Scan QR Code</h2>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Compliance" method="post" id="quirke_form">
+                            <div class="mb-3">
+                                <label for="mobileNumber" class="form-label">Enter your mobile number:</label>
+                                <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" pattern="[0-9]*" inputmode="numeric" placeholder="Enter mobile number">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: successMessage,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            }
+
+            var warningMessage = '@TempData["WarningMessage"]';
+            if (warningMessage) {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: warningMessage,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+
+            $('#quirke_form').on('submit', function (e) {
+                var mobileNumber = $('#mobileNumber').val();
+                var ukMobilePattern = /^07\d{9}$/;
+
+                if (mobileNumber == '' || mobileNumber == null) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please enter mobile number.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                    return false;
+                }
+
+                if (!ukMobilePattern.test(mobileNumber)) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please enter a valid UK mobile number.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                    return false;
+                }
+            });
+
+            $('#mobileNumber').on('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.substring(0, 11);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

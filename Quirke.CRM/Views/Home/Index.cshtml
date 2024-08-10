@@ -1,4 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
 }
- 
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var successMessage = '@TempData["SuccessMessage"]';
+        var warningMessage = '@TempData["WarningMessage"]';
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (successMessage) {
+            Swal.fire({
+                title: 'Success!',
+                text: successMessage,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+        if (warningMessage) {
+            Swal.fire({
+                title: 'Warning!',
+                text: warningMessage,
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+        }
+        if (errorMessage) {
+            Swal.fire({
+                title: 'Error!',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+</script>

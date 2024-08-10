@@ -1,0 +1,4353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYL6QIPtNwEmc9NTSExpM+QAAAAACAAAAAAAQZgAAAAEAACAAAAAmAIUb0NGV2FKLQoaTGJ8NrHviPB9/uP/Qwdq5pmMMwgAAAAAOgAAAAAIAACAAAAAIc7T79ULPJVMEET1EIEc68q+3pVIgOHB37GnXvhSZJiAAAAAH32/1Ku/XYZLt+XpQu+XKghAI2JAv2rf9yO3/fUqHAUAAAAC15GyC3Z5CvRlKfdXP6snUJcFvGUtPmEbPaBGXu1YMdeQ/CnSfM6Ltf0D4MonavdKr3SvcQmrukvvxvdO9sZab</EncryptedPassword>
+    <_PublishTargetUrl>ftp://win8100.site4now.net/quirkecrm-001-site1.ftempurl.com</_PublishTargetUrl>
+    <History>False|2024-08-09T13:53:19.6994059Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="af/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/06/2024 12:25:24</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/06/2024 15:14:48</publishTime>
+    </File>
+    <File Include="ar/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="az/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="Azure.Core.dll">
+      <publishTime>02/26/2024 15:24:40</publishTime>
+    </File>
+    <File Include="Azure.Identity.dll">
+      <publishTime>05/07/2024 18:22:04</publishTime>
+    </File>
+    <File Include="bg/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="bn-BD/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="cs/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:51:54</publishTime>
+    </File>
+    <File Include="da/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="de/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:51:56</publishTime>
+    </File>
+    <File Include="de/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:58</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>07/03/2024 02:04:08</publishTime>
+    </File>
+    <File Include="el/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="es/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:51:58</publishTime>
+    </File>
+    <File Include="es/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="fa/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:04</publishTime>
+    </File>
+    <File Include="fi-FI/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="fr-BE/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="fr/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:00</publishTime>
+    </File>
+    <File Include="fr/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="he/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="hr/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="hu/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="Humanizer.dll">
+      <publishTime>01/29/2022 15:04:04</publishTime>
+    </File>
+    <File Include="hy/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="id/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="is/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="it/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="it/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:54</publishTime>
+    </File>
+    <File Include="ja/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:04</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="ja/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="ko-KR/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="ko/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="ku/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="libman.json">
+      <publishTime>08/06/2024 17:08:46</publishTime>
+    </File>
+    <File Include="log4net.dll">
+      <publishTime>07/29/2024 09:07:36</publishTime>
+    </File>
+    <File Include="lv/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.Internal.dll">
+      <publishTime>06/28/2024 20:02:18</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.KeyDerivation.dll">
+      <publishTime>06/28/2024 20:02:48</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll">
+      <publishTime>06/14/2024 18:29:30</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.JsonPatch.dll">
+      <publishTime>06/14/2024 18:27:56</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll">
+      <publishTime>06/14/2024 18:31:02</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Razor.Language.dll">
+      <publishTime>10/19/2023 05:55:12</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/18/2022 17:14:58</publishTime>
+    </File>
+    <File Include="Microsoft.Build.dll">
+      <publishTime>10/19/2023 21:53:52</publishTime>
+    </File>
+    <File Include="Microsoft.Build.Framework.dll">
+      <publishTime>10/19/2023 21:53:06</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.AnalyzerUtilities.dll">
+      <publishTime>06/06/2020 04:37:20</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Features.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Elfie.dll">
+      <publishTime>05/11/2022 15:49:42</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Features.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Razor.dll">
+      <publishTime>10/19/2023 05:55:20</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>11/08/2023 17:51:52</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.dll">
+      <publishTime>05/31/2024 20:34:14</publishTime>
+    </File>
+    <File Include="Microsoft.DiaSymReader.dll">
+      <publishTime>04/28/2023 20:31:24</publishTime>
+    </File>
+    <File Include="Microsoft.DotNet.Scaffolding.Shared.dll">
+      <publishTime>07/03/2024 02:03:52</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>06/28/2024 04:51:20</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>06/28/2024 04:52:04</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>06/28/2024 04:52:40</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>06/28/2024 04:52:54</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Caching.Abstractions.dll">
+      <publishTime>06/27/2024 23:15:54</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Caching.Memory.dll">
+      <publishTime>06/27/2024 23:16:34</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.Abstractions.dll">
+      <publishTime>06/27/2024 23:10:48</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <publishTime>06/27/2024 23:07:24</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.dll">
+      <publishTime>06/27/2024 23:07:52</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyModel.dll">
+      <publishTime>06/27/2024 23:10:16</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Core.dll">
+      <publishTime>06/28/2024 20:02:52</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Stores.dll">
+      <publishTime>06/14/2024 18:29:02</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Logging.Abstractions.dll">
+      <publishTime>06/27/2024 23:08:48</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Logging.dll">
+      <publishTime>06/27/2024 23:11:18</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Options.dll">
+      <publishTime>06/27/2024 23:10:46</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Primitives.dll">
+      <publishTime>06/27/2024 23:09:04</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.dll">
+      <publishTime>04/15/2024 23:52:50</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.Extensions.Msal.dll">
+      <publishTime>04/15/2024 23:58:04</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Abstractions.dll">
+      <publishTime>12/01/2023 04:56:56</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>12/01/2023 04:34:00</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>12/01/2023 04:35:22</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>12/01/2023 04:37:28</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>12/01/2023 04:48:08</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>12/01/2023 04:41:50</publishTime>
+    </File>
+    <File Include="Microsoft.NET.StringTools.dll">
+      <publishTime>10/19/2023 21:53:06</publishTime>
+    </File>
+    <File Include="Microsoft.SqlServer.Server.dll">
+      <publishTime>01/27/2022 17:19:08</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>07/03/2024 02:04:00</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>07/03/2024 02:04:02</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>07/03/2024 02:04:02</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>07/03/2024 02:04:00</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>07/03/2024 02:03:54</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>07/03/2024 02:04:06</publishTime>
+    </File>
+    <File Include="Mono.TextTemplating.dll">
+      <publishTime>02/28/2024 17:24:34</publishTime>
+    </File>
+    <File Include="ms-MY/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="mt/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="nb-NO/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="nb/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.Bson.dll">
+      <publishTime>11/27/2018 23:10:18</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 07:09:54</publishTime>
+    </File>
+    <File Include="nl/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="NuGet.Common.dll">
+      <publishTime>01/18/2024 00:28:16</publishTime>
+    </File>
+    <File Include="NuGet.Configuration.dll">
+      <publishTime>01/18/2024 00:28:16</publishTime>
+    </File>
+    <File Include="NuGet.DependencyResolver.Core.dll">
+      <publishTime>01/18/2024 00:26:36</publishTime>
+    </File>
+    <File Include="NuGet.Frameworks.dll">
+      <publishTime>01/18/2024 00:27:16</publishTime>
+    </File>
+    <File Include="NuGet.LibraryModel.dll">
+      <publishTime>01/18/2024 00:27:12</publishTime>
+    </File>
+    <File Include="NuGet.Packaging.dll">
+      <publishTime>01/18/2024 00:28:14</publishTime>
+    </File>
+    <File Include="NuGet.ProjectModel.dll">
+      <publishTime>01/18/2024 00:27:42</publishTime>
+    </File>
+    <File Include="NuGet.Protocol.dll">
+      <publishTime>01/18/2024 00:28:38</publishTime>
+    </File>
+    <File Include="NuGet.Versioning.dll">
+      <publishTime>01/18/2024 00:29:26</publishTime>
+    </File>
+    <File Include="pl/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="pt/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="Quirke.CRM.deps.json">
+      <publishTime>08/09/2024 13:03:47</publishTime>
+    </File>
+    <File Include="Quirke.CRM.dll">
+      <publishTime>08/09/2024 13:03:34</publishTime>
+    </File>
+    <File Include="Quirke.CRM.exe">
+      <publishTime>08/09/2024 13:03:34</publishTime>
+    </File>
+    <File Include="Quirke.CRM.pdb">
+      <publishTime>08/09/2024 13:03:34</publishTime>
+    </File>
+    <File Include="Quirke.CRM.runtimeconfig.json">
+      <publishTime>08/09/2024 13:03:36</publishTime>
+    </File>
+    <File Include="ro/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="ru/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="ru/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>05/31/2024 20:34:14</publishTime>
+    </File>
+    <File Include="runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll">
+      <publishTime>06/27/2024 23:07:38</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net8.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>05/31/2024 20:33:58</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>02/20/2024 22:29:06</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>02/20/2024 22:29:06</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>02/20/2024 22:30:22</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>02/20/2024 22:28:56</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net8.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>05/31/2024 20:33:56</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net8.0/System.Management.dll">
+      <publishTime>10/31/2023 14:59:58</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net8.0/System.Runtime.Caching.dll">
+      <publishTime>10/31/2023 15:00:12</publishTime>
+    </File>
+    <File Include="sk/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="sl/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:06</publishTime>
+    </File>
+    <File Include="sr-Latn/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="sr/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="sv/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:08</publishTime>
+    </File>
+    <File Include="System.ClientModel.dll">
+      <publishTime>01/03/2024 17:43:00</publishTime>
+    </File>
+    <File Include="System.CodeDom.dll">
+      <publishTime>10/31/2023 14:59:14</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>10/18/2022 17:15:26</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>10/18/2022 17:15:46</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>10/18/2022 17:16:00</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>10/18/2022 17:15:46</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>10/18/2022 17:16:02</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>10/31/2023 14:59:08</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>12/01/2023 04:31:48</publishTime>
+    </File>
+    <File Include="System.IO.Pipelines.dll">
+      <publishTime>06/27/2024 23:07:22</publishTime>
+    </File>
+    <File Include="System.Management.dll">
+      <publishTime>10/31/2023 15:10:02</publishTime>
+    </File>
+    <File Include="System.Memory.Data.dll">
+      <publishTime>04/08/2021 17:45:54</publishTime>
+    </File>
+    <File Include="System.Reflection.MetadataLoadContext.dll">
+      <publishTime>10/18/2022 17:16:58</publishTime>
+    </File>
+    <File Include="System.Runtime.Caching.dll">
+      <publishTime>10/31/2023 15:05:46</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/31/2023 14:59:04</publishTime>
+    </File>
+    <File Include="System.Security.Permissions.dll">
+      <publishTime>05/15/2018 14:29:40</publishTime>
+    </File>
+    <File Include="System.Text.Encodings.Web.dll">
+      <publishTime>06/27/2024 23:07:32</publishTime>
+    </File>
+    <File Include="System.Text.Json.dll">
+      <publishTime>06/27/2024 23:08:58</publishTime>
+    </File>
+    <File Include="th-TH/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="tr/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.Features.resources.dll">
+      <publishTime>11/08/2023 17:58:42</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>11/08/2023 17:56:08</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:56:22</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.Features.resources.dll">
+      <publishTime>11/08/2023 17:52:26</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>11/08/2023 17:46:04</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.Scripting.resources.dll">
+      <publishTime>11/08/2023 17:52:04</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>11/08/2023 17:52:02</publishTime>
+    </File>
+    <File Include="uk/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:10</publishTime>
+    </File>
+    <File Include="uz-Cyrl-UZ/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="uz-Latn-UZ/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="vi/Humanizer.resources.dll">
+      <publishTime>01/29/2022 15:04:12</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/09/2024 13:03:55</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.rtl.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.rtl.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.rtl.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.rtl.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.rtl.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.rtl.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.rtl.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.rtl.min.css">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.rtl.min.css.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/select2customfloating.css">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/css/sidebars.css">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/AdminLTE.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/adminlte.css.map">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/AdminLTE.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/adminlte.min.css.map">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-bootstrap-social.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-bootstrap-social.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-fullcalendar.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-fullcalendar.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-select2.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-select2.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-without-plugins.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/alt/AdminLTE-without-plugins.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-black-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-black-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-black.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-black.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-blue-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-blue-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-blue.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-blue.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-green-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-green-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-green.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-green.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-purple-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-purple-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-purple.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-purple.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-red-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-red-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-red.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-red.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-yellow-light.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-yellow-light.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-yellow.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/skin-yellow.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/_all-skins.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/css/skins/_all-skins.min.css">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/AdminLTELogo.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar04.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar2.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar3.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar4.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/avatar5.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/boxed-bg.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/boxed-bg.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/american-express.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/cirrus.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/mastercard.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/mestro.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/paypal.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/paypal2.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/credit/visa.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/default-150x150.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/default-50x50.gif">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/icons.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/photo1.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/photo2.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/photo3.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/photo4.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/prod-1.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/prod-2.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/prod-3.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/prod-4.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/prod-5.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user1-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user2-160x160.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user3-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user4-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user5-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user6-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user7-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/img/user8-128x128.jpg">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/dist/js/adminlte.js">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/js/adminlte.min.js">
+      <publishTime>10/17/2022 23:31:08</publishTime>
+    </File>
+    <File Include="wwwroot/dist/js/demo.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/dist/js/pages/dashboard.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/dist/js/pages/dashboard2.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>05/21/2024 12:11:26</publishTime>
+    </File>
+    <File Include="wwwroot/images/loader/loading.gif">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/cross-strip.png">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/Help.png">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/quirke_logo.png">
+      <publishTime>08/09/2024 09:30:55</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/user-img.png">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/user.png">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/images/png/weather.png">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.bundle.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.bundle.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.bundle.min.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.bundle.min.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.esm.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.esm.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.esm.min.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.esm.min.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.min.js">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.min.js.map">
+      <publishTime>02/21/2024 17:42:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/customer.js">
+      <publishTime>08/07/2024 13:33:35</publishTime>
+    </File>
+    <File Include="wwwroot/js/home.js">
+      <publishTime>08/07/2024 13:07:53</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/assets/img/AdminLTELogo.png">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/css/adminlte.css">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/css/adminlte.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/css/adminlte.min.css">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/js/adminlte.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/js/adminlte.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/js/adminlte.min.js">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/admin-lte/dist/js/adminlte.min.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/bootstrap-icons.svg">
+      <publishTime>08/07/2024 12:07:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/font/bootstrap-icons.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/font/bootstrap-icons.json">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/font/fonts/bootstrap-icons.woff">
+      <publishTime>08/07/2024 12:07:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/font/fonts/bootstrap-icons.woff2">
+      <publishTime>08/07/2024 12:07:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/0-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/0-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/0-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/0-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/1-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/1-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/1-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/1-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/123.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/2-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/2-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/2-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/2-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/3-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/3-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/3-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/3-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/4-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/4-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/4-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/4-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/5-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/5-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/5-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/5-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/6-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/6-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/6-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/6-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/7-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/7-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/7-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/7-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/8-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/8-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/8-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/8-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/9-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/9-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/9-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/9-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/activity.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/airplane-engines-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/airplane-engines.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/airplane-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/airplane.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alarm-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alarm.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alexa.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-bottom.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-center.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-end.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-middle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-start.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/align-top.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alipay.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alphabet-uppercase.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alphabet.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/alt.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/amazon.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/amd.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/android.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/android2.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/app-indicator.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/app.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/apple.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/archive-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/archive.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-90deg-down.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-90deg-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-90deg-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-90deg-up.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-bar-down.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-bar-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-bar-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-bar-up.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-clockwise.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-counterclockwise.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-left-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-left-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-left-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-left-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-right-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-right-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-right-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-right-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-short.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down-up.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-down.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-short.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-repeat.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-return-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-return-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right-short.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-through-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-through-heart.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-left-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-left-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-left-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-left-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-left.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-right-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-right-circle.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-right-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-right-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-right.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-short.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-square-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up-square.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrow-up.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-angle-contract.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-angle-expand.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-collapse-vertical.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-collapse.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-expand-vertical.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-expand.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-fullscreen.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-move.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows-vertical.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/arrows.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/aspect-ratio-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/aspect-ratio.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/asterisk.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/at.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/award-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/award.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/back.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack2-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack2.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack3-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack3.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack4-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backpack4.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backspace-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backspace-reverse-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backspace-reverse.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/backspace.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-3d-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-3d.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-4k-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-4k.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-8k-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-8k.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-ad-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-ad.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-ar-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-ar.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-cc-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-cc.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-hd-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-hd.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-sd-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-sd.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-tm-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-tm.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-vo-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-vo.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-vr-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-vr.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-wc-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/badge-wc.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-check-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-check.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-dash-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-dash.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-heart.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-plus.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-x-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag-x.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bag.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/balloon-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/balloon-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/balloon-heart.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/balloon.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ban-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ban.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bandaid-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bandaid.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bank.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bank2.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bar-chart-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bar-chart-line-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bar-chart-line.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bar-chart-steps.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bar-chart.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket2-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket2.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket3-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/basket3.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/battery-charging.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/battery-full.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/battery-half.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/battery.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/behance.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bell-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bell-slash-fill.svg">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bell-slash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bell.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bezier.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bezier2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bicycle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bing.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/binoculars-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/binoculars.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/blockquote-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/blockquote-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bluetooth.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/body-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/book-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/book-half.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/book.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-dash-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-dash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-star-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-star.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmark.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmarks-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookmarks.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bookshelf.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/boombox-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/boombox.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bootstrap-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bootstrap-reboot.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bootstrap.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-all.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-bottom.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-center.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-inner.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-middle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-outer.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-style.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-top.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border-width.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/border.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bounding-box-circles.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bounding-box.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-down-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-down-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-down-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-down-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-up-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-up-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-in-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-up-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-up-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-arrow-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-seam-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box-seam.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box2-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box2-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/box2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/boxes.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/braces-asterisk.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/braces.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bricks.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/briefcase-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/briefcase.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-alt-high-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-alt-high.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-alt-low-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-alt-low.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-high-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-high.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-low-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brightness-low.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brilliance.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/broadcast-pin.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/broadcast.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/browser-chrome.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/browser-edge.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/browser-firefox.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/browser-safari.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brush-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/brush.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bucket-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bucket.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bug-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bug.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-add.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-dash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-exclamation.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-add.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-dash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-exclamation.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-gear.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-lock.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-slash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-gear.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-lock.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-slash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/building.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/buildings-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/buildings.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bullseye.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bus-front-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/bus-front.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/c-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/c-circle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/c-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/c-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cake-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cake.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cake2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cake2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calculator-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calculator.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-date-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-date.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-day-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-day.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-event-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-event.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-minus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-minus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-month-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-month.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-range-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-range.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-week-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-week.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-date-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-date.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-day-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-day.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-event-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-event.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-minus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-minus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-month-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-month.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-range-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-range.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-week-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-week.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-event-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-event.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-range-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-range.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-week-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3-week.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar3.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar4-event.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar4-range.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar4-week.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/calendar4.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-reels-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-reels.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-video-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-video-off-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-video-off.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera-video.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/camera2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/capslock-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/capslock.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/capsule-pill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/capsule.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/car-front-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/car-front.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/card-checklist.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/card-heading.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/card-image.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/card-list.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/card-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-down-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-down-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-down-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-left-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-left-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-left-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-right-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-right-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-right-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-up-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-up-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-up-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/caret-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-dash-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-dash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart3.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cart4.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cash-coin.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cash-stack.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cash.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cassette-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cassette.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cast.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cc-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cc-circle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cc-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cc-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-dots-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-dots.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-dots-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-dots.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-quote-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-quote.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-text-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-quote-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-quote.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-dots-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-dots.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-quote-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-quote.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-text-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-dots-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-dots.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-quote-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-quote.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-text-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-text-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat-text.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chat.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-all.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-circle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-lg.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-square-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check2-all.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check2-circle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check2-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/check2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-contract.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-expand.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-bar-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-compact-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-compact-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-compact-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-compact-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-contract.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-double-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-double-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-double-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-double-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-expand.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-left.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-right.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/chevron-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/circle-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/circle-half.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/circle-square.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/circle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-data-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-data.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-minus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-minus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-pulse.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-data-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-data.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-heart.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-minus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-minus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-plus.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-pulse-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-pulse.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-x-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2-x.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clipboard2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clock-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clock-history.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clock.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-arrow-down-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-arrow-down.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-arrow-up-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-arrow-up.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-check-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-check.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-download-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-download.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-drizzle-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-drizzle.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-fog-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-fog.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-fog2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-fog2.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-hail-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-hail.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-haze-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-haze.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-haze2-fill.svg">
+      <publishTime>08/07/2024 12:10:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-haze2.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-lightning-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-lightning-rain-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-lightning-rain.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-lightning.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-minus-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-minus.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-moon-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-moon.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-plus.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-rain-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-rain-heavy-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-rain-heavy.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-rain.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-slash-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-sleet-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-sleet.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-snow-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-snow.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-sun-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-sun.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-upload-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud-upload.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloud.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clouds-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/clouds.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloudy-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cloudy.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/code-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/code-square.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/code.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/coin.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/collection-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/collection-play-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/collection-play.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/collection.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/columns-gap.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/columns.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/command.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/compass-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/compass.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cone-striped.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cone.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/controller.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cookie.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/copy.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cpu-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cpu.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card-2-back-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card-2-back.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card-2-front-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card-2-front.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/credit-card.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/crop.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/crosshair.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/crosshair2.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cup-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cup-hot-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cup-hot.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cup-straw.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cup.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-bitcoin.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-dollar.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-euro.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-exchange.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-pound.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-rupee.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/currency-yen.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cursor-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cursor-text.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/cursor.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-circle-dotted.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-circle.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-lg.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-square-dotted.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-square-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash-square.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-add.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-check.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-dash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-down.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-exclamation.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-add.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-check.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-dash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-down.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-exclamation.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-gear.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-lock.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-up.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill-x.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-gear.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-lock.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-up.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database-x.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/database.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/device-hdd-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/device-hdd.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/device-ssd-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/device-ssd.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diagram-2-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diagram-2.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diagram-3-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diagram-3.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diamond-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diamond-half.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/diamond.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-1-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-1.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-2-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-2.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-3-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-3.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-4-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-4.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-5-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-5.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-6-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dice-6.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/disc-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/disc.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/discord.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/display-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/display.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/displayport-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/displayport.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/distribute-horizontal.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/distribute-vertical.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/door-closed-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/door-closed.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/door-open-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/door-open.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dot.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/download.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dpad-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dpad.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dribbble.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/dropbox.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/droplet-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/droplet-half.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/droplet.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/duffle-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/duffle.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ear-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ear.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/earbuds.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel2-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel2.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel3-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/easel3.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/egg-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/egg-fried.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/egg.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eject-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eject.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-angry-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-angry.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-astonished-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-astonished.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-dizzy-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-dizzy.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-expressionless-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-expressionless.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-frown-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-frown.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-grimace-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-grimace.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-grin-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-grin.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-heart-eyes-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-heart-eyes.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-kiss-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-kiss.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-laughing-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-laughing.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-neutral-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-neutral.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-smile-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-smile-upside-down-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-smile-upside-down.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-smile.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-sunglasses-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-sunglasses.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-surprise-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-surprise.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-tear-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-tear.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-wink-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/emoji-wink.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-arrow-down-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-arrow-down.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-arrow-up-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-arrow-up.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-at-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-at.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-check-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-check.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-dash-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-dash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-exclamation-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-exclamation.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-heart.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-open-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-open-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-open-heart.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-open.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-paper-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-paper-heart-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-paper-heart.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-paper.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-plus-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-plus.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-slash-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-x-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope-x.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/envelope.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eraser-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eraser.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/escape.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ethernet.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ev-front-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ev-front.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ev-station-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/ev-station.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-circle.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-diamond-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-diamond.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-lg.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-octagon-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-octagon.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-square-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-square.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-triangle-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation-triangle.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclamation.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exclude.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/explicit-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/explicit.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/exposure.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eye-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eye-slash-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eye-slash.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eye.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eyedropper.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/eyeglasses.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/facebook.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fan.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward-btn-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward-btn.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward-circle-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward-circle.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward-fill.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap-icons/icons/fast-forward.svg">
+      <publishTime>08/07/2024 12:10:43</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.css">
+      <publishTime>08/07/2024 12:10:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.rtl.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>08/07/2024 10:55:57</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.bundle.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.bundle.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.esm.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.esm.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.esm.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.esm.min.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.min.js">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/js/bootstrap.min.js.map">
+      <publishTime>08/07/2024 12:07:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/bootstrap-grid.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/bootstrap-reboot.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/bootstrap-utilities.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/bootstrap.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_floating-labels.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_form-check.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_form-control.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_form-range.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_form-select.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_form-text.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_input-group.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_labels.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/forms/_validation.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_clearfix.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_color-bg.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_colored-links.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_focus-ring.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_icon-link.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_position.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_ratio.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_stacks.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_stretched-link.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_text-truncation.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_visually-hidden.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/helpers/_vr.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_alert.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_backdrop.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_banner.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_border-radius.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_box-shadow.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_breakpoints.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_buttons.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_caret.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_clearfix.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_color-mode.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_color-scheme.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_container.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_deprecate.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_forms.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_gradients.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_grid.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_image.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_list-group.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_lists.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_pagination.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_reset-text.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_resize.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_table-variants.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_text-truncate.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_transition.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_utilities.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/mixins/_visually-hidden.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/utilities/_api.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/vendor/_rfs.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_accordion.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_alert.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_badge.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_breadcrumb.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_button-group.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_buttons.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_card.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_carousel.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_close.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_containers.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_dropdown.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_forms.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_functions.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_grid.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_helpers.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_images.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_list-group.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_maps.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_mixins.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_modal.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_nav.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_navbar.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_offcanvas.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_pagination.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_placeholders.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_popover.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_progress.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_reboot.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_root.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_spinners.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_tables.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_toasts.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_tooltip.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_transitions.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_type.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_utilities.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_variables-dark.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/scss/_variables.scss">
+      <publishTime>08/07/2024 12:10:41</publishTime>
+    </File>
+    <File Include="wwwroot/Quirke.CRM.styles.css">
+      <publishTime>08/09/2024 13:03:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

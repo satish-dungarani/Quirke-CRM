@@ -4,7 +4,6 @@
     ViewData["Title"] = Model.Id == 0 ? "Create Customer" : "Edit Customer";
 }
 
-
 <section class="content pt-3">
     <div class="container-fluid">
         <div class="card card-default color-palette-box">
@@ -25,57 +24,49 @@
                 <form asp-action="Manage" method="post" id="customerForm">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Firstname" class="control-label"></label>
                                 <input asp-for="Firstname" class="form-control" />
                                 <span asp-validation-for="Firstname" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Lastname" class="control-label"></label>
                                 <input asp-for="Lastname" class="form-control" />
                                 <span asp-validation-for="Lastname" class="text-danger"></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="BirtDate" class="control-label"></label>
-                                <input asp-for="BirtDate" class="form-control" />
-                                <span asp-validation-for="BirtDate" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Gender" class="control-label"></label>
                                 <select asp-for="Gender" class="form-control">
                                     <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="Non-binary">Non-binary</option>
-                                    <option value="Genderqueer">Genderqueer</option>
-                                    <option value="Genderfluid">Genderfluid</option>
-                                    <option value="Agender">Agender</option>
-                                    <option value="Bigender">Bigender</option>
                                     <option value="Other">Other</option>
-                                    <option value="Prefer not to say">Prefer not to say</option>
                                 </select>
                                 <span asp-validation-for="Gender" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BirtDate" class="control-label"></label>
+                                <input asp-for="BirtDate" class="form-control" />
+                                <span asp-validation-for="BirtDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Mobile" class="control-label"></label>
-                                <input asp-for="Mobile" class="form-control" />
+                                <input asp-for="Mobile" class="form-control clsMobileNumber" />
                                 <span asp-validation-for="Mobile" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Email" class="control-label"></label>
                                 <input asp-for="Email" class="form-control" />
@@ -92,41 +83,10 @@
     </div>
 </section>
 
-<section class="content pt-3">
-    <div class="container-fluid">
-        <div class="card card-default color-palette-box">
-            <div class="card-header">
-                <h1 class="card-title">Customer Compliance</h1>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="complianceTable" class="table table-striped table-bordered" style="width:100%">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Sr No.</th>
-                                @* <th>First Name</th>
-                                <th>Last Name</th> *@
-                                <th>Status</th>
-                                <th>Test Date</th>
-                                <th>Observed By</th>
-                                <th>Can Take Service</th>
-                                <th>Allergy Test Done</th>
-                                <th>Is Valid?</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.0/jquery.validate.unobtrusive.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -151,80 +111,113 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#complianceTable').DataTable({
-            "processing": true,
-            "serverSide": false,
-            "ajax": {
-                "url": '@Url.Action("GetCustomerCompliances", "Customer", new { customerId = Model.Id })',
-                "type": "GET",
-                "datatype": "json"
-            },
-            "columns": [
-                {
-                    "data": null,
-                    "className": "text-center noExport",
-                    "render": function (data, type, full, meta) {
-                        return meta.row + 1;
-                    }
+@if (Model.Id > 0)
+{
+    <section class="content pt-3">
+        <div class="container-fluid">
+            <div class="card card-default color-palette-box">
+                <div class="card-header">
+                    <h1 class="card-title">Customer Compliance</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="complianceTable" class="table table-striped table-bordered" style="width:100%">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Sr No.</th>
+                                    @* <th>First Name</th>
+                                <th>Last Name</th> *@
+                                    <th>Status</th>
+                                    <th>Test Date</th>
+                                    <th>Observed By</th>
+                                    <th>Can Take Service</th>
+                                    <th>Allergy Test Done</th>
+                                    <th>Is Valid?</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#complianceTable').DataTable({
+                "processing": true,
+                "serverSide": false,
+                "ajax": {
+                    "url": '@Url.Action("GetCustomerCompliances", "Customer", new { customerId = Model.Id })',
+                    "type": "GET",
+                    "datatype": "json"
                 },
-                // { "data": "Firstname" },
-                // { "data": "Lastname" },
-                { "data": "ComplianceStatus" },
-                { "data": "TestDate" },
-                { "data": "ObservedBy" },
-                { "data": "CanTakeService" },
-                { "data": "IsAllergyTestDone" },
-                {
-                    "data": null,
-                                    "className": "text-center noExport",
-                    "render": function (data, type, full, meta) {
-                        if (full.IsValid) {
-                            return '<span class="badge badge-success">Active</span>';
-                        }else{
-                            return '<span class="badge badge-danger">Expired</span>';
+                "columns": [
+                    {
+                        "data": null,
+                        "className": "text-center noExport",
+                        "render": function (data, type, full, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    // { "data": "Firstname" },
+                    // { "data": "Lastname" },
+                    { "data": "ComplianceStatus" },
+                    { "data": "TestDate" },
+                    { "data": "ObservedBy" },
+                    { "data": "CanTakeService" },
+                    { "data": "IsAllergyTestDone" },
+                    {
+                        "data": null,
+                        "className": "text-center noExport",
+                        "render": function (data, type, full, meta) {
+                            if (full.IsValid) {
+                                return '<span class="badge badge-success">Active</span>';
+                            } else {
+                                return '<span class="badge badge-danger">Expired</span>';
+                            }
+                        }
+                    },
+                    {
+                        "data": null,
+                        "className": "",
+                        "render": function (data, type, full, meta) {
+                            if (full.IsValid) {
+                                return '<a class="btn btn-secondary btn-sm mr-2" href="/Customer/ManageCompliance?customerId=' + full.CustomerId + '&id=' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>' +
+                                    '<a class="btn btn-danger btn-sm" href="/Customer/DeleteCompliance?customerId=' + full.CustomerId + '&id=' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                            } else {
+                                return '<a class="btn btn-info btn-sm" href="/Customer/ViewCompliance?customerId=' + full.CustomerId + '&id=' + full.Id + '"><i class="fas fa-eye"></i> View</a>';
+                            }
                         }
                     }
-                },
-                {
-                    "data": null,
-                    "className": "text-center noExport",
-                    "render": function (data, type, full, meta) {
-                        if (full.IsValid) {
-                            return '<a class="btn btn-secondary btn-sm mr-2" href="/Customer/ManageCompliance?customerId=' + full.CustomerId + '&id=' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>' +
-                                '<a class="btn btn-danger btn-sm" href="/customercompliance/delete/' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
-                        } else {
-                            return '<a class="btn btn-info btn-sm" href="/Customer/ViewCompliance?customerId=' + full.CustomerId + '&id=' + full.Id + '"><i class="fas fa-eye"></i> View</a>';
-                                }
-                    }
+                ],
+                fixedHeader: true,
+                responsive: true,
+                scrollCollapse: true,
+                scrollY: '50vh',
+                scrollX: true,
+                deferRender: true,
+                scroller: true,
+                autoWidth: true,
+                searching: false,
+                pageLength: 10,
+                lengthChange: false,
+                layout: {
+                    topStart: {
+                        buttons: []
+                    },
+                    bottom: ['paging'],
+                    bottomStart: null,
+                    bottomEnd: null,
                 }
-            ],
-            fixedHeader: true,
-            responsive: true,
-            scrollCollapse: true,
-            scrollY: '50vh',
-            scrollX: true,
-            deferRender: true,
-            scroller: true,
-            autoWidth: true,
-            searching: false,
-            pageLength: 10,
-            lengthChange: false,
-            layout: {
-                topStart: {
-                    buttons: []
-                },
-                bottom: ['paging'],
-                bottomStart: null,
-                bottomEnd: null,
-            }
-        });
+            });
 
-        $(window).resize(() => {
-            setTimeout(function () {
-                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
-            }, 200);
+            $(window).resize(() => {
+                setTimeout(function () {
+                    $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+                }, 200);
+            });
         });
-    });
-</script>
+    </script>
+}

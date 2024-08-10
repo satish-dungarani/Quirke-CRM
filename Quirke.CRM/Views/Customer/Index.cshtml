@@ -2,7 +2,6 @@
     ViewData["Title"] = "Customers";
 }
 
-
 <section class="content pt-3">
     <div class="container-fluid">
         <div class="card card-default color-palette-box">
@@ -37,7 +36,6 @@
     </div>
 </section>
 
-
 <script src="~/lib/jquery/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -66,7 +64,6 @@
                 { "data": "Email" },
                 { "data": "CreatedOn" },
                 {
-                    "className": "text-center noExport",
                     "render": function (data, type, full, meta) {
                         var _html = '';
                         _html += '<a class="btn btn-secondary  btn-sm mr-2" href="/customer/manage/' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>';

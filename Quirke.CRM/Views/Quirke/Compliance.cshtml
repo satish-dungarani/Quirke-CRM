@@ -1,0 +1,308 @@
+﻿@model CustomerComplianceModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quirke & Co Hairdressers - Customer Compliance</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #555;
+            }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .form-check-label {
+            font-weight: 700 !important;
+        }
+
+        .content {
+            padding-top: 50px;
+        }
+
+        .signature-canvas {
+            border: 1px solid black;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+    <div class="container">
+        <div class="text-center mb-4">
+            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        @if (Model != null && Model.CustomerId > 0)
+                        {
+                            <div class="row">
+                                <p class="mb-0">
+                                    <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
+                                    <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
+                                    <strong>Mobile:</strong> @Model.Mobile
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <h1 class="card-title">
+                                Customer Compliance
+                            </h1>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="ComplianceSubmit" method="post" id="complianceForm">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Mobile" />
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="CustomerId" />
+
+                            @if (Model != null && Model.CustomerId > 0)
+                            {
+                                <input type="hidden" asp-for="BirthDate" />
+                                <input type="hidden" asp-for="Firstname" />
+                                <input type="hidden" asp-for="Lastname" />
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label asp-for="Firstname" class="form-label"></label>
+                                            <input asp-for="Firstname" class="form-control" required />
+                                            <span asp-validation-for="Firstname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label asp-for="Lastname" class="form-label"></label>
+                                            <input asp-for="Lastname" class="form-control" required />
+                                            <span asp-validation-for="Lastname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label asp-for="BirthDate" class="form-label"></label>
+                                            <input asp-for="BirthDate" class="form-control" required />
+                                            <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                            <!-- Allergic to Colour Section -->
+                            <div class="form-group form-check mt-2">
+                                <input type="checkbox" class="form-check-input" asp-for="IsAllergicToColour" id="IsAllergicToColour">
+                                <label class="form-check-label" asp-for="IsAllergicToColour" for="IsAllergicToColour"></label>
+                                <span asp-validation-for="IsAllergicToColour" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AllergicColourDetails" class="form-label"></label>
+                                <textarea asp-for="AllergicColourDetails" class="form-control"></textarea>
+                                <span asp-validation-for="AllergicColourDetails" class="text-danger"></span>
+                            </div>
+
+                            <!-- Damaged Scalp Section -->
+                            <div class="form-group form-check mt-2">
+                                <input type="checkbox" class="form-check-input" asp-for="IsDamagedScalp" id="IsDamagedScalp">
+                                <label class="form-check-label" asp-for="IsDamagedScalp" for="IsDamagedScalp"></label>
+                                <span asp-validation-for="IsDamagedScalp" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ScalpDetails" class="form-label"></label>
+                                <textarea asp-for="ScalpDetails" class="form-control"></textarea>
+                                <span asp-validation-for="ScalpDetails" class="text-danger"></span>
+                            </div>
+
+                            <!-- Tattoo Section -->
+                            <div class="form-group form-check  mt-2">
+                                <input type="checkbox" class="form-check-input" asp-for="HasTattoo" id="HasTattoo">
+                                <label class="form-check-label" asp-for="HasTattoo" for="HasTattoo"></label>
+                                <span asp-validation-for="HasTattoo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TattooDetails" class="form-label"></label>
+                                <textarea asp-for="TattooDetails" class="form-control"></textarea>
+                                <span asp-validation-for="TattooDetails" class="text-danger"></span>
+                            </div>
+
+                            <!-- Allergic to Product Section -->
+                            <div class="form-group form-check mt-2">
+                                <input type="checkbox" class="form-check-input" asp-for="IsAllergicToProduct" id="IsAllergicToProduct">
+                                <label class="form-check-label" asp-for="IsAllergicToProduct" for="IsAllergicToProduct"></label>
+                                <span asp-validation-for="IsAllergicToProduct" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AllergicProductDetails" class="form-label"></label>
+                                <textarea asp-for="AllergicProductDetails" class="form-control"></textarea>
+                                <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label asp-for="SignatureData" class="form-label"></label>
+                                <div class="">
+                                    <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br>
+                                    <button type="button" id="accept" class="btn btn-primary btn-sm mt-2">Accept</button>
+                                    <button type="button" id="clear" class="btn btn-primary btn-sm mt-2" style="display:none;">Clear</button>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <div class="">
+                                    <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.SignatureData"><br>
+                                    <input type="text" asp-for="SignatureData" hidden>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Submit Button -->
+                            <div class="form-group mt-3">
+                                <a class="btn btn-primary m-1" style="float: right;" href="@Url.Action("Index", "Quirke")">Cancel</a>
+                                <button type="submit" class="btn btn-primary m-1" id="cancelButton" style="float: right;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/webcore/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: successMessage,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            }
+            var warningMessage = '@TempData["WarningMessage"]';
+            if (warningMessage) {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: warningMessage,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js" integrity="sha512-Hx7mfz/FnwNfy+erC6kvUftuP4gdTf/qNnDjLOcbQuHR9b8xZn2cWZ8GbdgCWZx5VpbxUZ2UzJWBl/vukUJ68A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+
+            var canvas = document.querySelector('#signature');
+            var pad = new SignaturePad(canvas);
+
+            if (pad.isEmpty()) {
+                pad.clear();
+                $('#savetarget').attr('src', '');
+                $('#SignatureData').val('');
+                pad.on();
+                $('#accept').show();
+                $('#clear').hide();
+            }
+
+            $('#accept').click(function () {
+                if (pad.isEmpty()) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please provide a signature before accepting.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    var data = pad.toDataURL();
+                    $('#savetarget').attr('src', data);
+                    $('#SignatureData').val(data);
+                    pad.off(); 
+                    $('#accept').hide();
+                    $('#clear').show();
+                }
+            });
+            $('#clear').click(function () {
+                pad.clear();
+                $('#savetarget').attr('src', '');
+                $('#SignatureData').val('');
+                pad.on();
+                $('#accept').show();
+                $('#clear').hide();
+            });
+
+            $('#complianceForm').submit(function (event) {
+
+                if (!$(this).valid()) {
+                    event.preventDefault();
+                    return;
+                }
+
+                if (pad.isEmpty() && $('#SignatureData').val() == '') {
+                    event.preventDefault(); 
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please provide a signature before submitting.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    var data = pad.toDataURL();
+                    $('#SignatureData').val(data);
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

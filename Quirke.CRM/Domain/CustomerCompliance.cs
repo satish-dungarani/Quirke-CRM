@@ -14,7 +14,7 @@
         public bool IsAllergicToProduct { get; set; } // Nullable (bit)
         public string? AllergicProductDetails { get; set; } // Nullable
 
-        public required string Status { get; set; } // Nullable
+        public string Status { get; set; } // Nullable
         public bool CanTakeService { get; set; } // Nullable (bit)
         public bool IsAllergyTestDone { get; set; } // Nullable (bit)
         public DateTime? TestScheduleOn { get; set; } // Nullable
@@ -23,5 +23,6 @@
 
         public DateTime CreatedOn { get; set; } // Nullable
         public DateTime? UpdatedOn { get; set; } // Nullable
+        public string SignatureData { get; set; } // Nullable
     }
 }

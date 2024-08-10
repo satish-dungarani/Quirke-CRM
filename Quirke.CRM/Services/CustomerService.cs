@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
+using System.Reflection;
 
 namespace Quirke.CRM.Services
 {
@@ -76,6 +77,7 @@ namespace Quirke.CRM.Services
                 TestScheduleOn = model.TestScheduleOn,
                 TestDate = model.TestDate,
                 Status = model.Status,
+                SignatureData = model.SignatureData,
                 ObservedBy = model.ObservedBy,
                 CanTakeService = model.CanTakeService,
                 IsAllergyTestDone = model.IsAllergyTestDone,
@@ -106,6 +108,7 @@ namespace Quirke.CRM.Services
                 compliance.ObservedBy = model.ObservedBy;
                 compliance.CanTakeService = model.CanTakeService;
                 compliance.IsAllergyTestDone = model.IsAllergyTestDone;
+                compliance.SignatureData = model.SignatureData;
 
                 _context.CustomerCompliances.Update(compliance);
                 await _context.SaveChangesAsync();
@@ -139,7 +142,8 @@ namespace Quirke.CRM.Services
             }
 
             return await _context.CustomerCompliances
-                                 .AnyAsync(cc => cc.CustomerId == customer.Id && cc.Status.ToLower() == "active"); 
+                                 .AnyAsync(cc => cc.CustomerId == customer.Id
+                                 && (cc.TestDate == null || cc.TestDate > DateTime.Now.AddMonths(-6)));
         }
 
         public async Task<bool> HasActiveComplianceAsync(int customerId)
@@ -149,6 +153,62 @@ namespace Quirke.CRM.Services
             var isActive = await _context.CustomerCompliances.AnyAsync(c => c.CustomerId == customerId && c.TestDate >= sixMonthsAgo);
 
             return isActive;
+        }
+
+        public async Task<CustomerComplianceModel?> GetCustomerComplianceByMobile(string mobile)
+        {
+            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Mobile == mobile);
+
+            if (customer == null)
+            {
+                return new CustomerComplianceModel();
+            }
+
+            var compliance = await _context.CustomerCompliances
+                                  .Where(cc => cc.CustomerId == customer.Id
+                                  && (cc.TestDate == null || cc.TestDate > DateTime.Now.AddMonths(-6))).OrderByDescending(c => c.TestDate).FirstOrDefaultAsync();
+
+            if (compliance == null)
+            {
+                return new CustomerComplianceModel()
+                {
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirthDate = customer.BirtDate,
+                    Mobile = customer.Mobile
+                };
+            }
+            else
+            {
+                return new CustomerComplianceModel()
+                {
+                    Id = compliance.Id,
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirthDate = customer.BirtDate,
+                    Mobile = customer.Mobile,
+                    Status = compliance.Status,
+                    IsAllergicToColour = compliance.IsAllergicToColour,
+                    AllergicColourDetails = compliance.AllergicColourDetails,
+                    IsDamagedScalp = compliance.IsDamagedScalp,
+                    ScalpDetails = compliance.ScalpDetails,
+                    HasTattoo = compliance.HasTattoo,
+                    TattooDetails = compliance.TattooDetails,
+                    IsAllergicToProduct = compliance.IsAllergicToProduct,
+                    AllergicProductDetails = compliance.AllergicProductDetails,
+                    CanTakeService = compliance.CanTakeService,
+                    IsAllergyTestDone = compliance.IsAllergyTestDone,
+                    TestScheduleOn = compliance.TestScheduleOn,
+                    TestDate = compliance.TestDate,
+                    ObservedBy = compliance.ObservedBy,
+                    CreatedOn = compliance.CreatedOn,
+                    UpdatedOn = compliance.UpdatedOn,
+                    IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
+                    SignatureData = compliance.SignatureData,
+                };
+            }
         }
     }
 }

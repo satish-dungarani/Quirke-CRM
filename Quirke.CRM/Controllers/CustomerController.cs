@@ -124,7 +124,7 @@ namespace Quirke.CRM.Controllers
                 ObservedBy = c.ObservedBy,
                 CanTakeService = c.CanTakeService ? "Yes" : "No",
                 IsAllergyTestDone = c.IsAllergyTestDone ? "Yes" : "No",
-                IsValid = c.TestDate > DateTime.Now.AddMonths(-6)
+                IsValid = c.TestDate == null || c.TestDate > DateTime.Now.AddMonths(-6)
             }).ToList();
 
             return Json(new { data });
@@ -136,7 +136,7 @@ namespace Quirke.CRM.Controllers
             var customer = await _customerService.GetCustomerByIdAsync(customerId);
             if (customer == null)
                 return NotFound();
-           
+
             var model = new CustomerComplianceModel();
             {
                 model.CustomerId = customer.Id;
@@ -190,6 +190,7 @@ namespace Quirke.CRM.Controllers
                 model.ObservedBy = compliance.ObservedBy;
                 model.CreatedOn = compliance.CreatedOn;
                 model.UpdatedOn = compliance.UpdatedOn;
+                model.SignatureData = compliance.SignatureData;
             }
             return View(model);
         }
@@ -252,9 +253,31 @@ namespace Quirke.CRM.Controllers
                 model.ObservedBy = compliance.ObservedBy;
                 model.CreatedOn = compliance.CreatedOn;
                 model.UpdatedOn = compliance.UpdatedOn;
-                model.IsValid = compliance.TestDate > DateTime.Now.AddMonths(-6);
+                model.IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6);
+                model.SignatureData = compliance.SignatureData;
             }
             return View(model);
+        }
+       
+        public async Task<IActionResult> DeleteCompliance(int customerId, int id)
+        {
+            await _customerService.DeleteCustomerComplianceAsync(id);
+
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
+            var model = new CustomerModel
+            {
+                Id = customer.Id,
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                BirtDate = customer.BirtDate,
+                Gender = customer.Gender,
+                Mobile = customer.Mobile,
+                Email = customer.Email,
+                CreatedOn = customer.CreatedOn
+            };
+            TempData["SuccessMessage"] = "Customer compliance deleted successfully!";
+
+            return View("~/Views/Customer/Manage.cshtml", model);
         }
         #endregion
 

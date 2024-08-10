@@ -21,11 +21,11 @@ namespace Quirke.CRM.Services
                 Firstname = employee.Firstname,
                 Lastname = employee.Lastname,
                 Gender = employee.Gender,
-                BirthDate = employee.BirthDate,
+                BirthDate = employee.BirthDate.Value,
                 PhoneNumber = employee.PhoneNumber,
                 EmergencyContact = employee.EmergencyContact,
                 Email = employee.Email,
-                HireDate = employee.HireDate,
+                HireDate = employee.HireDate.Value,
                 JobTitle = employee.JobTitle,
                 Picture = employee.Picture,
                 IdentityDocument = employee.IdentityDocument,
@@ -111,11 +111,11 @@ namespace Quirke.CRM.Services
             entity.Firstname = employee.Firstname;
             entity.Lastname = employee.Lastname;
             entity.Gender = employee.Gender;
-            entity.BirthDate = employee.BirthDate;
+            entity.BirthDate = employee.BirthDate.Value;
             entity.PhoneNumber = employee.PhoneNumber;
             entity.EmergencyContact = employee.EmergencyContact;
             entity.Email = employee.Email;
-            entity.HireDate = employee.HireDate;
+            entity.HireDate = employee.HireDate.Value;
             entity.JobTitle = employee.JobTitle;
             entity.Picture = employee.Picture;
             entity.IdentityDocument = employee.IdentityDocument;

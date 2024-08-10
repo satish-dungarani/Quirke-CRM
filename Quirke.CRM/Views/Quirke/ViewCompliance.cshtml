@@ -1,0 +1,268 @@
+﻿@model CustomerComplianceModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quirke & Co Hairdressers - Customer Compliance</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #555;
+            }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .form-check-label {
+            font-weight: 700 !important;
+        }
+
+        .content {
+            padding-top: 50px;
+        }
+
+        .signature-canvas {
+            border: 1px solid black;
+            width: 100%;
+            height: auto;
+        }
+
+        .ctmBedge-pending {
+            background: orange;
+            padding: 8px;
+            border-radius: 1.25rem;
+            margin: 5px;
+            font-size: 13px;
+        }
+
+        .ctmBedge-completed {
+            background: green;
+            padding: 6px;
+            border-radius: 1.25rem;
+            font-size: 13px;
+            color: white;
+        }
+
+        .ctmBedge-failed {
+            background: red;
+            padding: 6px;
+            border-radius: 1.25rem;
+            font-size: 13px;
+            color: white;
+        }
+
+        .ctmBedge-stna {
+            background: grey;
+            padding: 6px;
+            border-radius: 1.25rem;
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+
+<body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+    <div class="container">
+        <div class="text-center mb-4">
+            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        @if (Model != null && Model.CustomerId > 0)
+                        {
+                            <div class="row">
+                                <p class="mb-0">
+                                    <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
+                                    <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
+                                    <strong>Mobile:</strong> @Model.Mobile
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <h1 class="card-title">
+                                Customer Compliance
+                            </h1>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsAllergicToColour"></label>
+                                    <p>@(Model.IsAllergicToColour ? "Yes" : "No")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Allergic Colour Details:</label>
+                                    <p>@Model.AllergicColourDetails</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsDamagedScalp"></label>
+                                    <p>@(Model.IsDamagedScalp ? "Yes" : "No")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Scalp Details:</label>
+                                    <p>@Model.ScalpDetails</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="HasTattoo"></label>
+                                    <p>@(Model.HasTattoo ? "Yes" : "No")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Tattoo Details:</label>
+                                    <p>@Model.TattooDetails</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsAllergicToProduct"></label>
+                                    <p>@(Model.IsAllergicToProduct ? "Yes" : "No")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Allergic Product Details:</label>
+                                    <p>@Model.AllergicProductDetails</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Test Schedule On:</label>
+                                    <p>@Model.TestScheduleOn?.ToString("yyyy-MM-dd")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Test Date:</label>
+                                    <p>@Model.TestDate?.ToString("yyyy-MM-dd")</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="Status"></label>
+
+                                    @if (Model.Status == "Pending")
+                                    {
+                                        <span class="ctmBedge-pending">@Model.Status</span>
+                                    }
+                                    else if (Model.Status == "Completed")
+                                    {
+                                        <span class="ctmBedge-completed">@Model.Status</span>
+
+                                    }
+                                    else if (Model.Status == "Failed")
+                                    {
+                                        <span class="ctmBedge-failed">@Model.Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="ctmBedge-stna">N/A</span>
+                                    }
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label style="font-weight: 700;">Observed By:</label>
+                                    <p>@Model.ObservedBy</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="CanTakeService"></label>
+                                    <p>@(Model.CanTakeService ? "Yes" : "No")</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsAllergyTestDone"></label>
+                                    <p>@(Model.IsAllergyTestDone ? "Yes" : "No")</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="SignatureData"></label>:
+                                    <img class="ml-5" width="300" height="150" id="savetarget" src="@Model.SignatureData"><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: successMessage,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            }
+            var warningMessage = '@TempData["WarningMessage"]';
+            if (warningMessage) {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: warningMessage,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

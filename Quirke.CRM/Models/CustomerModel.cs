@@ -27,7 +27,7 @@ namespace Quirke.CRM.Models
 
         [Required(ErrorMessage = "Mobile number is required.")]
         [Display(Name = "Mobile Number")]
-        [StringLength(20, ErrorMessage = "Mobile number cannot exceed 20 characters.")]
+        [RegularExpression(@"^07\d{9}$", ErrorMessage = "Please enter a valid UK mobile number.")]
         public string Mobile { get; set; } = null!; // Not null
 
         [Display(Name = "Email Address")]

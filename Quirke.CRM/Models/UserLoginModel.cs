@@ -6,12 +6,12 @@ namespace Quirke.CRM.Models
     {
         public bool RememberMe { get; set; }
 
-        [EmailAddress(ErrorMessage = "Lütfen Geçerli Bir Email Giriniz")]
-        [Required(ErrorMessage = "Email Alanı Zorunludur")]
+        [EmailAddress(ErrorMessage = "Email address is not in the correct format.")]
+        [Required(ErrorMessage = "Email is required.")]
         public string Email { get; set; }
 
 
-        [Required(ErrorMessage = "Lütfen Şifre Giriniz")]
+        [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
     }
 }

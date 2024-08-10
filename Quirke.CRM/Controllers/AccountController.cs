@@ -38,16 +38,17 @@ namespace Quirke.CRM.Controllers
 
                     if (result.Succeeded)
                     {
+                        TempData["SuccessMessage"] = "Successfully login!";
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                        SetError("Invalid password", userLoginModel);
+                        TempData["ErrorMessage"] = "Invalid password!";
                     }
                 }
                 else
                 {
-                    SetError("No user found with this email address.", userLoginModel);
+                    TempData["ErrorMessage"] = "No user found with this email address!";
                 }
             }
 
@@ -66,13 +67,13 @@ namespace Quirke.CRM.Controllers
             {
                 if (_userManager.Users.Any(u => u.Email == userRegisterModel.Email))
                 {
-                    SetError("This email address is already registered.", userRegisterModel);
+                    TempData["WarningMessage"] = "This email address is already registered.";
                     return View(userRegisterModel);
                 }
 
                 if (_userManager.Users.Any(u => u.PhoneNumber == userRegisterModel.PhoneNumber))
                 {
-                    SetError("This phone number is already registered.", userRegisterModel);
+                    TempData["WarningMessage"] = "This phone number is already registered.";
                     return View(userRegisterModel);
                 }
 
@@ -89,15 +90,14 @@ namespace Quirke.CRM.Controllers
 
                 if (result.Succeeded)
                 {
+                    TempData["SuccessMessage"] = "Registered successfully!";
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    SetError("An error occurred during registration.", userRegisterModel);
-                    AddModelError(result);
+                    TempData["ErrorMessage"] = "An error occurred during registration!";
                 }
             }
-
             return View(userRegisterModel);
         }
 
@@ -125,10 +125,5 @@ namespace Quirke.CRM.Controllers
             throw new NotImplementedException();
         }
 
-        private void SetError(string message, object model)
-        {
-            ModelState.AddModelError("", message);
-            ViewBag.Message = message;
-        }
     }
 }

@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="~/WebCore/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   
-    @* <link rel="stylesheet" href="~/WebCore/plugins/jqvmap/jqvmap.min.css"> *@
     <link rel="stylesheet" href="~/WebCore/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="~/WebCore/plugins/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="~/WebCore/plugins/summernote/summernote-bs4.min.css">
-    @* <link href="~/webcore/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" /> *@
     <link href="~/lib/datatable/datatables.min.css" rel="stylesheet" />
+    <link href="~/webcore/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -161,59 +159,37 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    @* <script src="~/WebCore/plugins/jquery/jquery.min.js"></script> *@
+   
     <script src="~/lib/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
     <script src="~/WebCore/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
         $.widget.bridge('uibutton', $.ui.button)
+
+        $('.clsMobileNumber').on('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 11) {
+                this.value = this.value.substring(0, 11);
+            }
+        });
     </script>
     <!-- Bootstrap 4 -->
     <script src="~/WebCore/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-   @*  <!-- ChartJS -->
-    <script src="~/WebCore/plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="~/WebCore/plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="~/WebCore/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="~/WebCore/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="~/WebCore/plugins/jquery-knob/jquery.knob.min.js"></script> *@
-    <!-- daterangepicker -->
     <script src="~/WebCore/plugins/moment/moment.min.js"></script>
     <script src="~/WebCore/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
     <script src="~/WebCore/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="~/WebCore/plugins/summernote/summernote-bs4.min.js"></script>
-    @* <script src="~/webcore/plugins/datatables-bs4/js/datatables.bootstrap4.min.js"></script> *@
-
     <!-- DataTables JavaScript -->
     <script src="~/lib/datatable/datatables.min.js"></script>
     <script src="~/lib/datatable/datatables.buttons.js"></script>
     <script src="~/lib/datatable/buttons.datatables.js"></script>
     <script src="~/lib/jquery/select2/select2.full.js"></script>
-    <!-- JSZip for Excel export -->
     <script src="~/lib/datatable/jszip.min.js"></script>
-    <!-- pdfmake for PDF export -->
     <script src="~/lib/datatable/pdfmake.min.js"></script>
     <script src="~/lib/datatable/vfs_fonts.js"></script>
-    <!-- DataTables buttons extensions -->
     <script src="~/lib/datatable/buttons.html5.min.js"></script>
     <script src="~/lib/datatable/buttons.print.min.js"></script>
-
-    <!-- overlayScrollbars -->
     <script src="~/WebCore/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="~/WebCore/dist/js/adminlte.js"></script>
-@*     <!-- AdminLTE for demo purposes -->
-    <script src="~/WebCore/dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/WebCore/dist/js/pages/dashboard.js"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

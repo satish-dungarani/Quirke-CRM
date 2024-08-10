@@ -21,5 +21,6 @@ namespace Quirke.CRM.Services
         Task<IEnumerable<CustomerCompliance>> GetCustomerComplianceByCustomerIdAsync(int customerId);
         Task<bool> IsAnyCustomerRegisteredByMobileNumberWithActiveComplianceAsync(string mobileNumber);
         Task<bool> HasActiveComplianceAsync(int customerId);
+        Task<CustomerComplianceModel?> GetCustomerComplianceByMobile(string mobile);
     }
 }

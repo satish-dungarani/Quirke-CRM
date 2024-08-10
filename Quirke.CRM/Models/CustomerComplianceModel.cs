@@ -24,7 +24,7 @@ namespace Quirke.CRM.Models
 
         [Required(ErrorMessage = "Mobile number is required.")]
         [Display(Name = "Mobile Number")]
-        [StringLength(20, ErrorMessage = "Mobile number cannot exceed 20 characters.")]
+        [RegularExpression(@"^07\d{9}$", ErrorMessage = "Please enter a valid UK mobile number.")]
         public string Mobile { get; set; } = null!;
 
         [Display(Name = "Customer Id")]
@@ -84,6 +84,9 @@ namespace Quirke.CRM.Models
         public DateTime? UpdatedOn { get; set; }
 
         public bool IsValid { get; set; }
+        [Required(ErrorMessage = "Signature is required.")]
+        [Display(Name = "Signature")]
+        public string SignatureData { get; set; }
 
     }
 }
