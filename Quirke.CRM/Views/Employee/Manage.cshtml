@@ -11,36 +11,38 @@
                 <h1 class="card-title">
                     Employees - @ViewData["Title"]
                 </h1>
-                <a class="btn btn-primary btn-sm float-right" href="@Url.Action("Index", "Employee")">Back to list</a>
+                <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("Index", "Employee")">Back to list</a>
+                @if (Model.Id > 0)
+                {
+                    <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageLeave","Employee", new {employeeId = Model.Id})">Add Leave</a>
+                }
             </div>
             <div class="card-body">
                 <form asp-action="Manage" method="post" enctype="multipart/form-data" id="employeeForm">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="Firstname" class="control-label"></label>
                                 <input asp-for="Firstname" class="form-control" />
                                 <span asp-validation-for="Firstname" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="Lastname" class="control-label"></label>
                                 <input asp-for="Lastname" class="form-control" />
                                 <span asp-validation-for="Lastname" class="text-danger"></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="BirthDate" class="control-label"></label>
                                 <input asp-for="BirthDate" class="form-control" type="date" min="1900-01-01" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
                                 <span asp-validation-for="BirthDate" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="Gender" class="control-label"></label>
                                 <select asp-for="Gender" class="form-control">
@@ -54,30 +56,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="PhoneNumber" class="control-label"></label>
                                 <input asp-for="PhoneNumber" class="form-control clsMobileNumber" />
                                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="EmergencyContact" class="control-label"></label>
                                 <input asp-for="EmergencyContact" class="form-control" />
                                 <span asp-validation-for="EmergencyContact" class="text-danger"></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="Email" class="control-label"></label>
                                 <input asp-for="Email" class="form-control" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="HireDate" class="control-label"></label>
                                 <input asp-for="HireDate" class="form-control" type="date" min="1900-01-01" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="JobTitle" class="control-label"></label>
                                 <input asp-for="JobTitle" class="form-control" />
@@ -102,9 +102,8 @@
                                     <span asp-validation-for="Picture" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-1">
                                 <div class="form-group">
-
                                     <div>
                                         <img src="data:image;base64,@Model.Picture" alt="Employee Picture" style="max-width: 100px; max-height: 100px;" />
                                     </div>
@@ -113,7 +112,7 @@
                         }
                         else
                         {
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label asp-for="Picture" class="control-label"></label>
                                     <input asp-for="Picture" class="form-control" type="file" name="pictureFile" accept="image/*" />
@@ -121,8 +120,7 @@
                                 </div>
                             </div>
                         }
-                    </div>
-                    <div class="row">
+
                         @if (!string.IsNullOrEmpty(Model.IdentityDocument))
                         {
                             <div class="col-md-3">
@@ -132,15 +130,15 @@
                                     <span asp-validation-for="IdentityDocument" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group mt-5">
-                                    <a href="@Url.Action("DownloadDocument", "Employee", new { id = Model.Id })" class="btn btn-secondary btn-sm">Download Document</a>
+                            <div class="col-md-1">
+                                <div class="form-group mt-4">
+                                    <a href="@Url.Action("DownloadDocument", "Employee", new { id = Model.Id })" class="btn btn-success btn-sm"><i class="fa fas fa-download"></i></a>
                                 </div>
                             </div>
                         }
                         else
                         {
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label asp-for="IdentityDocument" class="control-label"></label>
                                     <input asp-for="IdentityDocument" class="form-control" type="file" name="identityDocumentFile" accept=".pdf" />
@@ -165,33 +163,82 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 <link href="~/webcore/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 <script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-<script>
-    $(document).ready(function () {
-       
-        $('#employeeForm').validate({
-            rules: {
-                BirthDate: {
-                    required: true,
-                    date: true
+
+@if (Model.Id > 0)
+{
+    <section class="content pt-3">
+        <div class="container-fluid">
+            <div class="card card-default color-palette-box">
+                <div class="card-header">
+                    <h1 class="card-title">Leave Details</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="leaveTable" class="table table-striped table-bordered" style="width:100%">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Sr No.</th>
+                                    <th>Leave Type</th>
+                                    <th>Available Leave</th>
+                                    <th>Pending Leave</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#leaveTable').DataTable({
+                "processing": true,
+                "serverSide": false,
+                "ajax": {
+                    "url": '@Url.Action("GetEmployeeLeaves", "Employee", new { employeeId = Model.Id })',
+                    "type": "GET",
+                    "datatype": "json"
                 },
-                HireDate: {
-                    required: true,
-                    date: true
-                }
-            },
-            messages: {
-                BirthDate: {
-                    required: "Birth date is required.",
-                    date: "Please enter a valid date."
-                },
-                HireDate: {
-                    required: "Hire date is required.",
-                    date: "Please enter a valid date."
-                }
-            },
-            errorPlacement: function (error, element) {
-                error.insertAfter(element).addClass("text-danger");
-            }
+                "columns": [
+                    {
+                        "data": null,
+                        "className": "text-center noExport",
+                        "render": function (data, type, full, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    { "data": "LeaveType" },
+                    { "data": "AvailableLeave" },
+                    { "data": "PendingLeave" },
+                    {
+                        "data": null,
+                        "className": "",
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-secondary btn-sm mr-2" href="/Employee/ManageLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>' +
+                                   '<a class="btn btn-danger btn-sm" href="/Employee/DeleteLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                        }
+                    }
+                ],
+                fixedHeader: true,
+                responsive: true,
+                scrollCollapse: true,
+                scrollY: '50vh',
+                scrollX: true,
+                deferRender: true,
+                scroller: true,
+                autoWidth: true,
+                searching: false,
+                pageLength: 10,
+                lengthChange: false,
+            });
+
+            $(window).resize(() => {
+                setTimeout(function () {
+                    $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+                }, 200);
+            });
         });
-    });
-</script>
+    </script>
+}

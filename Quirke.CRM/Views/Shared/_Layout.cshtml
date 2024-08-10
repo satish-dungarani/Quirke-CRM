@@ -55,8 +55,29 @@
                         <li class="nav-item ">
                             <a href="/Customer" class="nav-link "><i class="nav-icon fas fa-users"></i><p>Customers</p></a>
                         </li>
+                       
                         <li class="nav-item ">
-                            <a href="/Employee" class="nav-link "><i class="nav-icon fas fa-user"></i><p>Employees</p></a>
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Employees
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item ">
+                                    <a href="/Employee" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Employee List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="/Employee/LeaveRequests" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Requests</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="nav-item ">
@@ -114,6 +135,36 @@
                                     <a href="/Report/Stocks" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Stocks</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tools"></i>
+                                <p>
+                                    Admin Controls
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="/Master/Index/@Convert.ToInt32(MasterType.Brand)" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Brands</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Master/Index/@Convert.ToInt32(MasterType.Treatment)" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Treatments</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Master/Index/@Convert.ToInt32(MasterType.LeaveType)" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Leave Types</p>
                                     </a>
                                 </li>
                             </ul>

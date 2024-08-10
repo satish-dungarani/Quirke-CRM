@@ -1,8 +1,7 @@
-﻿using Quirke.CRM.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.Domain;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.DataContext
 {
@@ -17,12 +16,11 @@ namespace Quirke.CRM.DataContext
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerCompliance> CustomerCompliances { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Master> Masters { get; set; }
+        public DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
-            // Configuring Customer entity
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -47,7 +45,6 @@ namespace Quirke.CRM.DataContext
                       .HasColumnType("datetime");
             });
 
-            // Configuring CustomerCompliance entity
             modelBuilder.Entity<CustomerCompliance>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -148,6 +145,56 @@ namespace Quirke.CRM.DataContext
                   entity.Property(e => e.UpdatedOn)
                       .IsRequired(false); // Nullable
               });
+
+            modelBuilder.Entity<Master>(entity =>
+            {
+                entity.HasKey(e => e.Id); // Primary key
+
+                entity.Property(e => e.Name)
+                    .IsRequired(); // Not null
+
+                entity.Property(e => e.IsDeleted)
+                    .IsRequired(); // Not null
+
+                entity.Property(e => e.MasterTypeId)
+                    .IsRequired(); // Not null
+
+                entity.Property(e => e.CreatedOn)
+                    .IsRequired(); // Not null
+
+                entity.Property(e => e.UpdatedOn)
+                    .IsRequired(false); // Nullable
+            });
+
+            modelBuilder.Entity<EmployeeLeave>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasOne(e => e.Employee)
+                      .WithMany()
+                      .HasForeignKey(e => e.EmployeeId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(e => e.LeaveType)
+                      .WithMany()
+                      .HasForeignKey(e => e.LeaveTypeId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.Property(e => e.AvailableLeave)
+                      .HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.PendingLeave)
+                      .HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.CreatedOn)
+                      .IsRequired()
+                      .HasDefaultValueSql("GETDATE()");
+
+                entity.Property(e => e.UpdatedOn)
+                      .IsRequired(false);
+            });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

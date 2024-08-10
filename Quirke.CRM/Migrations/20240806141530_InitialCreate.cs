@@ -1,14 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Quirke.CRM.Migrations
 {
-    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -159,23 +154,23 @@ namespace Quirke.CRM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-           name: "Customers",
-           columns: table => new
-           {
-               Id = table.Column<int>(nullable: false)
-                   .Annotation("SqlServer:Identity", "1, 1"),
-               Firstname = table.Column<string>(maxLength: 50, nullable: false),
-               Lastname = table.Column<string>(maxLength: 50, nullable: false),
-               BirtDate = table.Column<DateTime>(nullable: false),
-               Gender = table.Column<string>(maxLength: 20, nullable: false),
-               Mobile = table.Column<string>(maxLength: 20, nullable: false),
-               Email = table.Column<string>(maxLength: 50, nullable: true),
-               CreatedOn = table.Column<DateTime>(nullable: false)
-           },
-           constraints: table =>
-           {
-               table.PrimaryKey("PK_Customers", x => x.Id);
-           });
+               name: "Customers",
+               columns: table => new
+               {
+                   Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                   Firstname = table.Column<string>(maxLength: 50, nullable: false),
+                   Lastname = table.Column<string>(maxLength: 50, nullable: false),
+                   BirtDate = table.Column<DateTime>(nullable: false),
+                   Gender = table.Column<string>(maxLength: 20, nullable: false),
+                   Mobile = table.Column<string>(maxLength: 20, nullable: false),
+                   Email = table.Column<string>(maxLength: 50, nullable: true),
+                   CreatedOn = table.Column<DateTime>(nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Customers", x => x.Id);
+               });
 
             migrationBuilder.CreateTable(
                 name: "CustomerCompliances",
@@ -197,7 +192,7 @@ namespace Quirke.CRM.Migrations
                     IsAllergyTestDone = table.Column<bool>(nullable: false),
                     TestScheduleOn = table.Column<DateTime>(nullable: true),
                     TestDate = table.Column<DateTime>(nullable: true),
-                    ObservedBy = table.Column<int>(nullable: true),
+                    ObservedBy = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     UpdatedOn = table.Column<DateTime>(nullable: true)
                 },
@@ -213,29 +208,87 @@ namespace Quirke.CRM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-            name: "Employee",
-            columns: table => new
-            {
-                Id = table.Column<int>(nullable: false).Annotation("SqlServer:Identity", "1, 1"),
-                Firstname = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                Lastname = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                Gender = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                BirthDate = table.Column<DateTime>(type: "date", nullable: false),
-                PhoneNumber = table.Column<string>(type: "nvarchar(20)", nullable: false),
-                EmergencyContact = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                Email = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                HireDate = table.Column<DateTime>(type: "date", nullable: false),
-                Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                IdentityDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                JobTitle = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
-                CreatedOn = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
-                UpdatedOn = table.Column<DateTime>(type: "datetime", nullable: true)
-            },
-            constraints: table =>
+                name: "Employee",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                            .Annotation("SqlServer:Identity", "1, 1"),
+                    Firstname = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Lastname = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "date", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    EmergencyContact = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    HireDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdentityDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JobTitle = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime", nullable: true)
+                },
+                constraints: table =>
             {
                 table.PrimaryKey("PK_Employee", x => x.Id);
             });
+
+            migrationBuilder.CreateTable(
+                name: "Master",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                            .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    MasterTypeId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Master", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EmployeeLeaves",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(nullable: false),
+                    LeaveTypeId = table.Column<int>(nullable: false),
+                    AvailableLeave = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
+                    PendingLeave = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EmployeeLeaves", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EmployeeLeaves_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_EmployeeLeaves_Masters_LeaveTypeId",
+                        column: x => x.LeaveTypeId,
+                        principalTable: "Masters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EmployeeLeaves_EmployeeId",
+                table: "EmployeeLeaves",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EmployeeLeaves_LeaveTypeId",
+                table: "EmployeeLeaves",
+                column: "LeaveTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -277,12 +330,11 @@ namespace Quirke.CRM.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-            name: "IX_CustomerCompliances_CustomerId",
-            table: "CustomerCompliances",
-            column: "CustomerId");
+                name: "IX_CustomerCompliances_CustomerId",
+                table: "CustomerCompliances",
+                column: "CustomerId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -313,7 +365,13 @@ namespace Quirke.CRM.Migrations
                 name: "Customers");
 
             migrationBuilder.DropTable(
-            name: "Employee");
+                name: "Employees");
+
+            migrationBuilder.DropTable(
+                name: "Masters");
+
+            migrationBuilder.DropTable(
+                name: "EmployeeLeaves");
         }
     }
 }

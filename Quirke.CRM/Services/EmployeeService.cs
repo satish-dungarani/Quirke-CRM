@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
@@ -68,36 +69,26 @@ namespace Quirke.CRM.Services
 
         public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesAsync()
         {
-            try
-            {
-                return await _context.Employees
-               .Where(e => !e.IsDeleted)
-               .Select(e => new EmployeeModel
-               {
-                   Id = e.Id,
-                   Firstname = e.Firstname,
-                   Lastname = e.Lastname,
-                   Gender = e.Gender,
-                   BirthDate = e.BirthDate,
-                   PhoneNumber = e.PhoneNumber,
-                   EmergencyContact = e.EmergencyContact,
-                   Email = e.Email,
-                   HireDate = e.HireDate,
-                   JobTitle = e.JobTitle,
-                   Picture = e.Picture,
-                   IdentityDocument = e.IdentityDocument,
-                   IsDeleted = e.IsDeleted,
-                   CreatedOn = e.CreatedOn,
-                   UpdatedOn = e.UpdatedOn
-               })
-               .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-           
+            return await _context.Employees
+           .Where(e => !e.IsDeleted)
+           .Select(e => new EmployeeModel
+           {
+               Id = e.Id,
+               Firstname = e.Firstname,
+               Lastname = e.Lastname,
+               Gender = e.Gender,
+               BirthDate = e.BirthDate,
+               PhoneNumber = e.PhoneNumber,
+               EmergencyContact = e.EmergencyContact,
+               Email = e.Email,
+               HireDate = e.HireDate,
+               JobTitle = e.JobTitle,
+               Picture = e.Picture,
+               IdentityDocument = e.IdentityDocument,
+               IsDeleted = e.IsDeleted,
+               CreatedOn = e.CreatedOn,
+               UpdatedOn = e.UpdatedOn
+           }).ToListAsync();
         }
 
         public async Task<bool> UpdateEmployeeAsync(EmployeeModel employee)
@@ -197,6 +188,93 @@ namespace Quirke.CRM.Services
         {
             return await _context.Employees
                 .AnyAsync(e => e.Email == email && !e.IsDeleted);
+        }
+
+        public async Task<EmployeeLeaveModel> GetEmployeeLeaveByIdAsync(int id)
+        {
+            var leave = await _context.EmployeeLeaves
+                .AsNoTracking()
+                .Where(e => e.Id == id)
+                .Select(e => new EmployeeLeaveModel
+                {
+                    Id = e.Id,
+                    EmployeeId = e.EmployeeId,
+                    LeaveTypeId = e.LeaveTypeId,
+                    AvailableLeave = e.AvailableLeave,
+                    PendingLeave = e.PendingLeave,
+                    CreatedOn = e.CreatedOn,
+                    UpdatedOn = e.UpdatedOn
+                })
+                .FirstOrDefaultAsync();
+
+            return leave;
+        }
+
+        public async Task<List<EmployeeLeaveModel>> GetEmployeeLeavesByEmployeeIdAsync(int employeeId)
+        {
+            return await _context.EmployeeLeaves
+                 .AsNoTracking()
+                 .Where(e => e.EmployeeId == employeeId)
+                 .Join(
+                     _context.Masters,
+                     leave => leave.LeaveTypeId,
+                     master => master.Id,
+                     (leave, master) => new EmployeeLeaveModel
+                     {
+                         Id = leave.Id,
+                         EmployeeId = leave.EmployeeId,
+                         LeaveTypeId = leave.LeaveTypeId,
+                         LeaveType = master.Name,
+                         AvailableLeave = leave.AvailableLeave,
+                         PendingLeave = leave.PendingLeave,
+                         CreatedOn = leave.CreatedOn,
+                         UpdatedOn = leave.UpdatedOn
+                     }
+                 )
+                 .ToListAsync();
+        }
+
+        public async Task<bool> AddOrUpdateEmployeeLeaveAsync(EmployeeLeaveModel model)
+        {
+            if (model.Id > 0)
+            {
+                var leave = await _context.EmployeeLeaves.FindAsync(model.Id);
+                if (leave == null) return false;
+
+                leave.EmployeeId = model.EmployeeId;
+                leave.LeaveTypeId = model.LeaveTypeId;
+                leave.AvailableLeave = model.AvailableLeave;
+                leave.PendingLeave = model.PendingLeave;
+                leave.UpdatedOn = DateTime.Now;
+
+                _context.EmployeeLeaves.Update(leave);
+            }
+            else
+            {
+                var leave = new EmployeeLeave
+                {
+                    EmployeeId = model.EmployeeId,
+                    LeaveTypeId = model.LeaveTypeId,
+                    AvailableLeave = model.AvailableLeave,
+                    PendingLeave = model.PendingLeave,
+                    CreatedOn = DateTime.Now
+                };
+
+                await _context.EmployeeLeaves.AddAsync(leave);
+            }
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteEmployeeLeaveAsync(int id)
+        {
+            var leave = await _context.EmployeeLeaves.FindAsync(id);
+            if (leave == null) return false;
+
+            _context.EmployeeLeaves.Remove(leave);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
     }
