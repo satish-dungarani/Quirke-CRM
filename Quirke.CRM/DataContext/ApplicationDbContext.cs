@@ -18,6 +18,7 @@ namespace Quirke.CRM.DataContext
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Master> Masters { get; set; }
         public DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -192,6 +193,56 @@ namespace Quirke.CRM.DataContext
 
                 entity.Property(e => e.UpdatedOn)
                       .IsRequired(false);
+            });
+
+            modelBuilder.Entity<LeaveRequest>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Id)
+                       .IsRequired()
+                       .ValueGeneratedOnAdd();
+
+                entity.HasOne(e => e.Employee)
+                      .WithMany()
+                      .HasForeignKey(e => e.EmployeeId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(e => e.LeaveType)
+                      .WithMany()
+                      .HasForeignKey(e => e.LeaveTypeId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.Property(e => e.StartDate)
+                    .IsRequired()
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.LeaveDuration)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(true);
+
+                entity.Property(e => e.EndDate)
+                    .IsRequired()
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Note)
+                      .HasMaxLength(500);
+
+                entity.Property(e => e.Document)
+                      .HasColumnType("nvarchar(max)");
+
+                entity.Property(e => e.RequestStatus)
+                      .IsRequired()
+                      .HasMaxLength(30);
+
+                entity.Property(e => e.CreatedOn)
+                      .IsRequired()
+                      .HasDefaultValueSql("GETDATE()");
+
+                entity.Property(e => e.UpdateOn)
+                      .IsRequired(false);
+
             });
 
             base.OnModelCreating(modelBuilder);

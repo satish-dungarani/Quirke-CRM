@@ -49,6 +49,7 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
+    var dtTable;
     $(document).ready(function () {
         var successMessage = '@TempData["SuccessMessage"]';
         if (successMessage) {
@@ -68,11 +69,20 @@
                 confirmButtonText: 'OK'
             });
         };
+        funGridMaster();
+
+        $(window).resize(() => {
+            setTimeout(function () {
+                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+            }, 200);
+        });
     });
 
-    $(document).ready(function () {
-
-        $('#brandTable').DataTable({
+    function funGridMaster() {
+        if (dtTable) {
+            dtTable.destroy();
+        };
+        dtTable = $('#brandTable').DataTable({
             "processing": true,
             "serverSide": false,
             "ajax": {
@@ -118,16 +128,10 @@
                 bottomEnd: null,
             }
         });
-
-        $(window).resize(() => {
-            setTimeout(function () {
-                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
-            }, 200);
-        });
-    });
+    }
 
     function funManageMaster(_id) {
-        debugger
+
         $.ajax({
             url: '@Url.Action("ManageMaster", "Master")',
             type: 'GET',
@@ -137,7 +141,6 @@
                 id: _id,
             },
             success: function (data) {
-
                 $("#divCommonModel").html('');
                 $("#divCommonModel").html(data);
                 $("#commonModalCenter").modal("show");
@@ -146,6 +149,7 @@
             }
         });
     }
+
     function funDeleteMaster(_id) {
 
         $.ajax({
@@ -157,9 +161,10 @@
             },
             success: function (response) {
                 if (response.result) {
+                    funGridMaster();
                     Swal.fire({
                         title: 'Success!',
-                        text: response, msg,
+                        text: response.msg,
                         icon: 'success',
                         confirmButtonText: 'OK'
                     });

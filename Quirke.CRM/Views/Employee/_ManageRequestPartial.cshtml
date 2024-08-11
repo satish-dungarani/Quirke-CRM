@@ -1,0 +1,117 @@
+﻿@model Quirke.CRM.Models.LeaveRequestModel
+
+<form asp-action="ManageRequest" method="post" id="frmRequest">
+    <div class="modal-body">
+
+        <input type="hidden" class="form-control" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="EmployeeId" class="control-label"></label>
+            <select asp-for="EmployeeId" class="form-control" asp-items="Model.EmployeeList"></select>
+            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LeaveTypeId" class="control-label"></label>
+            <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList"></select>
+            <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group clearfix">
+            <label asp-for="LeaveDuration" class="control-label"></label>
+            <div class="icheck-primary d-inline">
+                <input type="radio" id="radioPrimary1" name="LeaveDuration" value="Half Day" checked="@Model.LeaveDuration == " Half Day"">
+                <label for="radioPrimary1">Half Day</label>
+            </div>
+            <div class="icheck-primary d-inline">
+                <input type="radio" id="radioPrimary2" name="LeaveDuration" value="Full Day" checked="@Model.LeaveDuration == " Full Day"">
+                <label for="radioPrimary2">Full Day</label>
+            </div>
+            <div class="icheck-primary d-inline">
+                <input type="radio" id="radioPrimary3" name="LeaveDuration" value="Multiple Days" checked="@Model.LeaveDuration == " Multiple Days"">
+                <label for="radioPrimary3">Multiple Days</label>
+            </div>
+            <span asp-validation-for="LeaveDuration" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" type="date" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" class="form-control" type="date" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Note" class="control-label"></label>
+            <textarea asp-for="Note" class="form-control"></textarea>
+            <span asp-validation-for="Note" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Document" class="control-label"></label>
+            <input asp-for="Document" class="form-control" type="file" />
+            <span asp-validation-for="Document" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RequestStatus" class="control-label"></label>
+            <select asp-for="RequestStatus" class="form-control">
+                <option value="">Select Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+            <span asp-validation-for="RequestStatus" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="funCloseModal()">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // var today = moment().format('YYYY-MM-DD');
+
+        // $('#StartDate').attr('min', today);
+        // $('#EndDate').attr('min', today);
+
+        function handleDateFields() {
+            var selectedValue = $('input[name="LeaveDuration"]:checked').val();
+            var startDate = $('#StartDate').val();
+
+            if (selectedValue === 'Half Day' || selectedValue === 'Full Day') {
+                $('#EndDate').val(startDate);
+                $('#EndDate').prop('readonly', true);
+            } else {
+                $('#EndDate').prop('readonly', false);
+                $('#EndDate').attr('min', startDate);
+            }
+        }
+
+        handleDateFields();
+
+        $('input[name="LeaveDuration"]').on('change', function () {
+            handleDateFields();
+        });
+
+        $('#StartDate').on('change', function () {
+            handleDateFields();
+        });
+    });
+</script>

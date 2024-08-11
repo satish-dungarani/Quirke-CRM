@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Domain.Services;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -63,5 +64,10 @@ namespace Quirke.CRM.Controllers
             return RedirectToAction("Index", new { id = model.MasterTypeId });
         }
 
+        public async Task<IActionResult> DeleteMaster(int id)
+        {
+            var model = await _masterService.DeleteAsync(id);
+            return Json(new { result = true, msg = "Entry successfully deleted." });
+        }
     }
 }

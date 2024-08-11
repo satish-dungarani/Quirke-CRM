@@ -10,7 +10,6 @@
         public DateTime CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
 
-        // Navigation properties (optional, based on your ORM or data access strategy)
         public virtual Employee Employee { get; set; }
         public virtual Master LeaveType { get; set; }
     }

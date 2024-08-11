@@ -14,19 +14,37 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class EmployeeController : BaseController
     {
+        #region MyRegion
+
         protected readonly IEmployeeService _employeeService;
         protected readonly IMasterService _masterService;
+        protected readonly ILeaveRequestService _leaveRequestService;
         public EmployeeController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context, RoleManager<IdentityRole> roleManager,
-            IEmployeeService employeeService, IMasterService masterService) : base(userManager, null, _context, roleManager)
+            IEmployeeService employeeService, IMasterService masterService, ILeaveRequestService leaveRequestService) : base(userManager, null, _context, roleManager)
         {
             _employeeService = employeeService;
             _masterService = masterService;
+            _leaveRequestService = leaveRequestService;
         }
 
+        #endregion
+
         #region Utility
+        private async Task<List<SelectListItem>> GetEmployeeList()
+        {
+            var employees = await _employeeService.GetAllEmployeesAsync();
+
+            var selectListItems = employees
+                .Select(item => new SelectListItem
+                {
+                    Value = item.Id.ToString(),
+                    Text = item.Firstname + " " + item.Lastname
+                }).ToList();
+            return selectListItems;
+        }
         private async Task<List<SelectListItem>> GetLeaveType(int masterTypeId)
         {
-           var leavetypes = await _masterService.GetAllByMasterTypeIdAsync(masterTypeId);
+            var leavetypes = await _masterService.GetAllByMasterTypeIdAsync(masterTypeId);
 
             var selectListItems = leavetypes
                 .Select(item => new SelectListItem
@@ -53,7 +71,7 @@ namespace Quirke.CRM.Controllers
 
             var data = new
             {
-                data = employees 
+                data = employees
             };
 
             return Json(data);
@@ -189,6 +207,59 @@ namespace Quirke.CRM.Controllers
 
             return RedirectToAction(nameof(Manage), new { id = employeeId });
         }
+        #endregion
+
+        #region Leave Request
+
+        public IActionResult LeaveRequest() { return View(); }
+
+        public async Task<IActionResult> GetLeaveRequests()
+        {
+            var requests = await _leaveRequestService.GetAllLeaveRequestsAsync();
+            return Json(new { data = requests });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ManageRequest(int? id)
+        {
+            var model = new LeaveRequestModel();
+
+            if (id != null && id > 0)
+            {
+                model = await _leaveRequestService.GetLeaveRequestByIdAsync(id.Value);
+            }
+            model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+            model.EmployeeList = await GetEmployeeList();
+            return PartialView("~/Views/Employee/_ManageRequestPartial.cshtml", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ManageRequest(LeaveRequestModel model)
+        {
+            if (model.Id == 0)
+            {
+                await _leaveRequestService.CreateLeaveRequestAsync(model);
+            }
+            else
+            {
+                await _leaveRequestService.UpdateLeaveRequestAsync(model);
+            }
+            return RedirectToAction(nameof(LeaveRequest));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewRequest(int id)
+        {
+            var model = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
+            return PartialView("~/Views/Employee/_ViewRequestPartial.cshtml", model);
+        }
+
+        public async Task<IActionResult> DeleteRequest(int id)
+        {
+            var model = await _leaveRequestService.DeleteLeaveRequestAsync(id);
+            return Json(new { result = true , msg = "Leave request successfully deleted." });
+        }
+
         #endregion
 
     }

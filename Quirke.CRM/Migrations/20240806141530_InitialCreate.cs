@@ -280,6 +280,51 @@ namespace Quirke.CRM.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "LeaveRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(nullable: false),
+                    LeaveTypeId = table.Column<int>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    LeaveDuration = table.Column<string>(maxLength: 50, nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
+                    Note = table.Column<string>(maxLength: 500, nullable: true),
+                    Document = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RequestStatus = table.Column<string>(maxLength: 30, nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LeaveRequests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LeaveRequests_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LeaveRequests_Masters_LeaveTypeId",
+                        column: x => x.LeaveTypeId,
+                        principalTable: "Masters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaveRequests_EmployeeId",
+                table: "LeaveRequests",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaveRequests_LeaveTypeId",
+                table: "LeaveRequests",
+                column: "LeaveTypeId");
+
+
             migrationBuilder.CreateIndex(
                 name: "IX_EmployeeLeaves_EmployeeId",
                 table: "EmployeeLeaves",
@@ -372,6 +417,9 @@ namespace Quirke.CRM.Migrations
 
             migrationBuilder.DropTable(
                 name: "EmployeeLeaves");
+
+            migrationBuilder.DropTable(
+               name: "LeaveRequests");
         }
     }
 }

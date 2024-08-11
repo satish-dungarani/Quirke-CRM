@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Domain.Services;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -65,6 +66,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IMasterService, MasterService>();
+builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
 
 
 var app = builder.Build();
