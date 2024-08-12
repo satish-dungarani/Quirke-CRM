@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
@@ -265,7 +266,13 @@ namespace Quirke.CRM.Services
             await _context.SaveChangesAsync();
             return true;
         }
-
+        public async Task<bool> IsDuplicateLeaveAsync(int employeeId, int leaveTypeId, int? excludeId = null)
+        {
+            return await _context.EmployeeLeaves
+                .AnyAsync(e => e.EmployeeId == employeeId
+                            && e.LeaveTypeId == leaveTypeId
+                            && (excludeId == null || e.Id != excludeId));
+        }
         public async Task<bool> DeleteEmployeeLeaveAsync(int id)
         {
             var leave = await _context.EmployeeLeaves.FindAsync(id);
@@ -276,5 +283,29 @@ namespace Quirke.CRM.Services
             return true;
         }
 
+        public async Task<List<SelectListItem>> GetLeaveTypesForEmployeeAsync(int employeeId)
+        {
+            return await _context.EmployeeLeaves
+                .Where(el => el.EmployeeId == employeeId && el.PendingLeave > 0)
+                .Join(
+                    _context.Masters,
+                    el => el.LeaveTypeId,
+                    m => m.Id,
+                    (el, m) => new SelectListItem
+                    {
+                        Value = m.Id.ToString(),
+                        Text = m.Name,
+                    }
+                ).ToListAsync();
+
+        }
+        public async Task<decimal> RmainingLeaves(int employeeId, int leaveTypeId)
+        {
+            var empLeave = await _context.EmployeeLeaves
+                .Where(el => el.EmployeeId == employeeId && el.LeaveTypeId == leaveTypeId)
+                .FirstOrDefaultAsync();
+
+            return empLeave == null ? 0 : empLeave.PendingLeave;
+        }
     }
 }

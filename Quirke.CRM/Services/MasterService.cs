@@ -56,6 +56,14 @@ namespace Quirke.CRM.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
+            var compliances = await _context.CustomerCompliances.Where(x => x.CustomerId == id).ToListAsync();
+
+            if (compliances != null && compliances.Any())
+            {
+                _context.CustomerCompliances.RemoveRange(compliances);
+                await _context.SaveChangesAsync();
+            }
+
             var master = await _context.Masters.FirstOrDefaultAsync(m => m.Id == id);
             if (master == null) return false;
 

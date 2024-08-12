@@ -223,6 +223,37 @@
                 this.value = this.value.substring(0, 11);
             }
         });
+     
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: successMessage,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            }
+            var warningMessage = '@TempData["WarningMessage"]';
+            if (warningMessage) {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: warningMessage,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+            var errorMessage = '@TempData["ErrorMessage"]';
+            if (errorMessage) {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: errorMessage,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+
     </script>
     <!-- Bootstrap 4 -->
     <script src="~/WebCore/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

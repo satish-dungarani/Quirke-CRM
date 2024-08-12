@@ -9,7 +9,7 @@
         <div class="card card-default color-palette-box">
             <div class="card-header">
                 <h1 class="card-title">
-                    Leave Requests
+                    <b>Leave Request List</b>
                 </h1>
                 <button class="btn btn-primary btn-sm float-right" onclick="funManageRequest(null)"><i class="fas fa-plus"></i> Request For Leave</button>
             </div>
@@ -39,15 +39,7 @@
 
 <div class="modal fade" id="commonModalCenter" tabindex="-1" role="dialog" aria-labelledby="commonModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="commonModalCenterTitle">Create Request</h5>
-                <button type="button" class="close" aria-label="Close" onclick="funCloseModal();">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div id="divCommonModel"></div>
-        </div>
+        <div class="modal-content" id="divCommonModel"></div>
     </div>
 </div>
 
@@ -59,24 +51,24 @@
     var myModal = new bootstrap.Modal(document.getElementById('commonModalCenter'));
     var dtTable;
     $(document).ready(function () {
-        var successMessage = '@TempData["SuccessMessage"]';
-        if (successMessage) {
-            Swal.fire({
-                title: 'Success!',
-                text: successMessage,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        };
-        var warningMessage = '@TempData["WarningMessage"]';
-        if (warningMessage) {
-            Swal.fire({
-                title: 'WarningMessage!',
-                text: warningMessage,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-        };
+        // var successMessage = '@TempData["SuccessMessage"]';
+        // if (successMessage) {
+        //     Swal.fire({
+        //         title: 'Success!',
+        //         text: successMessage,
+        //         icon: 'success',
+        //         confirmButtonText: 'OK'
+        //     });
+        // };
+        // var warningMessage = '@TempData["WarningMessage"]';
+        // if (warningMessage) {
+        //     Swal.fire({
+        //         title: 'WarningMessage!',
+        //         text: warningMessage,
+        //         icon: 'warning',
+        //         confirmButtonText: 'OK'
+        //     });
+        // };
 
         funGridRequest();
 
@@ -86,7 +78,7 @@
             }, 200);
         });
     });
-    
+
     function funGridRequest() {
         if (dtTable) {
             dtTable.destroy();

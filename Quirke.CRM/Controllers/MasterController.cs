@@ -61,13 +61,14 @@ namespace Quirke.CRM.Controllers
             {
                 await _masterService.UpdateAsync(model);
             }
+            TempData["SuccessMessage"] = "Saved successfully.";
             return RedirectToAction("Index", new { id = model.MasterTypeId });
         }
 
         public async Task<IActionResult> DeleteMaster(int id)
         {
             var model = await _masterService.DeleteAsync(id);
-            return Json(new { result = true, msg = "Entry successfully deleted." });
+            return Json(new { result = true, msg = "Deleted successfully." });
         }
     }
 }

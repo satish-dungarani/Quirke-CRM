@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
@@ -72,7 +74,6 @@ namespace Quirke.CRM.Domain.Services
                 throw ex;
             }
         }
-
 
         public async Task<LeaveRequestModel> GetLeaveRequestByIdAsync(int id)
         {
@@ -196,5 +197,6 @@ namespace Quirke.CRM.Domain.Services
             await _context.SaveChangesAsync();
             return true;
         }
+         
     }
 }

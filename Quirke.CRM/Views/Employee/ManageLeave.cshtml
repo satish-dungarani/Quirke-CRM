@@ -15,6 +15,7 @@
                 <form asp-action="ManageLeave" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="EmployeeId" />
+                    <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <label asp-for="LeaveTypeId" class="control-label"></label>
                         <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList"></select>
@@ -30,8 +31,8 @@
                         <input asp-for="PendingLeave" class="form-control" />
                         <span asp-validation-for="PendingLeave" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-sm float-right">Save</button>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
                     </div>
                 </form>
             </div>

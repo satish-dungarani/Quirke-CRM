@@ -51,24 +51,24 @@
 <script>
     var dtTable;
     $(document).ready(function () {
-        var successMessage = '@TempData["SuccessMessage"]';
-        if (successMessage) {
-            Swal.fire({
-                title: 'Success!',
-                text: successMessage,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        };
-        var warningMessage = '@TempData["WarningMessage"]';
-        if (warningMessage) {
-            Swal.fire({
-                title: 'WarningMessage!',
-                text: warningMessage,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-        };
+        // var successMessage = '@TempData["SuccessMessage"]';
+        // if (successMessage) {
+        //     Swal.fire({
+        //         title: 'Success!',
+        //         text: successMessage,
+        //         icon: 'success',
+        //         confirmButtonText: 'OK'
+        //     });
+        // };
+        // var warningMessage = '@TempData["WarningMessage"]';
+        // if (warningMessage) {
+        //     Swal.fire({
+        //         title: 'WarningMessage!',
+        //         text: warningMessage,
+        //         icon: 'warning',
+        //         confirmButtonText: 'OK'
+        //     });
+        // };
         funGridMaster();
 
         $(window).resize(() => {

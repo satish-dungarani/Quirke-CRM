@@ -1,4 +1,5 @@
-﻿using Quirke.CRM.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Services
 {
@@ -24,5 +25,8 @@ namespace Quirke.CRM.Services
         Task<List<EmployeeLeaveModel>> GetEmployeeLeavesByEmployeeIdAsync(int employeeId);
         Task<bool> AddOrUpdateEmployeeLeaveAsync(EmployeeLeaveModel model);
         Task<bool> DeleteEmployeeLeaveAsync(int id);
+        Task<bool> IsDuplicateLeaveAsync(int employeeId, int leaveTypeId, int? excludeId = null);
+        Task<List<SelectListItem>> GetLeaveTypesForEmployeeAsync(int employeeId);
+        Task<decimal> RmainingLeaves(int employeeId, int leaveTypeId);
     }
 }

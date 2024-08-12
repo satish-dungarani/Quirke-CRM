@@ -74,8 +74,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-sm float-right">Save</button>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
                     </div>
                 </form>
             </div>
@@ -88,36 +88,13 @@
 <script src="~/lib/jquery-validation/additional-methods.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        var successMessage = '@TempData["SuccessMessage"]';
-        if (successMessage) {
-            Swal.fire({
-                title: 'Success!',
-                text: successMessage,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        };
-        var warningMessage = '@TempData["WarningMessage"]';
-        if (warningMessage) {
-            Swal.fire({
-                title: 'WarningMessage!',
-                text: warningMessage,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-        };
-    });
-</script>
-
 @if (Model.Id > 0)
 {
     <section class="content pt-3">
         <div class="container-fluid">
             <div class="card card-default color-palette-box">
                 <div class="card-header">
-                    <h1 class="card-title">Customer Compliance</h1>
+                    <h1 class="card-title"><b>Customer Compliance</b></h1>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

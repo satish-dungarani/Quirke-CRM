@@ -1,4 +1,12 @@
-﻿@model Quirke.CRM.Models.LeaveRequestModel
+﻿@model LeaveRequestModel
+
+
+<div class="modal-header">
+    <h5 class="modal-title" id="commonModalCenterTitle">Leave Request Details</h5>
+    <button type="button" class="close" aria-label="Close" onclick="funCloseModal();">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 <div class="modal-body">
     <div class="form-group">
@@ -36,7 +44,7 @@
         @if (!string.IsNullOrEmpty(Model.Document))
         {
             <p class="form-control-static">
-                <a href="@Url.Content("~/documents/" + Model.Document)" target="_blank">View Document</a>
+                <a href="@Url.Action("DownloadLeaveRequestDocument", "Employee", new { id = Model.Id })" class="btn btn-success btn-sm"><i class="fa fas fa-download"></i></a>
             </p>
         }
         else

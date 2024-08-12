@@ -1,35 +1,59 @@
-﻿@model Quirke.CRM.Models.LeaveRequestModel
+﻿@model LeaveRequestModel
+@{
+    var title = Model.Id == 0 ? "Create Leave Request" : "Edit Leave Request";
+}
 
-<form asp-action="ManageRequest" method="post" id="frmRequest">
+<link href="~/lib/jquery/select2/select2.min.css" rel="stylesheet" />
+<link href="~/webcore/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+
+<div class="modal-header">
+    <h5 class="modal-title" id="commonModalCenterTitle">@title</h5>
+    <button type="button" class="close" aria-label="Close" onclick="funCloseModal();">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<style>
+    .select2-selection {
+        height: calc(2.25rem + 2px) !important;
+    }
+</style>
+
+<form asp-action="ManageRequest" method="post" id="frmRequest" enctype="multipart/form-data">
     <div class="modal-body">
 
         <input type="hidden" class="form-control" asp-for="Id" />
 
         <div class="form-group">
             <label asp-for="EmployeeId" class="control-label"></label>
-            <select asp-for="EmployeeId" class="form-control" asp-items="Model.EmployeeList"></select>
+            <select asp-for="EmployeeId" class="form-control" asp-items="Model.EmployeeList">
+                <option></option>
+            </select>
             <span asp-validation-for="EmployeeId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="LeaveTypeId" class="control-label"></label>
-            <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList"></select>
+            <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList">
+                <option></option>
+            </select>
             <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
         </div>
 
         <div class="form-group clearfix">
             <label asp-for="LeaveDuration" class="control-label"></label>
-            <div class="icheck-primary d-inline">
-                <input type="radio" id="radioPrimary1" name="LeaveDuration" value="Half Day" checked="@Model.LeaveDuration == " Half Day"">
-                <label for="radioPrimary1">Half Day</label>
-            </div>
-            <div class="icheck-primary d-inline">
-                <input type="radio" id="radioPrimary2" name="LeaveDuration" value="Full Day" checked="@Model.LeaveDuration == " Full Day"">
-                <label for="radioPrimary2">Full Day</label>
-            </div>
-            <div class="icheck-primary d-inline">
-                <input type="radio" id="radioPrimary3" name="LeaveDuration" value="Multiple Days" checked="@Model.LeaveDuration == " Multiple Days"">
-                <label for="radioPrimary3">Multiple Days</label>
+            <div class="row">
+                <div class="icheck-primary d-inline col-md-4">
+                    <input type="radio" id="radioPrimary1" name="LeaveDuration" value="Half Day" checked="@Model.LeaveDuration == " Half Day"">
+                    <label for="radioPrimary1">Half Day</label>
+                </div>
+                <div class="icheck-primary d-inline col-md-4">
+                    <input type="radio" id="radioPrimary2" name="LeaveDuration" value="Full Day" checked="@Model.LeaveDuration == " Full Day"">
+                    <label for="radioPrimary2">Full Day</label>
+                </div>
+                <div class="icheck-primary d-inline col-md-4">
+                    <input type="radio" id="radioPrimary3" name="LeaveDuration" value="Multiple Days" checked="@Model.LeaveDuration == " Multiple Days"">
+                    <label for="radioPrimary3">Multiple Days</label>
+                </div>
             </div>
             <span asp-validation-for="LeaveDuration" class="text-danger"></span>
         </div>
@@ -57,10 +81,15 @@
 
         <div class="form-group">
             <label asp-for="Document" class="control-label"></label>
-            <input asp-for="Document" class="form-control" type="file" />
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="frmLeaveFile" asp-for="Document">
+                    <label class="custom-file-label" for="Document">Choose File</label>
+                </div>
+            </div>
             <span asp-validation-for="Document" class="text-danger"></span>
         </div>
-
+        
         <div class="form-group">
             <label asp-for="RequestStatus" class="control-label"></label>
             <select asp-for="RequestStatus" class="form-control">
@@ -73,9 +102,9 @@
         </div>
 
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="funCloseModal()">Close</button>
-        <button type="submit" class="btn btn-primary">Save</button>
+    <div class="modal-footer  text-center">
+        <button type="button" class="btn btn-danger" onclick="funCloseModal()">Close</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
     </div>
 </form>
 
@@ -83,6 +112,7 @@
 <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation/additional-methods.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery/select2/select2.full.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -90,6 +120,62 @@
 
         // $('#StartDate').attr('min', today);
         // $('#EndDate').attr('min', today);
+
+        $('.custom-file-input').on('change', function () {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        $("#EmployeeId").select2({
+            placeholder: "Select Employee",
+            allowClear: true,
+            width: 'resolve',
+            outerHeight: 'resolve',
+        });
+        $("#LeaveTypeId").select2({
+            placeholder: "Select Leave Type",
+            allowClear: true,
+            width: 'resolve',
+            outerHeight: 'resolve',
+        });
+
+        $("#EmployeeId").on('change', function () {
+            var employeeId = $(this).val();
+
+            if (employeeId) {
+                $.ajax({
+                    url: '@Url.Action("GetLeaveTypesByEmployee", "Employee")',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: { employeeId: employeeId },
+                    success: function (leaveTypes) {
+                        debugger
+                        if (leaveTypes.length == 0) {
+                            $("#EmployeeId").val('').change();
+                            Swal.fire({
+                                title: 'Error!',
+                                text: "No Leaves found for this employee.",
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                            return;
+                        }
+                        else {
+                            var leaveTypeSelect = $("#LeaveTypeId");
+                            leaveTypeSelect.empty();
+
+                            $.each(leaveTypes, function (index, leaveType) {
+                                leaveTypeSelect.append(new Option(leaveType.Text, leaveType.Value));
+                            });
+                            leaveTypeSelect.val('').change();
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching leave types: ", error);
+                    }
+                });
+            }
+        });
 
         function handleDateFields() {
             var selectedValue = $('input[name="LeaveDuration"]:checked').val();

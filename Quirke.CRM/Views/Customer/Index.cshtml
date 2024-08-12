@@ -8,7 +8,7 @@
             <div class="card-header">
                 <h1 class="card-title">
                     @* <i class="fas fa-tag"></i> *@
-                    Customers
+                    <b>Customer List</b>
                 </h1>
                 <a class="btn btn-primary  btn-sm float-right" href="@Url.Action("Manage","Customer")"><i class="fas fa-plus"></i> Add Customer</a>
             </div>
@@ -37,10 +37,25 @@
 </section>
 
 <script src="~/lib/jquery/jquery.min.js"></script>
-
 <script type="text/javascript">
+
+    var dtTable;
     $(document).ready(function () {
-        $('#customersTable').DataTable({
+
+        funCustomerGrid();
+
+        $(window).resize(() => {
+            setTimeout(function () {
+                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+            }, 200);
+        });
+    });
+
+    function funCustomerGrid(){
+        if (dtTable) {
+            dtTable.destroy();
+        };
+        dtTable = $('#customersTable').DataTable({
             "processing": true,
             "serverSide": false,
             "ajax": {
@@ -53,7 +68,7 @@
                     "data": null,
                     "className": "text-center noExport",
                     "render": function (data, type, full, meta) {
-                        return meta.row + 1; // Add 1 because meta.row starts at 0
+                        return meta.row + 1; 
                     }
                 },
                 { "data": "Firstname" },
@@ -67,7 +82,7 @@
                     "render": function (data, type, full, meta) {
                         var _html = '';
                         _html += '<a class="btn btn-secondary  btn-sm mr-2" href="/customer/manage/' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>';
-                        _html += '<a class="btn btn-danger  btn-sm" href="/customer/delete/' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                        _html += '<button class="btn btn-danger  btn-sm" onclick="funDeleteCustomer(' + full.Id + ')"><i class="fas fa-trash"></i> Delete</button>';
                         return _html;
                     }
                 }
@@ -104,11 +119,32 @@
                 bottomEnd: null,
             }
         });
+    }
 
-        $(window).resize(() => {
-            setTimeout(function () {
-                $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
-            }, 200);
+
+    function funDeleteCustomer(_id) {
+
+        $.ajax({
+            url: '@Url.Action("DeleteCustomer", "Customer")',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                id: _id,
+            },
+            success: function (response) {
+                if (response.result) {
+                    funCustomerGrid();
+                    Swal.fire({
+                        title: 'Success!',
+                        text: response.msg,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function (response) {
+
+            }
         });
-    });
+    }
 </script>

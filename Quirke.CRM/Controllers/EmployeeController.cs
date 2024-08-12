@@ -2,12 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.IdentityModel.Logging;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
-using System.Data.Common;
 
 namespace Quirke.CRM.Controllers
 {
@@ -178,6 +176,15 @@ namespace Quirke.CRM.Controllers
         {
             if (ModelState.IsValid)
             {
+                bool isDuplicate = await _employeeService.IsDuplicateLeaveAsync(model.EmployeeId, model.LeaveTypeId, model.Id > 0 ? (int?)model.Id : null);
+
+                if (isDuplicate)
+                {
+                    model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+                    TempData["ErrorMessage"] = "A leave record already exists for this leave type and employee.";
+                    return View(model);
+                }
+
                 var result = await _employeeService.AddOrUpdateEmployeeLeaveAsync(model);
                 if (result)
                 {
@@ -186,10 +193,10 @@ namespace Quirke.CRM.Controllers
                 }
                 else
                 {
+                    model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
                     TempData["WarningMessage"] = "Failed to save employee leave.";
                 }
             }
-
             return View(model);
         }
 
@@ -207,6 +214,7 @@ namespace Quirke.CRM.Controllers
 
             return RedirectToAction(nameof(Manage), new { id = employeeId });
         }
+
         #endregion
 
         #region Leave Request
@@ -234,8 +242,22 @@ namespace Quirke.CRM.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ManageRequest(LeaveRequestModel model)
+        public async Task<IActionResult> ManageRequest(LeaveRequestModel model, IFormFile frmLeaveFile)
         {
+            decimal remainingDays = await _employeeService.RmainingLeaves(model.EmployeeId, model.LeaveTypeId);
+            if (remainingDays > 0)
+            {
+                return View(model);
+            }
+
+            if (frmLeaveFile != null && frmLeaveFile.Length > 0)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    await frmLeaveFile.CopyToAsync(stream);
+                    model.Document = Convert.ToBase64String(stream.ToArray());
+                }
+            }
             if (model.Id == 0)
             {
                 await _leaveRequestService.CreateLeaveRequestAsync(model);
@@ -260,6 +282,28 @@ namespace Quirke.CRM.Controllers
             return Json(new { result = true , msg = "Leave request successfully deleted." });
         }
 
+        [HttpGet]
+        public async Task<JsonResult> GetLeaveTypesByEmployee(int employeeId)
+        {
+            var leaveTypes = await _employeeService.GetLeaveTypesForEmployeeAsync(employeeId); 
+
+            return Json(leaveTypes);
+        }
+
+        public async Task<IActionResult> DownloadLeaveRequestDocument(int id)
+        {
+            var lr = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
+
+            if (lr == null || string.IsNullOrEmpty(lr.Document))
+            {
+                return NotFound();
+            }
+
+            var documentBytes = Convert.FromBase64String(lr.Document);
+            var fileName = $"Leave_Request_Document.pdf";
+
+            return File(documentBytes, "application/pdf", fileName);
+        }
         #endregion
 
     }

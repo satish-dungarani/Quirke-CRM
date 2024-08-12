@@ -92,17 +92,22 @@ namespace Quirke.CRM.Controllers
                 if (customer.Id == 0)
                 {
                     await _customerService.CreateCustomerAsync(customer);
+                    customerModel.Id = customer.Id;
                 }
                 else
                 {
                     await _customerService.UpdateCustomerAsync(customer);
                 }
-                // Use TempData to pass success message
                 TempData["SuccessMessage"] = "Customer details saved successfully!";
-                // return RedirectToAction(nameof(Index));
             }
 
             return View(customerModel);
+        }
+
+        public async Task<IActionResult> DeleteCustomer(int id)
+        {
+            await _customerService.DeleteCustomerAsync(id);
+            return Json(new { result = true, msg = "Customer deleted successfully." });
         }
         #endregion
 
