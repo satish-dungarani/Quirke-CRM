@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Leave Requests";
 }
-<script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 
 <section class="content pt-3">
     <div class="container-fluid">
@@ -47,31 +45,11 @@
 <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
-
     var myModal = new bootstrap.Modal(document.getElementById('commonModalCenter'));
     var dtTable;
+
     $(document).ready(function () {
-        // var successMessage = '@TempData["SuccessMessage"]';
-        // if (successMessage) {
-        //     Swal.fire({
-        //         title: 'Success!',
-        //         text: successMessage,
-        //         icon: 'success',
-        //         confirmButtonText: 'OK'
-        //     });
-        // };
-        // var warningMessage = '@TempData["WarningMessage"]';
-        // if (warningMessage) {
-        //     Swal.fire({
-        //         title: 'WarningMessage!',
-        //         text: warningMessage,
-        //         icon: 'warning',
-        //         confirmButtonText: 'OK'
-        //     });
-        // };
-
         funGridRequest();
-
         $(window).resize(() => {
             setTimeout(function () {
                 $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
@@ -144,9 +122,13 @@
                 },
                 {
                     "render": function (data, type, full, meta) {
-                        return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageRequest(' + full.Id + ')" ><i class="fas fa-pen"></i> Edit</button>' +
-                            '<button class="btn btn-info btn-sm mr-2" onclick="funViewRequest(' + full.Id + ')" ><i class="fas fa-eye"></i> View</button>' +
-                            '<button class="btn btn-danger btn-sm" onclick="funDeleteRequest(' + full.Id + ')" ><i class="fas fa-trash"></i> Delete</button>';
+                        if (full.RequestStatus == "Pending") {
+                            return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageRequest(' + full.Id + ')" ><i class="fas fa-pen"></i> Edit</button>' +
+                                '<button class="btn btn-danger btn-sm" onclick="funDeleteRequest(' + full.Id + ')" ><i class="fas fa-trash"></i> Delete</button>';
+                        } else {
+                            return '<button class="btn btn-info btn-sm mr-2" onclick="funViewRequest(' + full.Id + ')" ><i class="fas fa-eye"></i> View</button>';
+
+                        }
                     }
                 }
             ],
@@ -243,15 +225,12 @@
                         confirmButtonText: 'OK'
                     });
                 }
-            },
-            error: function (response) {
-
             }
         });
     }
 
     function funCloseModal() {
+        funGridRequest();
         myModal.hide();
     };
-
 </script>

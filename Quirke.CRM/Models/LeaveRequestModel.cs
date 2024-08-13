@@ -61,6 +61,8 @@ namespace Quirke.CRM.Models
 
         public string LeaveType { get; set; }
         public string EmployeeName { get; set; }
+
+        public decimal? AppliedDays { get; set; }
     }
 
 }

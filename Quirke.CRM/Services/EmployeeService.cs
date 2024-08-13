@@ -244,7 +244,7 @@ namespace Quirke.CRM.Services
                 leave.EmployeeId = model.EmployeeId;
                 leave.LeaveTypeId = model.LeaveTypeId;
                 leave.AvailableLeave = model.AvailableLeave;
-                leave.PendingLeave = model.PendingLeave;
+                //leave.PendingLeave = model.PendingLeave;
                 leave.UpdatedOn = DateTime.Now;
 
                 _context.EmployeeLeaves.Update(leave);
@@ -256,7 +256,7 @@ namespace Quirke.CRM.Services
                     EmployeeId = model.EmployeeId,
                     LeaveTypeId = model.LeaveTypeId,
                     AvailableLeave = model.AvailableLeave,
-                    PendingLeave = model.PendingLeave,
+                    PendingLeave = model.AvailableLeave,
                     CreatedOn = DateTime.Now
                 };
 

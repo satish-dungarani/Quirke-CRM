@@ -28,7 +28,6 @@
     </div>
 </section>
 
-
 <div class="modal fade" id="commonModalCenter" tabindex="-1" role="dialog" aria-labelledby="commonModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -44,31 +43,11 @@
 </div>
 
 <script src="~/lib/jquery/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
     var dtTable;
     $(document).ready(function () {
-        // var successMessage = '@TempData["SuccessMessage"]';
-        // if (successMessage) {
-        //     Swal.fire({
-        //         title: 'Success!',
-        //         text: successMessage,
-        //         icon: 'success',
-        //         confirmButtonText: 'OK'
-        //     });
-        // };
-        // var warningMessage = '@TempData["WarningMessage"]';
-        // if (warningMessage) {
-        //     Swal.fire({
-        //         title: 'WarningMessage!',
-        //         text: warningMessage,
-        //         icon: 'warning',
-        //         confirmButtonText: 'OK'
-        //     });
-        // };
+  
         funGridMaster();
 
         $(window).resize(() => {

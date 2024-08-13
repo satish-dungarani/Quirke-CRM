@@ -146,6 +146,19 @@ namespace Quirke.CRM.Domain.Services
             _context.LeaveRequests.Add(lr);
             await _context.SaveChangesAsync();
             leaveRequestModel.Id = lr.Id;
+
+            var empLeave = await (from e in _context.EmployeeLeaves
+                                  where e.EmployeeId == leaveRequestModel.EmployeeId
+                                  && e.LeaveTypeId == leaveRequestModel.LeaveTypeId
+                                  select e).FirstOrDefaultAsync();
+
+            if (empLeave != null && leaveRequestModel.RequestStatus.Equals("Approved", StringComparison.CurrentCultureIgnoreCase))
+            {
+                empLeave.PendingLeave -= Convert.ToDecimal(leaveRequestModel.AppliedDays);
+                _context.EmployeeLeaves.Update(empLeave);
+                await _context.SaveChangesAsync();
+            }
+
             return leaveRequestModel;
         }
 
@@ -185,7 +198,7 @@ namespace Quirke.CRM.Domain.Services
             {
                 throw ex;
             }
-           
+
         }
 
         public async Task<bool> UpdateLeaveRequestStatusAsync(int id, string status)
@@ -197,6 +210,6 @@ namespace Quirke.CRM.Domain.Services
             await _context.SaveChangesAsync();
             return true;
         }
-         
+
     }
 }

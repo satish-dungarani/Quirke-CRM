@@ -16,6 +16,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="EmployeeId" />
                     <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="PendingLeave" />
                     <div class="form-group">
                         <label asp-for="LeaveTypeId" class="control-label"></label>
                         <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList"></select>
@@ -26,11 +27,11 @@
                         <input asp-for="AvailableLeave" class="form-control" />
                         <span asp-validation-for="AvailableLeave" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
+                    @* <div class="form-group">
                         <label asp-for="PendingLeave" class="control-label"></label>
                         <input asp-for="PendingLeave" class="form-control" />
                         <span asp-validation-for="PendingLeave" class="text-danger"></span>
-                    </div>
+                    </div> *@
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
                     </div>

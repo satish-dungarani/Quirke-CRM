@@ -2,7 +2,6 @@
 @{
     var title = Model.Id == 0 ? "Create Leave Request" : "Edit Leave Request";
 }
-
 <link href="~/lib/jquery/select2/select2.min.css" rel="stylesheet" />
 <link href="~/webcore/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
 
@@ -12,95 +11,99 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
 <style>
     .select2-selection {
         height: calc(2.25rem + 2px) !important;
     }
 </style>
 
-<form asp-action="ManageRequest" method="post" id="frmRequest" enctype="multipart/form-data">
+<form asp-action="ManageRequests" method="post" id="frmRequest" enctype="multipart/form-data">
     <div class="modal-body">
+        <div class="card-body">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class="form-control" asp-items="Model.EmployeeList">
+                    <option></option>
+                </select>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
 
-        <input type="hidden" class="form-control" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="LeaveTypeId" class="control-label"></label>
+                <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList">
+                    <option></option>
+                </select>
+                <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
+            </div>
 
-        <div class="form-group">
-            <label asp-for="EmployeeId" class="control-label"></label>
-            <select asp-for="EmployeeId" class="form-control" asp-items="Model.EmployeeList">
-                <option></option>
-            </select>
-            <span asp-validation-for="EmployeeId" class="text-danger"></span>
-        </div>
+            @{
+                var leaveDuration = Model?.LeaveDuration ?? "Full Day";
+            }
 
-        <div class="form-group">
-            <label asp-for="LeaveTypeId" class="control-label"></label>
-            <select asp-for="LeaveTypeId" class="form-control" asp-items="Model.LeaveTypeList">
-                <option></option>
-            </select>
-            <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
-        </div>
-
-        <div class="form-group clearfix">
-            <label asp-for="LeaveDuration" class="control-label"></label>
-            <div class="row">
-                <div class="icheck-primary d-inline col-md-4">
-                    <input type="radio" id="radioPrimary1" name="LeaveDuration" value="Half Day" checked="@Model.LeaveDuration == " Half Day"">
-                    <label for="radioPrimary1">Half Day</label>
+            <div class="form-group clearfix">
+                <label asp-for="LeaveDuration" class="control-label"></label>
+                <div class="row">
+                    <div class="icheck-primary d-inline col-md-4">
+                        <input type="radio" id="radioPrimary1" name="LeaveDuration" value="Half Day" @(leaveDuration == "Half Day" ? "checked" : "")>
+                        <label for="radioPrimary1">Half Day</label>
+                    </div>
+                    <div class="icheck-primary d-inline col-md-4">
+                        <input type="radio" id="radioPrimary2" name="LeaveDuration" value="Full Day" @(leaveDuration == "Full Day" ? "checked" : "")>
+                        <label for="radioPrimary2">Full Day</label>
+                    </div>
+                    <div class="icheck-primary d-inline col-md-4">
+                        <input type="radio" id="radioPrimary3" name="LeaveDuration" value="Multiple Days" @(leaveDuration == "Multiple Days" ? "checked" : "")>
+                        <label for="radioPrimary3">Multiple Days</label>
+                    </div>
                 </div>
-                <div class="icheck-primary d-inline col-md-4">
-                    <input type="radio" id="radioPrimary2" name="LeaveDuration" value="Full Day" checked="@Model.LeaveDuration == " Full Day"">
-                    <label for="radioPrimary2">Full Day</label>
-                </div>
-                <div class="icheck-primary d-inline col-md-4">
-                    <input type="radio" id="radioPrimary3" name="LeaveDuration" value="Multiple Days" checked="@Model.LeaveDuration == " Multiple Days"">
-                    <label for="radioPrimary3">Multiple Days</label>
+                <span asp-validation-for="LeaveDuration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="row col-md-12">
+                    <div class="col-md-6">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" type="date" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" type="date" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <span asp-validation-for="LeaveDuration" class="text-danger"></span>
-        </div>
 
-        <div class="form-group">
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                    <label asp-for="StartDate" class="control-label"></label>
-                    <input asp-for="StartDate" class="form-control" type="date" />
-                    <span asp-validation-for="StartDate" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <textarea asp-for="Note" class="form-control"></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Document" class="control-label"></label>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="frmLeaveFile" asp-for="Document">
+                        <label class="custom-file-label" for="Document">Choose File</label>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label asp-for="EndDate" class="control-label"></label>
-                    <input asp-for="EndDate" class="form-control" type="date" />
-                    <span asp-validation-for="EndDate" class="text-danger"></span>
-                </div>
+                <span asp-validation-for="Document" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RequestStatus" class="control-label"></label>
+                <select asp-for="RequestStatus" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+                <span asp-validation-for="RequestStatus" class="text-danger"></span>
             </div>
         </div>
-
-        <div class="form-group">
-            <label asp-for="Note" class="control-label"></label>
-            <textarea asp-for="Note" class="form-control"></textarea>
-            <span asp-validation-for="Note" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Document" class="control-label"></label>
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="frmLeaveFile" asp-for="Document">
-                    <label class="custom-file-label" for="Document">Choose File</label>
-                </div>
-            </div>
-            <span asp-validation-for="Document" class="text-danger"></span>
-        </div>
-        
-        <div class="form-group">
-            <label asp-for="RequestStatus" class="control-label"></label>
-            <select asp-for="RequestStatus" class="form-control">
-                <option value="">Select Status</option>
-                <option value="Pending">Pending</option>
-                <option value="Approved">Approved</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-            <span asp-validation-for="RequestStatus" class="text-danger"></span>
-        </div>
-
     </div>
     <div class="modal-footer  text-center">
         <button type="button" class="btn btn-danger" onclick="funCloseModal()">Close</button>
@@ -108,7 +111,6 @@
     </div>
 </form>
 
-<script src="~/lib/jquery/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation/additional-methods.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
@@ -116,10 +118,6 @@
 
 <script>
     $(document).ready(function () {
-        // var today = moment().format('YYYY-MM-DD');
-
-        // $('#StartDate').attr('min', today);
-        // $('#EndDate').attr('min', today);
 
         $('.custom-file-input').on('change', function () {
             var fileName = $(this).val().split('\\').pop();
@@ -132,6 +130,7 @@
             width: 'resolve',
             outerHeight: 'resolve',
         });
+
         $("#LeaveTypeId").select2({
             placeholder: "Select Leave Type",
             allowClear: true,
@@ -149,7 +148,6 @@
                     dataType: 'json',
                     data: { employeeId: employeeId },
                     success: function (leaveTypes) {
-                        debugger
                         if (leaveTypes.length == 0) {
                             $("#EmployeeId").val('').change();
                             Swal.fire({
@@ -159,8 +157,7 @@
                                 confirmButtonText: 'OK'
                             });
                             return;
-                        }
-                        else {
+                        } else {
                             var leaveTypeSelect = $("#LeaveTypeId");
                             leaveTypeSelect.empty();
 
@@ -199,5 +196,58 @@
         $('#StartDate').on('change', function () {
             handleDateFields();
         });
+
+        $('#frmRequest').submit(function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                type: form.attr('method'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    debugger
+                    if (response == null) {
+                        return false;
+                    }
+
+                    if (response.result) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.msg,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                        .then((result) => {
+                            // if (result.isConfirmed) {
+                            //     funCloseModal();
+                            // }
+                        });
+                        funCloseModal();
+                    } else if (!response.result) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: response.msg,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Submission failed: ", error);
+                    Swal.fire({
+                        title: 'Submission Failed!',
+                        text: "There was an issue submitting your request. Please try again.",
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+
     });
 </script>

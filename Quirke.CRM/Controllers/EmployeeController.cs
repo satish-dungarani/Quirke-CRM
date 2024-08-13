@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
@@ -242,12 +244,35 @@ namespace Quirke.CRM.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ManageRequest(LeaveRequestModel model, IFormFile frmLeaveFile)
+        public async Task<IActionResult> ManageRequests(LeaveRequestModel model, IFormFile frmLeaveFile)
         {
-            decimal remainingDays = await _employeeService.RmainingLeaves(model.EmployeeId, model.LeaveTypeId);
-            if (remainingDays > 0)
+            ModelState.Remove(nameof(model.Id));
+
+            if (!ModelState.IsValid) { return Json(null); };
+
+            if (model.LeaveDuration == "Half Day")
             {
-                return View(model);
+                model.AppliedDays = 0.5m;
+            }
+            else if (model.LeaveDuration == "Full Day")
+            {
+                model.AppliedDays = 1.0m;
+            }
+            else
+            {
+                TimeSpan difference = Convert.ToDateTime(model.EndDate) - Convert.ToDateTime(model.StartDate);
+                model.AppliedDays = difference.Days + 1;
+            }
+
+            decimal remainingDays = await _employeeService.RmainingLeaves(model.EmployeeId, model.LeaveTypeId);
+
+            if (model.AppliedDays > remainingDays)
+            {
+                return Json(new
+                {
+                    result = false,
+                    msg = "Remainig leaves - " + remainingDays
+                });
             }
 
             if (frmLeaveFile != null && frmLeaveFile.Length > 0)
@@ -258,15 +283,21 @@ namespace Quirke.CRM.Controllers
                     model.Document = Convert.ToBase64String(stream.ToArray());
                 }
             }
+            string strMessage;
             if (model.Id == 0)
             {
                 await _leaveRequestService.CreateLeaveRequestAsync(model);
+                strMessage = "Leave request saved successfully!";
             }
             else
             {
                 await _leaveRequestService.UpdateLeaveRequestAsync(model);
+                strMessage = "Leave request updated successfully!";
             }
-            return RedirectToAction(nameof(LeaveRequest));
+
+            var empLeave = await _employeeService.GetEmployeeLeavesByEmployeeIdAsync(model.EmployeeId);
+
+            return Json(new { result = true, msg = strMessage });
         }
 
         [HttpGet]
@@ -279,13 +310,13 @@ namespace Quirke.CRM.Controllers
         public async Task<IActionResult> DeleteRequest(int id)
         {
             var model = await _leaveRequestService.DeleteLeaveRequestAsync(id);
-            return Json(new { result = true , msg = "Leave request successfully deleted." });
+            return Json(new { result = true, msg = "Leave request successfully deleted." });
         }
 
         [HttpGet]
         public async Task<JsonResult> GetLeaveTypesByEmployee(int employeeId)
         {
-            var leaveTypes = await _employeeService.GetLeaveTypesForEmployeeAsync(employeeId); 
+            var leaveTypes = await _employeeService.GetLeaveTypesForEmployeeAsync(employeeId);
 
             return Json(leaveTypes);
         }

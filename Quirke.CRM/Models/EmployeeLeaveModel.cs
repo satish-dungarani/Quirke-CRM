@@ -21,12 +21,13 @@ namespace Quirke.CRM.Models
         [Display(Name = "Leave Type")]
         public int LeaveTypeId { get; set; }
 
-        [Range(0, 99.99, ErrorMessage = "Available Leave must be between 0 and 99.99.")]
-        [Display(Name = "Available Leave")]
+        [Required(ErrorMessage = "Total accrued leave is required.")]
+        [Range(0, 99.99, ErrorMessage = "Total accrued leave must be between 0 and 99.99.")]
+        [Display(Name = "Total accrued leave")]
         public decimal AvailableLeave { get; set; }
 
-        [Range(0, 99.99, ErrorMessage = "Pending Leave must be between 0 and 99.99.")]
-        [Display(Name = "Pending Leave")]
+        [Range(0, 99.99, ErrorMessage = "Remaining Leave must be between 0 and 99.99.")]
+        [Display(Name = "Remaining Leave")]
         public decimal PendingLeave { get; set; }
 
         [Required]
