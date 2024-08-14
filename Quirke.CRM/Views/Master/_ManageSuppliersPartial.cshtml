@@ -1,0 +1,114 @@
+﻿@model SupplierModel
+
+@{
+    var title = Model.Id == 0 ? "Create Supplier" : "Edit Supplier";
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="commonModalCenterTitle">@title</h5>
+    <button type="button" class="close" aria-label="Close" onclick="funCloseModal();">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form id="supplierForm" asp-action="ManageSupplier" method="post">
+    <div class="modal-body">
+        <div class="card-body">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactName" class="control-label"></label>
+                <input asp-for="ContactName" class="form-control" />
+                <span asp-validation-for="ContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactEmail" class="control-label"></label>
+                <input asp-for="ContactEmail" class="form-control" />
+                <span asp-validation-for="ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPhone" class="control-label"></label>
+                <input asp-for="ContactPhone" class="form-control" />
+                <span asp-validation-for="ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label mr-5"></label>
+                <input asp-for="IsActive" type="checkbox" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer  text-center">
+        <button type="button" class="btn btn-danger" onclick="funCloseModal()">Close</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
+    </div>
+
+</form>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#supplierForm').submit(function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                type: form.attr('method'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    debugger
+                    if (response == null) {
+                        return false;
+                    }
+
+                    if (response.result) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.msg,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                            .then((result) => {
+                                // if (result.isConfirmed) {
+                                //     funCloseModal();
+                                // }
+                            });
+                        funCloseModal();
+                    } else if (!response.result) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: response.msg,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Submission failed: ", error);
+                    Swal.fire({
+                        title: 'Submission Failed!',
+                        text: "There was an issue submitting your request. Please try again.",
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+
+    });
+</script>
+

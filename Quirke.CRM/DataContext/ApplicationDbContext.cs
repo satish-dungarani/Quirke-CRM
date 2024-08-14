@@ -7,7 +7,6 @@ namespace Quirke.CRM.DataContext
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -19,9 +18,14 @@ namespace Quirke.CRM.DataContext
         public DbSet<Master> Masters { get; set; }
         public DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
         public DbSet<LeaveRequest> LeaveRequests { get; set; }
-
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<CustomerRecord> CustomerRecords { get; set; }
+        public DbSet<InventoryHistory> InventoryHistories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -245,7 +249,137 @@ namespace Quirke.CRM.DataContext
 
             });
 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Supplier>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.ContactName)
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.ContactEmail)
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.ContactPhone)
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.Address)
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.IsActive)
+                    .HasDefaultValue(true);
+
+                entity.Property(e => e.CreatedOn)
+                    .IsRequired();
+
+                entity.Property(e => e.UpdatedOn)
+                    .IsRequired(false);
+            });
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                      .IsRequired()
+                      .HasMaxLength(100);
+
+                entity.Property(e => e.Description)
+                      .HasMaxLength(255);
+
+                entity.Property(e => e.Price)
+                      .HasColumnType("decimal(10, 2)")
+                      .IsRequired();
+
+                entity.Property(e => e.QuantityInStock)
+                      .HasDefaultValue(0);
+
+                entity.Property(e => e.IsActive)
+                      .HasDefaultValue(true);
+
+                entity.Property(e => e.CreatedOn)
+                      .IsRequired();
+
+                entity.HasOne(e => e.Brand)
+                      .WithMany()
+                      .HasForeignKey(e => e.BrandId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(e => e.Supplier)
+                      .WithMany()
+                      .HasForeignKey(e => e.SupplierId)
+                      .OnDelete(DeleteBehavior.SetNull);
+            });
+
+            modelBuilder.Entity<CustomerRecord>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasOne<Customer>()
+                      .WithMany() 
+                      .HasForeignKey(e => e.CustomerId)
+                      .OnDelete(DeleteBehavior.Cascade); 
+
+                entity.HasOne<Product>()
+                      .WithMany() 
+                      .HasForeignKey(e => e.ProductId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne<Master>()
+                      .WithMany() 
+                      .HasForeignKey(e => e.TreatmentId)
+                      .OnDelete(DeleteBehavior.Cascade); 
+
+                entity.HasOne<Employee>()
+                      .WithMany()
+                      .HasForeignKey(e => e.AttendedEmployeeId)
+                      .OnDelete(DeleteBehavior.SetNull); 
+
+                // Configure the properties
+                entity.Property(e => e.Strength)
+                      .HasMaxLength(100)
+                      .IsRequired(false);
+
+                entity.Property(e => e.DevTime)
+                      .IsRequired(false); 
+
+                entity.Property(e => e.Remark)
+                      .HasMaxLength(500)
+                      .IsRequired(false);
+
+                entity.Property(e => e.CreatedOn)
+                      .IsRequired();
+
+                entity.Property(e => e.UpdatedOn)
+                      .IsRequired(false); 
+
+                entity.ToTable("CustomerRecords");
+            });
+
+            modelBuilder.Entity<InventoryHistory>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasOne(e => e.Product)
+                    .WithMany()
+                    .HasForeignKey(e => e.ProductId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(e => e.QuantityInStock)
+                    .IsRequired()
+                    .HasDefaultValue(0);  
+
+                entity.Property(e => e.UpdatedQuantity)
+                    .IsRequired();
+
+                entity.Property(e => e.CreatedOn)
+                    .IsRequired();
+
+            });
         }
+
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain.Services;
+using Quirke.CRM.Filters;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -63,10 +64,20 @@ builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
 
 // Register the services
+builder.Services.AddScoped<CheckUserLoggedInFilter>();
+
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<CheckUserLoggedInFilter>();
+});
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IMasterService, MasterService>();
 builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
+builder.Services.AddScoped<ISupplierService, SupplierService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<ICommonService, CommonService>();
+
 
 
 var app = builder.Build();

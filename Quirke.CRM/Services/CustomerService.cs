@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
-using System.Reflection;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Quirke.CRM.Services
 {
@@ -16,7 +17,7 @@ namespace Quirke.CRM.Services
             _context = context;
         }
 
-        // Customer methods
+        #region Customers
         public async Task<IEnumerable<Customer>> GetAllCustomersAsync()
         {
             return await _context.Customers.ToListAsync();
@@ -50,7 +51,11 @@ namespace Quirke.CRM.Services
             }
         }
 
-        // CustomerCompliance methods
+
+        #endregion
+
+        #region Customers Compliance
+
         public async Task<IEnumerable<CustomerCompliance>> GetAllCustomerCompliancesAsync()
         {
             return await _context.CustomerCompliances.ToListAsync();
@@ -210,5 +215,168 @@ namespace Quirke.CRM.Services
                 };
             }
         }
+        #endregion
+
+        #region Customer Records
+
+        public async Task<IEnumerable<CustomerRecordModel>> GetAllCustomerRecordsByCustomerIdAsync(int customerId)
+        {
+            return await _context.CustomerRecords
+            .Where(record => record.CustomerId == customerId)
+            .Join(_context.Products,
+                record => record.ProductId,
+                product => product.Id,
+                (record, product) => new { record, product })
+            .Join(_context.Masters,
+                record => record.record.TreatmentId,
+                treatment => treatment.Id,
+                (record, treatment) => new { record.record, record.product, treatment })
+            .Join(_context.Employees,
+                record => record.record.AttendedEmployeeId,
+                employee => employee.Id,
+                (record, employee) => new CustomerRecordModel
+                {
+                    Id = record.record.Id,
+                    CustomerId = record.record.CustomerId,
+                    ProductId = record.product.Id,
+                    TreatmentId = record.treatment.Id,
+                    ServiceDate = record.record.ServiceDate,
+                    Strength = record.record.Strength,
+                    DevTime = record.record.DevTime,
+                    Remark = record.record.Remark,
+                    AttendedEmployeeId = record.record.AttendedEmployeeId,
+                    CreatedOn = record.record.CreatedOn,
+                    UpdatedOn = record.record.UpdatedOn,
+                    ProductName = record.product.Name ?? "",
+                    TreatmentName = record.treatment.Name ?? "",
+                    AttendedEmployeeName = employee == null ? "" : $"{employee.Firstname} {employee.Lastname}"
+                })
+            .ToListAsync();
+        }
+
+        public async Task<CustomerRecordModel> GetCustomerRecordByIdAsync(int id)
+        {
+            var record = await _context.CustomerRecords.FindAsync(id);
+
+            if (record == null)
+            {
+                throw new KeyNotFoundException($"Customer record with ID {id} not found.");
+            }
+            var model = new CustomerRecordModel()
+            {
+                Id = id,
+                CustomerId = record.CustomerId,
+                ProductId = record.ProductId,
+                AttendedEmployeeId = record.AttendedEmployeeId,
+                DevTime = record.DevTime,
+                ServiceDate = record.ServiceDate,
+                Strength = record.Strength,
+                CreatedOn = record.CreatedOn,
+                Remark = record.Remark,
+                TreatmentId = record.TreatmentId,
+                UpdatedOn = record.UpdatedOn
+            };
+
+            return model;
+        }
+
+        public async Task CreateCustomerRecordAsync(CustomerRecordModel customerRecordModel)
+        {
+            try
+            {
+                var record = new CustomerRecord
+                {
+                    CustomerId = customerRecordModel.CustomerId,
+                    ProductId = customerRecordModel.ProductId,
+                    TreatmentId = customerRecordModel.TreatmentId,
+                    ServiceDate = customerRecordModel.ServiceDate,
+                    Strength = customerRecordModel.Strength,
+                    DevTime = customerRecordModel.DevTime,
+                    Remark = customerRecordModel.Remark,
+                    AttendedEmployeeId = customerRecordModel.AttendedEmployeeId,
+                    CreatedOn = DateTime.Now,
+                };
+
+                _context.CustomerRecords.Add(record);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task UpdateCustomerRecordAsync(CustomerRecordModel customerRecordModel)
+        {
+            var record = await _context.CustomerRecords.FirstOrDefaultAsync(r => r.Id == customerRecordModel.Id);
+
+            if (record == null)
+            {
+                throw new KeyNotFoundException($"Customer record with ID {customerRecordModel.Id} not found.");
+            }
+
+            record.CustomerId = customerRecordModel.CustomerId;
+            record.ProductId = customerRecordModel.ProductId;
+            record.TreatmentId = customerRecordModel.TreatmentId;
+            record.ServiceDate = customerRecordModel.ServiceDate;
+            record.Strength = customerRecordModel.Strength;
+            record.DevTime = customerRecordModel.DevTime;
+            record.Remark = customerRecordModel.Remark;
+            record.AttendedEmployeeId = customerRecordModel.AttendedEmployeeId;
+            record.UpdatedOn = DateTime.Now;
+
+            _context.CustomerRecords.Update(record);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> DeleteCustomerRecordAsync(int id)
+        {
+            var record = await _context.CustomerRecords.FirstOrDefaultAsync(r => r.Id == id);
+            if (record == null)
+            {
+                return false;
+            }
+            _context.CustomerRecords.Remove(record);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetProductListAsync()
+        {
+            return await _context.Products
+                .Where(p => p.IsActive)
+                .Include(p => p.Brand)
+                .Select(s => new SelectListItem
+                {
+                    Value = s.Id.ToString(),
+                    Text = $"{s.Name} {"|"} {s.Brand.Name}"
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetTreatmentListAsync()
+        {
+            return await _context.Masters
+                .Where(m => m.MasterTypeId == (int)MasterType.Treatment)
+                .Select(m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Name
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetEmployeeListAsync()
+        {
+            return await _context.Employees
+                .Where(e => !e.IsDeleted)
+                .Select(e => new SelectListItem
+                {
+                    Value = e.Id.ToString(),
+                    Text = $"{e.Firstname} {e.Lastname}"
+                })
+                .ToListAsync();
+        }
+        #endregion
     }
 }

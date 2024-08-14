@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Quirke.CRM.DataContext;
 
@@ -11,9 +12,11 @@ using Quirke.CRM.DataContext;
 namespace Quirke.CRM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240813221719_QuirkeCRM")]
+    partial class QuirkeCRM
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,8 +292,11 @@ namespace Quirke.CRM.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DevTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<TimeSpan?>("DevTime")
+                        .HasColumnType("time");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -314,15 +320,15 @@ namespace Quirke.CRM.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AttendedEmployeeId");
-
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("EmployeeId");
 
                     b.HasIndex("ProductId");
 
                     b.HasIndex("TreatmentId");
 
-                    b.ToTable("CustomerRecords", (string)null);
+                    b.ToTable("CustomerRecords");
                 });
 
             modelBuilder.Entity("Quirke.CRM.Domain.Employee", b =>
@@ -737,28 +743,37 @@ namespace Quirke.CRM.Migrations
 
             modelBuilder.Entity("Quirke.CRM.Domain.CustomerRecord", b =>
                 {
-                    b.HasOne("Quirke.CRM.Domain.Employee", null)
-                        .WithMany()
-                        .HasForeignKey("AttendedEmployeeId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("Quirke.CRM.Domain.Customer", null)
+                    b.HasOne("Quirke.CRM.Domain.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Quirke.CRM.Domain.Product", null)
+                    b.HasOne("Quirke.CRM.Domain.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Quirke.CRM.Domain.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Quirke.CRM.Domain.Master", null)
+                    b.HasOne("Quirke.CRM.Domain.Master", "Treatment")
                         .WithMany()
                         .HasForeignKey("TreatmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Treatment");
                 });
 
             modelBuilder.Entity("Quirke.CRM.Domain.EmployeeLeave", b =>

@@ -263,7 +263,7 @@ namespace Quirke.CRM.Controllers
             }
             return View(model);
         }
-       
+
         public async Task<IActionResult> DeleteCompliance(int customerId, int id)
         {
             await _customerService.DeleteCustomerComplianceAsync(id);
@@ -287,7 +287,60 @@ namespace Quirke.CRM.Controllers
         #endregion
 
         #region Record
+        [HttpGet]
+        public async Task<JsonResult> GetAllCustomerRecordData(int CustomerId)
+        {
+            var records = await _customerService.GetAllCustomerRecordsByCustomerIdAsync(CustomerId);
+            return Json(new { data = records });
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> ManageCustomerRecord(int customerId, int? id)
+        {
+            var model = id.HasValue
+                ? await _customerService.GetCustomerRecordByIdAsync(id.Value)
+                : new CustomerRecordModel() { CustomerId = customerId };
+
+            model.ProductList = await _customerService.GetProductListAsync();
+            model.TreatmentList = await _customerService.GetTreatmentListAsync();
+            model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
+
+            return PartialView("_ManageCustomerRecordPartial", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ManageCustomerRecord(CustomerRecordModel model)
+        {
+            ModelState.Remove(nameof(model.Id));
+            if (!ModelState.IsValid)
+            {
+                model.ProductList = await _customerService.GetProductListAsync();
+                model.TreatmentList = await _customerService.GetTreatmentListAsync();
+                model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
+                return PartialView("_ManageCustomerRecordPartial", model);
+            }
+
+            string strMessage;
+            if (model.Id == 0)
+            {
+                strMessage = "Customer record saved successfully";
+                await _customerService.CreateCustomerRecordAsync(model);
+            }
+            else
+            {
+                strMessage = "Customer record updated successfully";
+                await _customerService.UpdateCustomerRecordAsync(model);
+            }
+
+            return Json(new { result = true, msg = strMessage });
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> DeleteCustomerRecord(int id)
+        {
+            var success = await _customerService.DeleteCustomerRecordAsync(id);
+            return Json(new { result = success, msg = success ? "Customer record deleted successfully." : "Failed to delete customer record." });
+        }
         #endregion
     }
 }

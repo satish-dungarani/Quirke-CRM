@@ -314,6 +314,137 @@ namespace Quirke.CRM.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Suppliers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    ContactName = table.Column<string>(maxLength: 100, nullable: true),
+                    ContactEmail = table.Column<string>(maxLength: 100, nullable: true),
+                    ContactPhone = table.Column<string>(maxLength: 20, nullable: true),
+                    Address = table.Column<string>(maxLength: 255, nullable: true),
+                    IsActive = table.Column<bool>(nullable: false, defaultValue: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Suppliers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BrandId = table.Column<int>(nullable: false),
+                    SupplierId = table.Column<int>(nullable: true),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    Description = table.Column<string>(maxLength: 255, nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
+                    QuantityInStock = table.Column<int>(nullable: false, defaultValue: 0),
+                    IsActive = table.Column<bool>(nullable: false, defaultValue: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    UpdatedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+            name: "CustomerRecords",
+            columns: table => new
+            {
+                Id = table.Column<int>(nullable: false)
+                    .Annotation("SqlServer:Identity", "1, 1"),
+                CustomerId = table.Column<int>(nullable: false),
+                ProductId = table.Column<int>(nullable: false),
+                TreatmentId = table.Column<int>(nullable: false),
+                ServiceDate = table.Column<DateTime>(nullable: false),
+                Strength = table.Column<string>(maxLength: 100, nullable: true),
+                DevTime = table.Column<TimeSpan>(nullable: true),
+                Remark = table.Column<string>(maxLength: 500, nullable: true),
+                AttendedEmployeeId = table.Column<int>(nullable: true),
+                CreatedOn = table.Column<DateTime>(nullable: false),
+                UpdatedOn = table.Column<DateTime>(nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_CustomerRecords", x => x.Id);
+                table.ForeignKey(
+                    name: "FK_CustomerRecords_Customers_CustomerId",
+                    column: x => x.CustomerId,
+                    principalTable: "Customers",
+                    principalColumn: "Id",
+                    onDelete: ReferentialAction.Restrict);
+                table.ForeignKey(
+                    name: "FK_CustomerRecords_Products_ProductId",
+                    column: x => x.ProductId,
+                    principalTable: "Products",
+                    principalColumn: "Id",
+                    onDelete: ReferentialAction.Restrict);
+                table.ForeignKey(
+                    name: "FK_CustomerRecords_Masters_TreatmentId",
+                    column: x => x.TreatmentId,
+                    principalTable: "Masters",
+                    principalColumn: "Id",
+                    onDelete: ReferentialAction.Restrict);
+                table.ForeignKey(
+                    name: "FK_CustomerRecords_Employees_AttendedEmployeeId",
+                    column: x => x.AttendedEmployeeId,
+                    principalTable: "Employees",
+                    principalColumn: "Id",
+                    onDelete: ReferentialAction.Restrict);
+            });
+
+
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerRecords_CustomerId",
+                table: "CustomerRecords",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerRecords_ProductId",
+                table: "CustomerRecords",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerRecords_TreatmentId",
+                table: "CustomerRecords",
+                column: "TreatmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerRecords_AttendedEmployeeId",
+                table: "CustomerRecords",
+                column: "AttendedEmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_BrandId",
+                table: "Products",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SupplierId",
+                table: "Products",
+                column: "SupplierId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_LeaveRequests_EmployeeId",
                 table: "LeaveRequests",
@@ -420,6 +551,15 @@ namespace Quirke.CRM.Migrations
 
             migrationBuilder.DropTable(
                name: "LeaveRequests");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
+
+            migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "CustomerRecords");
         }
     }
 }

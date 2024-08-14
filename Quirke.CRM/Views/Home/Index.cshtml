@@ -1,38 +1,75 @@
-﻿@{
+﻿@model DashboardViewModel
+
+@{
     ViewData["Title"] = "Dashboard";
 }
 
-<script src="~/lib/jquery/jquery.min.js"></script>
-<script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+   
+   
+    <section class="content pt-3">
+        <!-- Info boxes -->
+        <div class="row">
+            <!-- Total Customers -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-gradient-gray"><i class="fa fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Customers</span>
+                        <span class="info-box-number">@Model.TotalCustomers</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Total Employees -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Employees</span>
+                        <span class="info-box-number">@Model.TotalEmployees</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Pending Leave Requests -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-calendar"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Pending Leave Requests</span>
+                        <span class="info-box-number">@Model.PendingLeaveRequests</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Total Products -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-cubes"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Products</span>
+                        <span class="info-box-number">@Model.TotalProducts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script>
-    $(document).ready(function () {
-        var successMessage = '@TempData["SuccessMessage"]';
-        var warningMessage = '@TempData["WarningMessage"]';
-        var errorMessage = '@TempData["ErrorMessage"]';
-        if (successMessage) {
-            Swal.fire({
-                title: 'Success!',
-                text: successMessage,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        }
-        if (warningMessage) {
-            Swal.fire({
-                title: 'Warning!',
-                text: warningMessage,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-        }
-        if (errorMessage) {
-            Swal.fire({
-                title: 'Error!',
-                text: errorMessage,
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
-    });
-</script>
+        <!-- Low Stock Products -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Low Stock Products</h3>
+                        <div class="box-tools pull-right">
+                            <span class="label label-danger">@Model.LowStockProductsCount</span>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <p>
+                            There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
+                        </p>
+                        <!-- You could add a table or a list here to display more detailed low stock information if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+

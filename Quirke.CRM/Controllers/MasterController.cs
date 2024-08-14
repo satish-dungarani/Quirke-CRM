@@ -10,11 +10,15 @@ namespace Quirke.CRM.Controllers
     public class MasterController : BaseController
     {
         protected readonly IMasterService _masterService;
-        public MasterController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context, RoleManager<IdentityRole> roleManager, IMasterService masterService) : base(userManager, null, _context, roleManager)
+        protected readonly ISupplierService _supplierService;
+        public MasterController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context, RoleManager<IdentityRole> roleManager, IMasterService masterService, ISupplierService supplierService) : base(userManager, null, _context, roleManager)
         {
             _masterService = masterService;
+            _supplierService = supplierService;
         }
 
+
+        #region Masters
 
         public IActionResult Index(int id)
         {
@@ -70,5 +74,77 @@ namespace Quirke.CRM.Controllers
             var model = await _masterService.DeleteAsync(id);
             return Json(new { result = true, msg = "Deleted successfully." });
         }
+        #endregion
+
+        #region Suppliers
+        public IActionResult Suppliers()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetSuppliersData()
+        {
+            var suppliers = await _supplierService.GetAllSuppliersAsync();
+            return Json(new { data = suppliers });
+        }
+
+        public async Task<IActionResult> ManageSupplier(int? id)
+        {
+            SupplierModel supplier;
+
+            if (id.HasValue && id.Value > 0)
+            {
+                supplier = await _supplierService.GetSupplierByIdAsync(id.Value);
+                if (supplier == null)
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                supplier = new SupplierModel();
+            }
+
+            return PartialView("_ManageSuppliersPartial", supplier);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ManageSupplier(SupplierModel model)
+        {
+            ModelState.Remove(nameof(model.Id));
+
+            if (!ModelState.IsValid) { return Json(null); };
+
+            string strMessage;
+            if (model.Id == 0)
+            {
+                strMessage = "Supplier data saved successfully";
+                await _supplierService.CreateSupplierAsync(model);
+            }
+            else
+            {
+                strMessage = "Supplier data updated successfully";
+            }   await _supplierService.UpdateSupplierAsync(model);
+
+            return Json(new { result = true, msg = strMessage });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteSupplier(int id)
+        {
+            bool result = await _supplierService.DeleteSupplierAsync(id);
+
+            if (result)
+            {
+                return Json(new { result = true, msg = "Supplier deleted successfully." });
+            }
+            else
+            {
+                return Json(new { result = false, msg = "Error deleting supplier." });
+            }
+        }
+
+        #endregion
     }
 }

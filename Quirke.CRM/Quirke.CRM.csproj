@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\_20240806141530_InitialCreate.cs" />
+    <Compile Remove="Migrations\_20240806141530_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\_20240813221719_QuirkeCRM.cs" />
+    <Compile Remove="Migrations\_20240813221719_QuirkeCRM.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.3" />
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="jQuery.Validation" Version="1.21.0" />
