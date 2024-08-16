@@ -90,6 +90,31 @@ namespace Quirke.CRM.Services
                UpdatedOn = e.UpdatedOn
            }).ToListAsync();
         }
+        public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesPagingAsync(int page = 1, int pageSize = 10)
+        {
+            return await _context.Employees
+           .Where(e => !e.IsDeleted)
+           .Skip((page - 1) * pageSize)
+           .Take(pageSize)
+           .Select(e => new EmployeeModel
+           {
+               Id = e.Id,
+               Firstname = e.Firstname,
+               Lastname = e.Lastname,
+               Gender = e.Gender,
+               BirthDate = e.BirthDate,
+               PhoneNumber = e.PhoneNumber,
+               EmergencyContact = e.EmergencyContact,
+               Email = e.Email,
+               HireDate = e.HireDate,
+               JobTitle = e.JobTitle,
+               Picture = e.Picture,
+               IdentityDocument = e.IdentityDocument,
+               IsDeleted = e.IsDeleted,
+               CreatedOn = e.CreatedOn,
+               UpdatedOn = e.UpdatedOn
+           }).ToListAsync();
+        }
 
         public async Task<bool> UpdateEmployeeAsync(EmployeeModel employee)
         {

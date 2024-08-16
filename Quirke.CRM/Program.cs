@@ -7,11 +7,13 @@ using Quirke.CRM.Filters;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 IWebHostEnvironment environment = builder.Environment;
+
+builder.Logging.ClearProviders();
+builder.Logging.AddLog4Net("log4net.config");
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -27,7 +29,6 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
-    // Use the default property (Pascal) casing
     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
 });
 
@@ -41,8 +42,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
 
-    options.User.AllowedUserNameCharacters =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = false;
 });
 
@@ -56,20 +56,17 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-//lower url
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddMvc();
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register the services
 builder.Services.AddScoped<CheckUserLoggedInFilter>();
-
 builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add<CheckUserLoggedInFilter>();
 });
+
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IMasterService, MasterService>();
@@ -78,26 +75,19 @@ builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<ICommonService, CommonService>();
 
-
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

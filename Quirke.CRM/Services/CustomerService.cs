@@ -71,6 +71,7 @@ namespace Quirke.CRM.Services
             var compliance = new CustomerCompliance
             {
                 CustomerId = model.CustomerId,
+                IsIdentityProvided = model.IsIdentityProvided,
                 IsAllergicToColour = model.IsAllergicToColour,
                 AllergicColourDetails = model.AllergicColourDetails,
                 IsDamagedScalp = model.IsDamagedScalp,
@@ -99,6 +100,7 @@ namespace Quirke.CRM.Services
             var compliance = await _context.CustomerCompliances.FindAsync(model.Id);
             if (compliance != null)
             {
+                compliance.IsIdentityProvided = model.IsIdentityProvided;
                 compliance.IsAllergicToColour = model.IsAllergicToColour;
                 compliance.AllergicColourDetails = model.AllergicColourDetails;
                 compliance.IsDamagedScalp = model.IsDamagedScalp;
@@ -195,6 +197,7 @@ namespace Quirke.CRM.Services
                     BirthDate = customer.BirtDate,
                     Mobile = customer.Mobile,
                     Status = compliance.Status,
+                    IsIdentityProvided = compliance.IsIdentityProvided,
                     IsAllergicToColour = compliance.IsAllergicToColour,
                     AllergicColourDetails = compliance.AllergicColourDetails,
                     IsDamagedScalp = compliance.IsDamagedScalp,

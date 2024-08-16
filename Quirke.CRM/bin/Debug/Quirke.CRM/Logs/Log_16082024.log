@@ -1,0 +1,51 @@
+2024-08-16 19:25:40,583 [1] INFO  Microsoft.Hosting.Lifetime Now listening on: https://localhost:7175 
+2024-08-16 19:25:40,594 [1] INFO  Microsoft.Hosting.Lifetime Now listening on: http://localhost:5231 
+2024-08-16 19:25:40,598 [1] INFO  Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down. 
+2024-08-16 19:25:40,599 [1] INFO  Microsoft.Hosting.Lifetime Hosting environment: Development 
+2024-08-16 19:25:40,600 [1] INFO  Microsoft.Hosting.Lifetime Content root path: C:\Satish\Final Project\CRM\Quirke.CRM 
+2024-08-16 19:25:41,511 [10] INFO  Quirke.CRM.Controllers.HomeController _logger.LogInformation 
+2024-08-16 19:25:41,516 [10] INFO  Quirke.CRM.Common.LogHelper LogHelper.logger.Info 
+2024-08-16 19:25:41,517 [10] INFO  Quirke.CRM.Controllers.HomeController log.Info 
+2024-08-16 19:25:43,183 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (42ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Customers] AS [c] 
+2024-08-16 19:25:43,245 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e] 
+2024-08-16 19:25:43,288 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [LeaveRequests] AS [l]
+WHERE [l].[RequestStatus] = N'Pending' 
+2024-08-16 19:25:43,296 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p] 
+2024-08-16 19:25:43,338 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (26ms) [Parameters=[@__threshold_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[QuantityInStock] <= @__threshold_0 
+2024-08-16 19:25:49,914 [9] INFO  Quirke.CRM.Controllers.HomeController _logger.LogInformation 
+2024-08-16 19:25:49,915 [9] INFO  Quirke.CRM.Common.LogHelper LogHelper.logger.Info 
+2024-08-16 19:25:49,917 [9] INFO  Quirke.CRM.Controllers.HomeController log.Info 
+2024-08-16 19:25:50,011 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[BirtDate], [c].[CreatedOn], [c].[Email], [c].[Firstname], [c].[Gender], [c].[Lastname], [c].[Mobile]
+FROM [Customers] AS [c] 
+2024-08-16 19:25:51,110 [9] INFO  Quirke.CRM.Controllers.HomeController _logger.LogInformation 
+2024-08-16 19:25:51,111 [9] INFO  Quirke.CRM.Common.LogHelper LogHelper.logger.Info 
+2024-08-16 19:25:51,111 [9] INFO  Quirke.CRM.Controllers.HomeController log.Info 
+2024-08-16 19:25:51,183 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Customers] AS [c] 
+2024-08-16 19:25:51,189 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e] 
+2024-08-16 19:25:51,194 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [LeaveRequests] AS [l]
+WHERE [l].[RequestStatus] = N'Pending' 
+2024-08-16 19:25:51,197 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p] 
+2024-08-16 19:25:51,201 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@__threshold_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[QuantityInStock] <= @__threshold_0 

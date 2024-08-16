@@ -44,7 +44,7 @@
         .logo {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
         }
 
         .form-check-label {
@@ -98,39 +98,46 @@
 <body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
 
     <div class="container">
-        <div class="text-center mb-4">
-            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
-        </div>
+        @*  <div class="text-center mb-4">
+        <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+        </div> *@
         <section class="content">
             <div class="container-fluid">
                 <div class="card shadow-sm">
                     <div class="card-header">
+                        <div class="text-center">
+                            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+                            <br />
+                            <small style="font-size:0.60em;color:#adad9f;">72 Taff Street, Pontypridd, CF37 4SU, t.01443 401 012</small>
+                        </div>
+                    </div>
+                    <div class="card-body">
                         @if (Model != null && Model.CustomerId > 0)
                         {
                             <div class="row">
-                                <p class="mb-0">
-                                    <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
-                                    <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
-                                    <strong>Mobile:</strong> @Model.Mobile
-                                </p>
-                            </div>
+                            <div class="col-md-4"><strong>Client Name:</strong> @Model.Firstname @Model.Lastname</div>
+                            <div class="col-md-4"><strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd")</div>
+                            <div class="col-md-4"><strong>Mobile:</strong> @Model.Mobile</div></div>
+                            <br />
                         }
-                        else
-                        {
-                            <h1 class="card-title">
-                                Customer Compliance
-                            </h1>
-                        }
-                    </div>
-                    <div class="card-body">
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsOver16"></label>
+                                    <p>@(Model.IsOver16 ? "Yes" : "No")</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="IsIdentityProvided"></label>
+                                    <p>@Model.IsIdentityProvided</p>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: 700;" asp-for="IsAllergicToColour"></label>
                                     <p>@(Model.IsAllergicToColour ? "Yes" : "No")</p>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Allergic Colour Details:</label>
+                                    <label style="font-weight: 700;" asp-for="AllergicColourDetails"></label>
                                     <p>@Model.AllergicColourDetails</p>
                                 </div>
                             </div>
@@ -140,7 +147,7 @@
                                     <p>@(Model.IsDamagedScalp ? "Yes" : "No")</p>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Scalp Details:</label>
+                                    <label style="font-weight: 700;" asp-for="ScalpDetails"></label>
                                     <p>@Model.ScalpDetails</p>
                                 </div>
                             </div>
@@ -153,7 +160,7 @@
                                     <p>@(Model.HasTattoo ? "Yes" : "No")</p>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Tattoo Details:</label>
+                                    <label style="font-weight: 700;" asp-for="TattooDetails"></label>
                                     <p>@Model.TattooDetails</p>
                                 </div>
                             </div>
@@ -163,7 +170,7 @@
                                     <p>@(Model.IsAllergicToProduct ? "Yes" : "No")</p>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Allergic Product Details:</label>
+                                    <label style="font-weight: 700;" asp-for="AllergicProductDetails"></label>
                                     <p>@Model.AllergicProductDetails</p>
                                 </div>
                             </div>
@@ -172,18 +179,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Test Schedule On:</label>
+                                    <label style="font-weight: 700;" asp-for="TestScheduleOn"></label>
                                     <p>@Model.TestScheduleOn?.ToString("yyyy-MM-dd")</p>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Test Date:</label>
+                                    <label style="font-weight: 700;" asp-for="TestDate"></label>
                                     <p>@Model.TestDate?.ToString("yyyy-MM-dd")</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-weight: 700;" asp-for="Status"></label>
-
                                     @if (Model.Status == "Pending")
                                     {
                                         <span class="ctmBedge-pending">@Model.Status</span>
@@ -204,7 +210,7 @@
                                 </div>
                                 <br />
                                 <div class="form-group">
-                                    <label style="font-weight: 700;">Observed By:</label>
+                                    <label style="font-weight: 700;" asp-for="ObservedBy"></label>
                                     <p>@Model.ObservedBy</p>
                                 </div>
                             </div>

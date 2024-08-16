@@ -1,5 +1,9 @@
+using log4net;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Quirke.CRM.Common;
+using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 using System.Diagnostics;
@@ -7,17 +11,16 @@ using System.Diagnostics;
 namespace Quirke.CRM.Controllers
 {
     [Authorize]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly ICommonService _commonService;
 
-
-        public HomeController(ILogger<HomeController> logger, ICommonService commonService)
+        public HomeController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context,
+           RoleManager<IdentityRole> roleManager, ICommonService commonService) : base(userManager, null, _context, roleManager)
         {
-            _logger = logger;
             _commonService = commonService;
         }
+
         public async Task<IActionResult> Index()
         {
             if (!User.Identity.IsAuthenticated)
@@ -45,7 +48,5 @@ namespace Quirke.CRM.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-         
-       
     }
 }

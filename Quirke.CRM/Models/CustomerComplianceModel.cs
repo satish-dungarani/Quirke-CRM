@@ -30,11 +30,21 @@ namespace Quirke.CRM.Models
         [Display(Name = "Customer Id")]
         public int CustomerId { get; set; }
 
-        [Display(Name = "Is Over 16")]
-        public bool IsOver16 => BirthDate.HasValue && DateTime.Now.Year - BirthDate.Value.Year >= 16 &&
-                                (DateTime.Now.Month > BirthDate.Value.Month ||
-                                DateTime.Now.Month == BirthDate.Value.Month && DateTime.Now.Day >= BirthDate.Value.Day);
+        [Display(Name = "Is Over 16?")]
+        public bool IsOver16 => BirthDate.HasValue &&
+                        (DateTime.Today.Year - BirthDate.Value.Year > 16 ||
+                        (DateTime.Today.Year - BirthDate.Value.Year == 16 &&
+                        (DateTime.Today.Month > BirthDate.Value.Month ||
+                        (DateTime.Today.Month == BirthDate.Value.Month &&
+                        DateTime.Today.Day >= BirthDate.Value.Day))));
 
+
+        //public bool IsOver16 => BirthDate.HasValue && DateTime.Now.Year - BirthDate.Value.Year >= 16 &&
+        //                        (DateTime.Now.Month > BirthDate.Value.Month ||
+        //                        DateTime.Now.Month == BirthDate.Value.Month && DateTime.Now.Day >= BirthDate.Value.Day);
+
+        [Display(Name = "Identification provided?")]
+        public bool IsIdentityProvided { get; set; }
         [Display(Name = "Has your client ever had an allergic reaction to hair colour?")]
         public bool IsAllergicToColour { get; set; }
 
@@ -65,7 +75,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "Can the Service go ahead?")]
         public bool CanTakeService { get; set; }
 
-        [Display(Name = "Allergy Skin Test done")]
+        [Display(Name = "Allergy Skin Test done?")]
         public bool IsAllergyTestDone { get; set; }
 
         [Display(Name = "Test Schedule On Date")]

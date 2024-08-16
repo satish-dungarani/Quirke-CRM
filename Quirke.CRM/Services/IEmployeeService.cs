@@ -28,5 +28,6 @@ namespace Quirke.CRM.Services
         Task<bool> IsDuplicateLeaveAsync(int employeeId, int leaveTypeId, int? excludeId = null);
         Task<List<SelectListItem>> GetLeaveTypesForEmployeeAsync(int employeeId);
         Task<decimal> RmainingLeaves(int employeeId, int leaveTypeId);
+        Task<IEnumerable<EmployeeModel>> GetAllEmployeesPagingAsync(int page = 1, int pageSize = 10);
     }
 }

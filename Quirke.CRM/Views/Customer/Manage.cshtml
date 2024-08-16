@@ -14,11 +14,6 @@
                 </h1>
                 <a class="btn btn-primary  btn-sm float-right ml-2" href="@Url.Action("Index","Customer")">Back to list</a>
 
-                @if (Model.Id > 0)
-                {
-                    <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageCompliance","Customer", new {customerId = Model.Id})">Add Compliance</a>
-                    <button class="btn btn-info  btn-sm float-right ml-2" onclick="funManageCustomerRecord(null);">Add Record</button>
-                }
             </div>
             <div class="card-body">
                 <form asp-action="Manage" method="post" id="customerForm">
@@ -96,6 +91,7 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h1 class="card-title"><b>Customer Compliance</b></h1>
+                    <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageCompliance","Customer", new {customerId = Model.Id})">Add Compliance</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -124,6 +120,7 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h1 class="card-title"><b>Customer Records</b></h1>
+                    <button class="btn btn-info  btn-sm float-right ml-2" onclick="funManageCustomerRecord(null);">Add Record</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -157,6 +154,7 @@
     <script>
         var myModal = new bootstrap.Modal(document.getElementById('commonModalCenter'));
         var dtTable;
+        var dtTable1;
 
         $(document).ready(function () {
 
@@ -172,10 +170,10 @@
         });
 
         function funComplianceGrid() {
-            if (dtTable) {
-                dtTable.destroy();
+            if (dtTable1) {
+                dtTable1.destroy();
             }
-            dtTable = $('#complianceTable').DataTable({
+            dtTable1 = $('#complianceTable').DataTable({
                 "processing": true,
                 "serverSide": false,
                 "ajax": {
@@ -306,7 +304,7 @@
                 type: 'GET',
                 dataType: 'html',
                 data: {
-                    customerId : '@Model.Id',
+                    customerId: '@Model.Id',
                     id: _id,
                 },
                 success: function (data) {

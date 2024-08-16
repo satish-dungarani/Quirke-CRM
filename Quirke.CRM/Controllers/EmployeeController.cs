@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json.Linq;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -336,6 +337,23 @@ namespace Quirke.CRM.Controllers
             return File(documentBytes, "application/pdf", fileName);
         }
         #endregion
+
+        public async Task<IActionResult> EmployeeProfile(int page = 1, int pageSize = 6)
+        {
+            var employees = await _employeeService.GetAllEmployeesPagingAsync(page,pageSize);
+
+            var totalItems = _context.Employees.Count();
+
+            var pagedResult = new PagedResult<EmployeeModel>
+            {
+                Items = employees,
+                PageNumber = page,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(pagedResult);
+        }
 
     }
 }

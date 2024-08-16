@@ -60,6 +60,8 @@ namespace Quirke.CRM.DataContext
                       .HasForeignKey(e => e.CustomerId)
                       .OnDelete(DeleteBehavior.Cascade);
 
+                entity.Property(e => e.IsIdentityProvided)
+                      .IsRequired();
                 entity.Property(e => e.IsAllergicToColour)
                       .IsRequired();
                 entity.Property(e => e.AllergicColourDetails)

@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quirke & Co Hairdressers - Customer Compliance</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/WebCore/plugins/fontawesome-free/css/all.min.css">
     <style>
         body {
             background-color: #f5f5f5;
@@ -44,7 +45,7 @@
         .logo {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            /*  margin-bottom: 20px; */
         }
 
         .form-check-label {
@@ -60,153 +61,278 @@
             width: 100%;
             height: auto;
         }
+
+        .custom-radio-as-checkbox label {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-radio-as-checkbox input[type="radio"] {
+            display: none;
+        }
+
+        .custom-radio-as-checkbox label::before {
+            content: "\f00c";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            /* border: 2px solid #007bff; */
+            background-color: #fff;
+            /* border-radius: 4px; */
+            margin-right: 10px;
+            vertical-align: middle;
+            transition: background-color 0.3s, border-color 0.3s;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 18px;
+            text-align: center;
+            color: transparent;
+            border: 2px solid #D3CFC8;
+        }
+
+        .custom-radio-as-checkbox input[type="radio"]:checked + label::before {
+            /*  background-color: #007bff; */
+            border-color: #007bff;
+            color: #000;
+        }
     </style>
 </head>
 
 <body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
 
     <div class="container">
-        <div class="text-center mb-4">
-            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
-        </div>
+        @* <div class="text-center mb-4">
+        <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+        </div> *@
         <section class="content">
             <div class="container-fluid">
                 <div class="card shadow-sm">
                     <div class="card-header">
+                        <div class="text-center">
+                            <img src="~/images/png/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid">
+                            <br />
+                            <small style="font-size:0.60em;color:#adad9f;">72 Taff Street, Pontypridd, CF37 4SU, t.01443 401 012</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (Model != null && Model.CustomerId > 0)
+                    {
+                        <div class="row">
+                            <p class="mb-0">
+                                <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
+                                <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
+                                <strong>Mobile:</strong> @Model.Mobile
+                            </p>
+                        </div>
+                    }
+                    <form asp-action="ComplianceSubmit" method="post" id="complianceForm">
+                        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+                        <input type="hidden" asp-for="Mobile" />
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="CustomerId" />
+
                         @if (Model != null && Model.CustomerId > 0)
                         {
-                            <div class="row">
-                                <p class="mb-0">
-                                    <strong>Client Name:</strong> @Model.Firstname @Model.Lastname |
-                                    <strong>Birth Date:</strong> @Model.BirthDate?.ToString("yyyy-MM-dd") |
-                                    <strong>Mobile:</strong> @Model.Mobile
-                                </p>
-                            </div>
+                            <input type="hidden" asp-for="BirthDate" />
+                            <input type="hidden" asp-for="Firstname" />
+                            <input type="hidden" asp-for="Lastname" />
                         }
                         else
                         {
-                            <h1 class="card-title">
-                                Customer Compliance
-                            </h1>
+                            <div class="row mb-5">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label asp-for="Firstname" class="form-label"></label>
+                                        <input asp-for="Firstname" class="form-control" placeholder="Enter First Name" required />
+                                        <span asp-validation-for="Firstname" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label asp-for="Lastname" class="form-label"></label>
+                                        <input asp-for="Lastname" class="form-control" placeholder="Enter Last Name" required />
+                                        <span asp-validation-for="Lastname" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label asp-for="BirthDate" class="form-label"></label>
+                                        <input asp-for="BirthDate" class="form-control" required />
+                                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
                         }
-                    </div>
-                    <div class="card-body">
-                        <form asp-action="ComplianceSubmit" method="post" id="complianceForm">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <input type="hidden" asp-for="Mobile" />
-                            <input type="hidden" asp-for="Id" />
-                            <input type="hidden" asp-for="CustomerId" />
 
-                            @if (Model != null && Model.CustomerId > 0)
-                            {
-                                <input type="hidden" asp-for="BirthDate" />
-                                <input type="hidden" asp-for="Firstname" />
-                                <input type="hidden" asp-for="Lastname" />
-                            }
-                            else
-                            {
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label asp-for="Firstname" class="form-label"></label>
-                                            <input asp-for="Firstname" class="form-control" required />
-                                            <span asp-validation-for="Firstname" class="text-danger"></span>
+
+                        <table class="table table-striped  table-bordered">
+                            <tbody>
+                                <tr id="isOver16Row">
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsOver16" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsOver16" value="true" id="yesOver16" />
+                                            <label class="form-check-label mr-2" for="yesOver16">Yes</label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label asp-for="Lastname" class="form-label"></label>
-                                            <input asp-for="Lastname" class="form-control" required />
-                                            <span asp-validation-for="Lastname" class="text-danger"></span>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsOver16" value="false" id="noOver16" />
+                                            <label class="form-check-label mr-2" for="noOver16">No</label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label asp-for="BirthDate" class="form-label"></label>
-                                            <input asp-for="BirthDate" class="form-control" required />
-                                            <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                        <span asp-validation-for="IsOver16" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <tr></tr>   
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsIdentityProvided" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsIdentityProvided" value="true" id="yesIsIdentityProvided" />
+                                            <label class="form-check-label mr-2" for="yesIsIdentityProvided">Yes</label>
                                         </div>
-                                    </div>
-                                </div>
-                            }
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsIdentityProvided" value="false" id="noIsIdentityProvided" />
+                                            <label class="form-check-label mr-2" for="noIsIdentityProvided">No</label>
+                                        </div>
+                                        <span asp-validation-for="IsIdentityProvided" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <tr></tr>
+                                <!-- Allergic to Colour -->
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsAllergicToColour" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergicToColour" value="true" id="yesColour" />
+                                            <label class="form-check-label mr-2" for="yesColour">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergicToColour" value="false" id="noColour" />
+                                            <label class="form-check-label mr-2" for="noColour">No</label>
+                                        </div>
+                                        <span asp-validation-for="IsAllergicToColour" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="AllergicColourDetails" class="control-label">Details</span>
+                                        <textarea asp-for="AllergicColourDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="AllergicColourDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Damaged Scalp -->
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsDamagedScalp" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsDamagedScalp" value="true" id="yesScalp" />
+                                            <label class="form-check-label mr-2" for="yesScalp">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsDamagedScalp" value="false" id="noScalp" />
+                                            <label class="form-check-label mr-2" for="noScalp">No</label>
+                                        </div>
+                                        <span asp-validation-for="IsDamagedScalp" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="ScalpDetails" class="control-label">Details</span>
+                                        <textarea asp-for="ScalpDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="ScalpDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Has Tattoo -->
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="HasTattoo" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="HasTattoo" value="true" id="yesTattoo" />
+                                            <label class="form-check-label mr-2" for="yesTattoo">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="HasTattoo" value="false" id="noTattoo" />
+                                            <label class="form-check-label mr-2" for="noTattoo">No</label>
+                                        </div>
+                                        <span asp-validation-for="HasTattoo" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="TattooDetails" class="control-label">Details</span>
+                                        <textarea asp-for="TattooDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="TattooDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Allergic to Product -->
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsAllergicToProduct" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergicToProduct" value="true" id="yesProduct" />
+                                            <label class="form-check-label mr-2" for="yesProduct">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergicToProduct" value="false" id="noProduct" />
+                                            <label class="form-check-label mr-2" for="noProduct">No</label>
+                                        </div>
+                                        <span asp-validation-for="IsAllergicToProduct" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="AllergicProductDetails" class="control-label">Details</span>
+                                        <textarea asp-for="AllergicProductDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="form-group mt-2">
+                            <label asp-for="SignatureData" class="form-label"></label>
+                            <div class="">
+                                <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br>
+                                <button type="button" id="accept" class="btn btn-primary btn-sm mt-2">Accept</button>
+                                <button type="button" id="clear" class="btn btn-primary btn-sm mt-2" style="display:none;">Clear</button>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="">
+                                <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.SignatureData"><br>
+                                <input type="text" asp-for="SignatureData" hidden>
+                            </div>
+                        </div>
 
 
-                            <!-- Allergic to Colour Section -->
-                            <div class="form-group form-check mt-2">
-                                <input type="checkbox" class="form-check-input" asp-for="IsAllergicToColour" id="IsAllergicToColour">
-                                <label class="form-check-label" asp-for="IsAllergicToColour" for="IsAllergicToColour"></label>
-                                <span asp-validation-for="IsAllergicToColour" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="AllergicColourDetails" class="form-label"></label>
-                                <textarea asp-for="AllergicColourDetails" class="form-control"></textarea>
-                                <span asp-validation-for="AllergicColourDetails" class="text-danger"></span>
-                            </div>
 
-                            <!-- Damaged Scalp Section -->
-                            <div class="form-group form-check mt-2">
-                                <input type="checkbox" class="form-check-input" asp-for="IsDamagedScalp" id="IsDamagedScalp">
-                                <label class="form-check-label" asp-for="IsDamagedScalp" for="IsDamagedScalp"></label>
-                                <span asp-validation-for="IsDamagedScalp" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ScalpDetails" class="form-label"></label>
-                                <textarea asp-for="ScalpDetails" class="form-control"></textarea>
-                                <span asp-validation-for="ScalpDetails" class="text-danger"></span>
-                            </div>
-
-                            <!-- Tattoo Section -->
-                            <div class="form-group form-check  mt-2">
-                                <input type="checkbox" class="form-check-input" asp-for="HasTattoo" id="HasTattoo">
-                                <label class="form-check-label" asp-for="HasTattoo" for="HasTattoo"></label>
-                                <span asp-validation-for="HasTattoo" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="TattooDetails" class="form-label"></label>
-                                <textarea asp-for="TattooDetails" class="form-control"></textarea>
-                                <span asp-validation-for="TattooDetails" class="text-danger"></span>
-                            </div>
-
-                            <!-- Allergic to Product Section -->
-                            <div class="form-group form-check mt-2">
-                                <input type="checkbox" class="form-check-input" asp-for="IsAllergicToProduct" id="IsAllergicToProduct">
-                                <label class="form-check-label" asp-for="IsAllergicToProduct" for="IsAllergicToProduct"></label>
-                                <span asp-validation-for="IsAllergicToProduct" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="AllergicProductDetails" class="form-label"></label>
-                                <textarea asp-for="AllergicProductDetails" class="form-control"></textarea>
-                                <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
-                            </div>
-
-                            <div class="form-group mt-2">
-                                <label asp-for="SignatureData" class="form-label"></label>
-                                <div class="">
-                                    <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br>
-                                    <button type="button" id="accept" class="btn btn-primary btn-sm mt-2">Accept</button>
-                                    <button type="button" id="clear" class="btn btn-primary btn-sm mt-2" style="display:none;">Clear</button>
-                                </div>
-                            </div>
-                            <div class="form-group mt-2">
-                                <div class="">
-                                    <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.SignatureData"><br>
-                                    <input type="text" asp-for="SignatureData" hidden>
-                                </div>
-                            </div>
-
-
-
-                            <!-- Submit Button -->
-                            <div class="form-group mt-3">
-                                <a class="btn btn-primary m-1" style="float: right;" href="@Url.Action("Index", "Quirke")">Cancel</a>
-                                <button type="submit" class="btn btn-primary m-1" id="cancelButton" style="float: right;">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+                        <!-- Submit Button -->
+                        <div class="form-group mt-3">
+                            <a class="btn btn-primary m-1" style="float: right;" href="@Url.Action("Index", "Quirke")">Cancel</a>
+                            <button type="submit" class="btn btn-primary m-1" id="cancelButton" style="float: right;">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
-
     </div>
 
     <script src="~/lib/jquery/jquery.min.js"></script>
@@ -236,6 +362,34 @@
                     confirmButtonText: 'OK'
                 });
             }
+
+            $("#isOver16Row input").attr("disabled", true);
+
+            function calculateAge(birthDate) {
+                const today = new Date();
+                const birthDateObj = new Date(birthDate);
+                let age = today.getFullYear() - birthDateObj.getFullYear();
+                const monthDiff = today.getMonth() - birthDateObj.getMonth();
+
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+                    age--;
+                }
+
+                return age;
+            }
+
+            $("input[name='BirthDate']").change(function () {
+                const birthDate = $(this).val();
+                if (birthDate) {
+                    const age = calculateAge(birthDate);
+
+                    if (age >= 16) {
+                        $("#yesOver16").prop("checked", true);
+                    } else {
+                        $("#noOver16").prop("checked", true);
+                    }
+                }
+            });
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js" integrity="sha512-Hx7mfz/FnwNfy+erC6kvUftuP4gdTf/qNnDjLOcbQuHR9b8xZn2cWZ8GbdgCWZx5VpbxUZ2UzJWBl/vukUJ68A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -266,11 +420,12 @@
                     var data = pad.toDataURL();
                     $('#savetarget').attr('src', data);
                     $('#SignatureData').val(data);
-                    pad.off(); 
+                    pad.off();
                     $('#accept').hide();
                     $('#clear').show();
                 }
             });
+
             $('#clear').click(function () {
                 pad.clear();
                 $('#savetarget').attr('src', '');
@@ -288,7 +443,7 @@
                 }
 
                 if (pad.isEmpty() && $('#SignatureData').val() == '') {
-                    event.preventDefault(); 
+                    event.preventDefault();
                     Swal.fire({
                         title: 'Error!',
                         text: 'Please provide a signature before submitting.',

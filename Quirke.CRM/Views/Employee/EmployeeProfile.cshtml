@@ -1,0 +1,72 @@
+﻿@model PagedResult<EmployeeModel>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<section class="content pt-3">
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row">
+                @foreach (var employee in Model.Items)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                        <div class="card bg-light d-flex flex-fill">
+                            <div class="card-header text-muted border-bottom-0">
+                                @employee.JobTitle
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@employee.Firstname @employee.Lastname</b></h2>
+                                        <p class="text-muted text-sm"><b>About: </b> @employee.JobTitle</p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small mb-1"><span class="fa-li"><i class="fas fa-lg fa-calendar"></i></span> DOB: @employee.BirthDate?.ToString("dd/MM/yyyy")</li>
+                                            <li class="small mb-1"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: @employee.PhoneNumber</li>
+                                            <li class="small mb-1"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Email: @employee.Email</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        @if (!string.IsNullOrEmpty(employee.Picture))
+                                        {
+                                            <img src="data:image;base64,@employee.Picture" alt="user-avatar" class="img-circle img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/images/png/avatar.png" alt="user-avatar" class="img-circle img-fluid">
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="@Url.Action("Manage", "Employee", new { id = employee.Id })" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user"></i> View Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="card-footer">
+            <nav aria-label="Employees Page Navigation">
+                <ul class="pagination justify-content-center m-0">
+                    <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("EmployeeProfile", new { page = Model.PageNumber - 1, pageSize = Model.PageSize })">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("EmployeeProfile", new { page = i, pageSize = Model.PageSize })">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("EmployeeProfile", new { page = Model.PageNumber + 1, pageSize = Model.PageSize })">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

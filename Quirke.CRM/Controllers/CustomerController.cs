@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
@@ -12,7 +14,8 @@ namespace Quirke.CRM.Controllers
     public class CustomerController : BaseController
     {
         protected readonly ICustomerService _customerService;
-        public CustomerController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context, RoleManager<IdentityRole> roleManager, ICustomerService customerService) : base(userManager, null, _context, roleManager)
+        public CustomerController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context,
+            RoleManager<IdentityRole> roleManager, ICustomerService customerService) : base(userManager, null, _context, roleManager)
         {
             _customerService = customerService;
         }
@@ -27,20 +30,27 @@ namespace Quirke.CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCustomers()
         {
-            var customers = (await _customerService.GetAllCustomersAsync()).Select(c => new
+            try
             {
-                Id = c.Id,
-                Firstname = c.Firstname,
-                Lastname = c.Lastname,
-                BirtDate = c.BirtDate.ToString("yyyy-MM-dd"), // Format as needed
-                Gender = c.Gender,
-                Mobile = c.Mobile,
-                Email = c.Email,
-                CreatedOn = c.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss") // Format as needed
-            })
-            .ToList();
-
-            return Json(new { data = customers });
+                var customers = (await _customerService.GetAllCustomersAsync()).Select(c => new
+                {
+                    Id = c.Id,
+                    Firstname = c.Firstname,
+                    Lastname = c.Lastname,
+                    BirtDate = c.BirtDate.ToString("yyyy-MM-dd"), // Format as needed
+                    Gender = c.Gender,
+                    Mobile = c.Mobile,
+                    Email = c.Email,
+                    CreatedOn = c.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss") // Format as needed
+                })
+                .ToList();
+                return Json(new { data = customers });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Info($"{nameof(CustomerController)} - {nameof(GetCustomers)} - ERROR - {ex.StackTrace}");
+            }
+            return Json(null);
         }
 
         [HttpGet]
@@ -180,6 +190,7 @@ namespace Quirke.CRM.Controllers
                 }
 
                 model.Status = compliance.Status;
+                model.IsIdentityProvided = compliance.IsIdentityProvided;
                 model.IsAllergicToColour = compliance.IsAllergicToColour;
                 model.AllergicColourDetails = compliance.AllergicColourDetails;
                 model.IsDamagedScalp = compliance.IsDamagedScalp;
@@ -219,7 +230,7 @@ namespace Quirke.CRM.Controllers
                 await _customerService.UpdateCustomerComplianceAsync(model);
                 TempData["SuccessMessage"] = "Compliance updated successfully!";
             }
-            return View(model);
+            return RedirectToAction("Manage", new { id = model.CustomerId });
         }
 
 
@@ -243,6 +254,7 @@ namespace Quirke.CRM.Controllers
                 model.BirthDate = customer.BirtDate;
                 model.Mobile = customer.Mobile;
                 model.Status = compliance.Status;
+                model.IsIdentityProvided = compliance.IsIdentityProvided;
                 model.IsAllergicToColour = compliance.IsAllergicToColour;
                 model.AllergicColourDetails = compliance.AllergicColourDetails;
                 model.IsDamagedScalp = compliance.IsDamagedScalp;
