@@ -36,6 +36,7 @@ namespace Quirke.CRM.Models
         [Required(ErrorMessage = "Created On is required.")]
         [Display(Name = "Created On")]
         public DateTime CreatedOn { get; set; }
+        public string? DispCreatedOn { get; set; }
 
         [Display(Name = "Updated On")]
         public DateTime? UpdatedOn { get; set; }

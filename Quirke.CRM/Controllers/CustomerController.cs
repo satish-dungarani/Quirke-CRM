@@ -14,6 +14,8 @@ namespace Quirke.CRM.Controllers
     public class CustomerController : BaseController
     {
         protected readonly ICustomerService _customerService;
+        private static readonly ILog logger = LogHelper.logger;
+
         public CustomerController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context,
             RoleManager<IdentityRole> roleManager, ICustomerService customerService) : base(userManager, null, _context, roleManager)
         {
@@ -37,135 +39,38 @@ namespace Quirke.CRM.Controllers
                     Id = c.Id,
                     Firstname = c.Firstname,
                     Lastname = c.Lastname,
-                    BirtDate = c.BirtDate.ToString("yyyy-MM-dd"), // Format as needed
+                    BirtDate = c.BirtDate,
+                    DispBirtDate = c.BirtDate.ToString("dd MMM yyyy"),
                     Gender = c.Gender,
                     Mobile = c.Mobile,
                     Email = c.Email,
-                    CreatedOn = c.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss") // Format as needed
+                    DispCreatedOn = c.CreatedOn.ToString("dd MMM yyyy")
                 })
                 .ToList();
                 return Json(new { data = customers });
             }
             catch (Exception ex)
             {
-                LogHelper.logger.Info($"{nameof(CustomerController)} - {nameof(GetCustomers)} - ERROR - {ex.StackTrace}");
+                logger.Error($"{nameof(CustomerController)} - {nameof(GetCustomers)} - ERROR - {ex}");
+                return Json(null);
             }
-            return Json(null);
         }
 
         [HttpGet]
         public async Task<IActionResult> Manage(int? id)
         {
-            CustomerModel customerModel;
-
-            if (id == null)
+            try
             {
-                customerModel = new CustomerModel();
-            }
-            else
-            {
-                var customer = await _customerService.GetCustomerByIdAsync(id.Value);
-                customerModel = new CustomerModel
-                {
-                    Id = customer.Id,
-                    Firstname = customer.Firstname,
-                    Lastname = customer.Lastname,
-                    BirtDate = customer.BirtDate,
-                    Gender = customer.Gender,
-                    Mobile = customer.Mobile,
-                    Email = customer.Email,
-                    CreatedOn = customer.CreatedOn
-                };
-            }
+                CustomerModel customerModel;
 
-            return View(customerModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Manage(CustomerModel customerModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var customer = new Customer
+                if (id == null)
                 {
-                    Id = customerModel.Id,
-                    Firstname = customerModel.Firstname,
-                    Lastname = customerModel.Lastname,
-                    BirtDate = customerModel.BirtDate ?? DateTime.Now,
-                    Gender = customerModel.Gender,
-                    Mobile = customerModel.Mobile,
-                    Email = customerModel.Email,
-                    CreatedOn = DateTime.UtcNow
-                };
-
-                if (customer.Id == 0)
-                {
-                    await _customerService.CreateCustomerAsync(customer);
-                    customerModel.Id = customer.Id;
+                    customerModel = new CustomerModel();
                 }
                 else
                 {
-                    await _customerService.UpdateCustomerAsync(customer);
-                }
-                TempData["SuccessMessage"] = "Customer details saved successfully!";
-            }
-
-            return View(customerModel);
-        }
-
-        public async Task<IActionResult> DeleteCustomer(int id)
-        {
-            await _customerService.DeleteCustomerAsync(id);
-            return Json(new { result = true, msg = "Customer deleted successfully." });
-        }
-        #endregion
-
-        #region Compliance
-        [HttpGet]
-        public async Task<IActionResult> GetCustomerCompliances(int customerId)
-        {
-            var customer = await _customerService.GetCustomerByIdAsync(customerId);
-
-            var compliances = await _customerService.GetCustomerComplianceByCustomerIdAsync(customerId);
-            var data = compliances.Select(c => new
-            {
-                Id = c.Id,
-                CustomerId = customer.Id,
-                Firstname = customer.Firstname,
-                Lastname = customer.Lastname,
-                ComplianceStatus = c.Status,
-                TestDate = c.TestDate?.ToString("dd/MM/yyyy"),
-                ObservedBy = c.ObservedBy,
-                CanTakeService = c.CanTakeService ? "Yes" : "No",
-                IsAllergyTestDone = c.IsAllergyTestDone ? "Yes" : "No",
-                IsValid = c.TestDate == null || c.TestDate > DateTime.Now.AddMonths(-6)
-            }).ToList();
-
-            return Json(new { data });
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> ManageCompliance(int customerId, int? id)
-        {
-            var customer = await _customerService.GetCustomerByIdAsync(customerId);
-            if (customer == null)
-                return NotFound();
-
-            var model = new CustomerComplianceModel();
-            {
-                model.CustomerId = customer.Id;
-                model.Firstname = customer.Firstname;
-                model.Lastname = customer.Lastname;
-                model.BirthDate = customer.BirtDate;
-                model.Mobile = customer.Mobile;
-            }
-            if (id == null)
-            {
-                var hasActive = await _customerService.HasActiveComplianceAsync(customerId);
-                if (hasActive)
-                {
-                    var customerModel = new CustomerModel
+                    var customer = await _customerService.GetCustomerByIdAsync(id.Value);
+                    customerModel = new CustomerModel
                     {
                         Id = customer.Id,
                         Firstname = customer.Firstname,
@@ -176,125 +81,287 @@ namespace Quirke.CRM.Controllers
                         Email = customer.Email,
                         CreatedOn = customer.CreatedOn
                     };
-                    TempData["WarningMessage"] = "Customer already have active compliance!";
-
-                    return View("~/Views/Customer/Manage.cshtml", customerModel);
                 }
+
+                return View(customerModel);
             }
-            else
+            catch (Exception ex)
             {
-                var compliance = await _customerService.GetCustomerComplianceByIdAsync(id.Value);
-                if (compliance == null)
+                logger.Error($"{nameof(CustomerController)} - {nameof(Manage)} - ERROR - {ex}");
+                return View("CustomError");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Manage(CustomerModel customerModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
                 {
-                    return NotFound();
+                    var customer = new Customer
+                    {
+                        Id = customerModel.Id,
+                        Firstname = customerModel.Firstname,
+                        Lastname = customerModel.Lastname,
+                        BirtDate = customerModel.BirtDate ?? DateTime.Now,
+                        Gender = customerModel.Gender,
+                        Mobile = customerModel.Mobile,
+                        Email = customerModel.Email,
+                        CreatedOn = DateTime.UtcNow
+                    };
+
+                    if (customer.Id == 0)
+                    {
+                        await _customerService.CreateCustomerAsync(customer);
+                        customerModel.Id = customer.Id;
+                    }
+                    else
+                    {
+                        await _customerService.UpdateCustomerAsync(customer);
+                    }
+                    TempData["SuccessMessage"] = "Customer details saved successfully!";
                 }
 
-                model.Status = compliance.Status;
-                model.IsIdentityProvided = compliance.IsIdentityProvided;
-                model.IsAllergicToColour = compliance.IsAllergicToColour;
-                model.AllergicColourDetails = compliance.AllergicColourDetails;
-                model.IsDamagedScalp = compliance.IsDamagedScalp;
-                model.ScalpDetails = compliance.ScalpDetails;
-                model.HasTattoo = compliance.HasTattoo;
-                model.TattooDetails = compliance.TattooDetails;
-                model.IsAllergicToProduct = compliance.IsAllergicToProduct;
-                model.AllergicProductDetails = compliance.AllergicProductDetails;
-                model.CanTakeService = compliance.CanTakeService;
-                model.IsAllergyTestDone = compliance.IsAllergyTestDone;
-                model.TestScheduleOn = compliance.TestScheduleOn;
-                model.TestDate = compliance.TestDate;
-                model.ObservedBy = compliance.ObservedBy;
-                model.CreatedOn = compliance.CreatedOn;
-                model.UpdatedOn = compliance.UpdatedOn;
-                model.SignatureData = compliance.SignatureData;
+                return View(customerModel);
             }
-            return View(model);
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(Manage)} [POST] - ERROR - {ex}");
+                return View("CustomError");
+            }
+        }
+
+        public async Task<IActionResult> DeleteCustomer(int id)
+        {
+            try
+            {
+                await _customerService.DeleteCustomerAsync(id);
+                return Json(new { result = true, msg = "Customer deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(DeleteCustomer)} - ERROR - {ex}");
+                return Json(new { result = false, msg = "Failed to delete customer." });
+            }
+        }
+        #endregion
+
+        #region Compliance
+        [HttpGet]
+        public async Task<IActionResult> GetCustomerCompliances(int customerId)
+        {
+            try
+            {
+                var customer = await _customerService.GetCustomerByIdAsync(customerId);
+                var compliances = await _customerService.GetCustomerComplianceByCustomerIdAsync(customerId);
+                var data = compliances.Select(c => new
+                {
+                    Id = c.Id,
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    ComplianceStatus = c.Status,
+                    TestDate = c.TestDate?.ToString("dd/MM/yyyy"),
+                    DispTestDate = c.TestDate?.ToString("dd MMM yyyy"),
+                    ObservedBy = c.ObservedBy,
+                    CanTakeService = c.CanTakeService ? "Yes" : "No",
+                    IsAllergyTestDone = c.IsAllergyTestDone ? "Yes" : "No",
+                    IsValid = c.TestDate == null || c.TestDate > DateTime.Now.AddMonths(-6)
+                }).ToList();
+
+                return Json(new { data });
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(GetCustomerCompliances)} - ERROR - {ex}");
+                return Json(null);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ManageCompliance(int customerId, int? id)
+        {
+            try
+            {
+                var customer = await _customerService.GetCustomerByIdAsync(customerId);
+                if (customer == null)
+                    return NotFound();
+
+                var model = new CustomerComplianceModel
+                {
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirthDate = customer.BirtDate,
+                    Mobile = customer.Mobile
+                };
+
+                if (id == null)
+                {
+                    var hasActive = await _customerService.HasActiveComplianceAsync(customerId);
+                    if (hasActive)
+                    {
+                        var customerModel = new CustomerModel
+                        {
+                            Id = customer.Id,
+                            Firstname = customer.Firstname,
+                            Lastname = customer.Lastname,
+                            BirtDate = customer.BirtDate,
+                            Gender = customer.Gender,
+                            Mobile = customer.Mobile,
+                            Email = customer.Email,
+                            CreatedOn = customer.CreatedOn
+                        };
+                        TempData["WarningMessage"] = "Customer already have active compliance!";
+                        return View("~/Views/Customer/Manage.cshtml", customerModel);
+                    }
+                }
+                else
+                {
+                    var compliance = await _customerService.GetCustomerComplianceByIdAsync(id.Value);
+                    if (compliance == null)
+                        return NotFound();
+
+                    model.Status = compliance.Status;
+                    model.IsIdentityProvided = compliance.IsIdentityProvided;
+                    model.IsAllergicToColour = compliance.IsAllergicToColour;
+                    model.AllergicColourDetails = compliance.AllergicColourDetails;
+                    model.IsDamagedScalp = compliance.IsDamagedScalp;
+                    model.ScalpDetails = compliance.ScalpDetails;
+                    model.HasTattoo = compliance.HasTattoo;
+                    model.TattooDetails = compliance.TattooDetails;
+                    model.IsAllergicToProduct = compliance.IsAllergicToProduct;
+                    model.AllergicProductDetails = compliance.AllergicProductDetails;
+                    model.CanTakeService = compliance.CanTakeService;
+                    model.IsAllergyTestDone = compliance.IsAllergyTestDone;
+                    model.TestScheduleOn = compliance.TestScheduleOn;
+                    model.TestDate = compliance.TestDate;
+                    model.ObservedBy = compliance.ObservedBy;
+                    model.CreatedOn = compliance.CreatedOn;
+                    model.UpdatedOn = compliance.UpdatedOn;
+                    model.SignatureData = compliance.SignatureData;
+                }
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(ManageCompliance)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageCompliance(CustomerComplianceModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(model);
-            }
+                if (!ModelState.IsValid)
+                    return View(model);
 
-            if (model.Id == 0)
-            {
-                model.Id = await _customerService.CreateCustomerComplianceAsync(model);
-                TempData["SuccessMessage"] = "Compliance created successfully!";
+                if (model.Id == 0)
+                {
+                    model.Id = await _customerService.CreateCustomerComplianceAsync(model);
+                    TempData["SuccessMessage"] = "Compliance created successfully!";
+                }
+                else
+                {
+                    await _customerService.UpdateCustomerComplianceAsync(model);
+                    TempData["SuccessMessage"] = "Compliance updated successfully!";
+                }
+
+                return RedirectToAction("Manage", new { id = model.CustomerId });
             }
-            else
+            catch (Exception ex)
             {
-                await _customerService.UpdateCustomerComplianceAsync(model);
-                TempData["SuccessMessage"] = "Compliance updated successfully!";
+                logger.Error($"{nameof(CustomerController)} - {nameof(ManageCompliance)} [POST] - ERROR - {ex}");
+                return View("CustomError");
             }
-            return RedirectToAction("Manage", new { id = model.CustomerId });
         }
-
 
         [HttpGet]
         public async Task<IActionResult> ViewCompliance(int customerId, int id)
         {
-            var customer = await _customerService.GetCustomerByIdAsync(customerId);
-            if (customer == null)
-                return NotFound();
-
-            var compliance = await _customerService.GetCustomerComplianceByIdAsync(id);
-            if (compliance == null)
-                return NotFound();
-
-
-            var model = new CustomerComplianceModel();
+            try
             {
-                model.CustomerId = customer.Id;
-                model.Firstname = customer.Firstname;
-                model.Lastname = customer.Lastname;
-                model.BirthDate = customer.BirtDate;
-                model.Mobile = customer.Mobile;
-                model.Status = compliance.Status;
-                model.IsIdentityProvided = compliance.IsIdentityProvided;
-                model.IsAllergicToColour = compliance.IsAllergicToColour;
-                model.AllergicColourDetails = compliance.AllergicColourDetails;
-                model.IsDamagedScalp = compliance.IsDamagedScalp;
-                model.ScalpDetails = compliance.ScalpDetails;
-                model.HasTattoo = compliance.HasTattoo;
-                model.TattooDetails = compliance.TattooDetails;
-                model.IsAllergicToProduct = compliance.IsAllergicToProduct;
-                model.AllergicProductDetails = compliance.AllergicProductDetails;
-                model.CanTakeService = compliance.CanTakeService;
-                model.IsAllergyTestDone = compliance.IsAllergyTestDone;
-                model.TestScheduleOn = compliance.TestScheduleOn;
-                model.TestDate = compliance.TestDate;
-                model.ObservedBy = compliance.ObservedBy;
-                model.CreatedOn = compliance.CreatedOn;
-                model.UpdatedOn = compliance.UpdatedOn;
-                model.IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6);
-                model.SignatureData = compliance.SignatureData;
+                var customer = await _customerService.GetCustomerByIdAsync(customerId);
+                if (customer == null)
+                    return NotFound();
+
+                var compliance = await _customerService.GetCustomerComplianceByIdAsync(id);
+                if (compliance == null)
+                    return NotFound();
+
+                var model = new CustomerComplianceModel
+                {
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirthDate = customer.BirtDate,
+                    DispBirthDate = customer.BirtDate.ToString("dd MMM yyyy"),
+                    Mobile = customer.Mobile,
+                    Status = compliance.Status,
+                    IsIdentityProvided = compliance.IsIdentityProvided,
+                    IsAllergicToColour = compliance.IsAllergicToColour,
+                    AllergicColourDetails = compliance.AllergicColourDetails,
+                    IsDamagedScalp = compliance.IsDamagedScalp,
+                    ScalpDetails = compliance.ScalpDetails,
+                    HasTattoo = compliance.HasTattoo,
+                    TattooDetails = compliance.TattooDetails,
+                    IsAllergicToProduct = compliance.IsAllergicToProduct,
+                    AllergicProductDetails = compliance.AllergicProductDetails,
+                    CanTakeService = compliance.CanTakeService,
+                    IsAllergyTestDone = compliance.IsAllergyTestDone,
+                    TestScheduleOn = compliance.TestScheduleOn,
+                    DispTestScheduleOn = compliance.TestScheduleOn?.ToString("dd MMM yyyy"),
+                    TestDate = compliance.TestDate,
+                    DispTestDate = compliance.TestDate?.ToString("dd MMM yyyy"),
+                    ObservedBy = compliance.ObservedBy,
+                    CreatedOn = compliance.CreatedOn,
+                    DispCreatedOn = compliance.CreatedOn.ToString("dd MMM yyyy"),
+                    UpdatedOn = compliance.UpdatedOn,
+                    IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
+                    SignatureData = compliance.SignatureData
+                };
+
+                return View(model);
             }
-            return View(model);
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(ViewCompliance)} - ERROR - {ex}");
+                return View("Error");
+            }
         }
 
         public async Task<IActionResult> DeleteCompliance(int customerId, int id)
         {
-            await _customerService.DeleteCustomerComplianceAsync(id);
-
-            var customer = await _customerService.GetCustomerByIdAsync(customerId);
-            var model = new CustomerModel
+            try
             {
-                Id = customer.Id,
-                Firstname = customer.Firstname,
-                Lastname = customer.Lastname,
-                BirtDate = customer.BirtDate,
-                Gender = customer.Gender,
-                Mobile = customer.Mobile,
-                Email = customer.Email,
-                CreatedOn = customer.CreatedOn
-            };
-            TempData["SuccessMessage"] = "Customer compliance deleted successfully!";
-
-            return View("~/Views/Customer/Manage.cshtml", model);
+                await _customerService.DeleteCustomerComplianceAsync(id);
+                var customer = await _customerService.GetCustomerByIdAsync(customerId);
+                var model = new CustomerModel
+                {
+                    Id = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirtDate = customer.BirtDate,
+                    DispBirthDate = customer.BirtDate.ToString("dd MMM yyyy"),
+                    Gender = customer.Gender,
+                    Mobile = customer.Mobile,
+                    Email = customer.Email,
+                    CreatedOn = customer.CreatedOn
+                };
+                TempData["SuccessMessage"] = "Customer compliance deleted successfully!";
+                return View("~/Views/Customer/Manage.cshtml", model);
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(DeleteCompliance)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
         #endregion
 
@@ -302,56 +369,88 @@ namespace Quirke.CRM.Controllers
         [HttpGet]
         public async Task<JsonResult> GetAllCustomerRecordData(int CustomerId)
         {
-            var records = await _customerService.GetAllCustomerRecordsByCustomerIdAsync(CustomerId);
-            return Json(new { data = records });
+            try
+            {
+                var records = await _customerService.GetAllCustomerRecordsByCustomerIdAsync(CustomerId);
+                return Json(new { data = records });
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(GetAllCustomerRecordData)} - ERROR - {ex}");
+                return Json(null);
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> ManageCustomerRecord(int customerId, int? id)
         {
-            var model = id.HasValue
-                ? await _customerService.GetCustomerRecordByIdAsync(id.Value)
-                : new CustomerRecordModel() { CustomerId = customerId };
+            try
+            {
+                var model = id.HasValue
+                    ? await _customerService.GetCustomerRecordByIdAsync(id.Value)
+                    : new CustomerRecordModel() { CustomerId = customerId };
 
-            model.ProductList = await _customerService.GetProductListAsync();
-            model.TreatmentList = await _customerService.GetTreatmentListAsync();
-            model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
+                model.ProductList = await _customerService.GetProductListAsync();
+                model.TreatmentList = await _customerService.GetTreatmentListAsync();
+                model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
 
-            return PartialView("_ManageCustomerRecordPartial", model);
+                return PartialView("_ManageCustomerRecordPartial", model);
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(ManageCustomerRecord)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> ManageCustomerRecord(CustomerRecordModel model)
         {
-            ModelState.Remove(nameof(model.Id));
-            if (!ModelState.IsValid)
+            try
             {
-                model.ProductList = await _customerService.GetProductListAsync();
-                model.TreatmentList = await _customerService.GetTreatmentListAsync();
-                model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
-                return PartialView("_ManageCustomerRecordPartial", model);
-            }
+                ModelState.Remove(nameof(model.Id));
+                if (!ModelState.IsValid)
+                {
+                    model.ProductList = await _customerService.GetProductListAsync();
+                    model.TreatmentList = await _customerService.GetTreatmentListAsync();
+                    model.AttendedEmployeeList = await _customerService.GetEmployeeListAsync();
+                    return PartialView("_ManageCustomerRecordPartial", model);
+                }
 
-            string strMessage;
-            if (model.Id == 0)
-            {
-                strMessage = "Customer record saved successfully";
-                await _customerService.CreateCustomerRecordAsync(model);
-            }
-            else
-            {
-                strMessage = "Customer record updated successfully";
-                await _customerService.UpdateCustomerRecordAsync(model);
-            }
+                string strMessage;
+                if (model.Id == 0)
+                {
+                    strMessage = "Customer record saved successfully";
+                    await _customerService.CreateCustomerRecordAsync(model);
+                }
+                else
+                {
+                    strMessage = "Customer record updated successfully";
+                    await _customerService.UpdateCustomerRecordAsync(model);
+                }
 
-            return Json(new { result = true, msg = strMessage });
+                return Json(new { result = true, msg = strMessage });
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(ManageCustomerRecord)} [POST] - ERROR - {ex}");
+                return Json(new { result = false, msg = "Failed to save customer record." });
+            }
         }
 
         [HttpGet]
         public async Task<JsonResult> DeleteCustomerRecord(int id)
         {
-            var success = await _customerService.DeleteCustomerRecordAsync(id);
-            return Json(new { result = success, msg = success ? "Customer record deleted successfully." : "Failed to delete customer record." });
+            try
+            {
+                var success = await _customerService.DeleteCustomerRecordAsync(id);
+                return Json(new { result = success, msg = success ? "Customer record deleted successfully." : "Failed to delete customer record." });
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"{nameof(CustomerController)} - {nameof(DeleteCustomerRecord)} - ERROR - {ex}");
+                return Json(new { result = false, msg = "Failed to delete customer record." });
+            }
         }
         #endregion
     }

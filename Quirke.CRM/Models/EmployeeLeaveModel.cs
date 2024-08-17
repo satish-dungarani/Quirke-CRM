@@ -32,12 +32,13 @@ namespace Quirke.CRM.Models
 
         [Required]
         [Display(Name = "Created On")]
-        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public DateTime CreatedOn { get; set; }
+        public string? DispCreatedOn { get; set; }
 
         [Display(Name = "Updated On")]
         public DateTime? UpdatedOn { get; set; }
 
-        public  List<SelectListItem> LeaveTypeList { get; set; }
+        public  IList<SelectListItem> LeaveTypeList { get; set; }
         public string LeaveType { get; set; }
     }
 }

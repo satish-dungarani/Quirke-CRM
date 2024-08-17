@@ -21,6 +21,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
+        public string? DispBirthDate { get; set; }
 
         [Required(ErrorMessage = "Mobile number is required.")]
         [Display(Name = "Mobile Number")]
@@ -80,15 +81,18 @@ namespace Quirke.CRM.Models
 
         [Display(Name = "Test Schedule On Date")]
         public DateTime? TestScheduleOn { get; set; }
+        public string? DispTestScheduleOn { get; set; }
 
         [Display(Name = "Date")]
         public DateTime? TestDate { get; set; }
+        public string? DispTestDate { get; set; }
 
         [Display(Name = "Reaction Observed by client or Salon")]
         public string? ObservedBy { get; set; }
 
         [Display(Name = "Created On")]
         public DateTime CreatedOn { get; set; }
+        public string? DispCreatedOn { get; set; }
 
         [Display(Name = "Updated On")]
         public DateTime? UpdatedOn { get; set; }

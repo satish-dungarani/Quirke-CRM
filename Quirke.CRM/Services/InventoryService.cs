@@ -98,6 +98,7 @@ namespace Quirke.CRM.Services
                 QuantityInStock = product.QuantityInStock,
                 IsActive = product.IsActive,
                 CreatedOn = product.CreatedOn,
+                DispCreatedOn = product.CreatedOn.ToString("dd MMM yyyy"),
                 UpdatedOn = product.UpdatedOn,
                 BrandName = product.Brand?.Name,
                 SupplierName = product.Supplier?.Name
@@ -192,6 +193,7 @@ namespace Quirke.CRM.Services
                     UpdatedQuantity = i.UpdatedQuantity,
                     ProductName = i.Product.Name,
                     CreatedOn = i.CreatedOn,
+                    DispCreatedOn = i.CreatedOn.ToString("dd MMM yyyy"),
                     Product = new ProductModel()
                     {
                         Id = i.Product.Id,
@@ -216,6 +218,7 @@ namespace Quirke.CRM.Services
                 UpdatedQuantity = i.UpdatedQuantity,
                 ProductName = i.Product.Name,
                 CreatedOn = i.CreatedOn,
+                DispCreatedOn = i.CreatedOn.ToString("dd MMM yyyy"),
                 Product = new ProductModel()
                 {
                     Id = i.Product.Id,
@@ -236,6 +239,7 @@ namespace Quirke.CRM.Services
                     UpdatedQuantity = i.UpdatedQuantity,
                     ProductName = i.Product.Name,
                     CreatedOn = i.CreatedOn,
+                    DispCreatedOn = i.CreatedOn.ToString("dd MMM yyyy"),
                     Product = new ProductModel()
                     {
                         Id = i.Product.Id,

@@ -29,6 +29,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "Service Date")]
         [DataType(DataType.Date)]
         public DateTime ServiceDate { get; set; }
+        public string? DispServiceDate { get; set; }
 
         [StringLength(100, ErrorMessage = "Strength cannot exceed 100 characters.")]
         [Display(Name = "Strength")]
@@ -47,6 +48,7 @@ namespace Quirke.CRM.Models
         [Required(ErrorMessage = "Created On date is required.")]
         [Display(Name = "Created On")]
         public DateTime CreatedOn { get; set; }
+        public string? DispCreatedOn { get; set; }
 
         [Display(Name = "Updated On")]
         public DateTime? UpdatedOn { get; set; }

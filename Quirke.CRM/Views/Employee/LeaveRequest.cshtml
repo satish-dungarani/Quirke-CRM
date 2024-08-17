@@ -81,13 +81,13 @@
                 { "data": "LeaveType" },
                 { "data": "LeaveDuration" },
                 {
-                    "data": "StartDate",
+                    "data": "DispStartDate",
                     "render": function (data) {
                         return moment(data).format('MM/DD/YYYY');
                     }
                 },
                 {
-                    "data": "EndDate",
+                    "data": "DispEndDate",
                     "render": function (data) {
                         return moment(data).format('MM/DD/YYYY');
                     }
@@ -109,7 +109,7 @@
                     }
                 },
                 {
-                    "data": "CreatedOn",
+                    "data": "DispCreatedOn",
                     "render": function (data) {
                         return moment(data).format('MM/DD/YYYY');
                     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -33,27 +34,44 @@ namespace Quirke.CRM.Controllers
         #region Utility
         private async Task<List<SelectListItem>> GetEmployeeList()
         {
-            var employees = await _employeeService.GetAllEmployeesAsync();
+            try
+            {
+                var employees = await _employeeService.GetAllEmployeesAsync();
 
-            var selectListItems = employees
-                .Select(item => new SelectListItem
-                {
-                    Value = item.Id.ToString(),
-                    Text = item.Firstname + " " + item.Lastname
-                }).ToList();
-            return selectListItems;
+                var selectListItems = employees
+                    .Select(item => new SelectListItem
+                    {
+                        Value = item.Id.ToString(),
+                        Text = item.Firstname + " " + item.Lastname
+                    }).ToList();
+                return selectListItems;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetEmployeeList)} - ERROR - {ex}");
+                return new List<SelectListItem>();
+            }
+
         }
         private async Task<List<SelectListItem>> GetLeaveType(int masterTypeId)
         {
-            var leavetypes = await _masterService.GetAllByMasterTypeIdAsync(masterTypeId);
+            try
+            {
+                var leavetypes = await _masterService.GetAllByMasterTypeIdAsync(masterTypeId);
 
-            var selectListItems = leavetypes
-                .Select(item => new SelectListItem
-                {
-                    Value = item.Id.ToString(),
-                    Text = item.Name
-                }).ToList();
-            return selectListItems;
+                var selectListItems = leavetypes
+                    .Select(item => new SelectListItem
+                    {
+                        Value = item.Id.ToString(),
+                        Text = item.Name
+                    }).ToList();
+                return selectListItems;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetLeaveType)} - ERROR - {ex}");
+                return new List<SelectListItem>();
+            }
         }
         #endregion
 
@@ -68,85 +86,117 @@ namespace Quirke.CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> GetEmployees()
         {
-            var employees = await _employeeService.GetAllEmployeesAsync();
-
-            var data = new
+            try
             {
-                data = employees
-            };
-
-            return Json(data);
+                var employees = await _employeeService.GetAllEmployeesAsync();
+                var data = new
+                {
+                    data = employees
+                };
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetEmployees)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> Manage(int? id)
         {
-            if (id == null)
+            try
             {
-                return View(new EmployeeModel());
-            }
+                if (id == null)
+                {
+                    return View(new EmployeeModel());
+                }
 
-            var employee = await _employeeService.GetEmployeeByIdAsync(id.Value);
-            if (employee == null)
+                var employee = await _employeeService.GetEmployeeByIdAsync(id.Value);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                return View(employee);
+            }
+            catch (Exception ex)
             {
-                return NotFound();
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(Manage)} - ERROR - {ex}");
+                return View("Error");
             }
-
-            return View(employee);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Manage(EmployeeModel model, IFormFile pictureFile, IFormFile identityDocumentFile)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (pictureFile != null && pictureFile.Length > 0)
+                if (ModelState.IsValid)
                 {
-                    using (var stream = new MemoryStream())
+                    if (pictureFile != null && pictureFile.Length > 0)
                     {
-                        await pictureFile.CopyToAsync(stream);
-                        model.Picture = Convert.ToBase64String(stream.ToArray());
+                        using (var stream = new MemoryStream())
+                        {
+                            await pictureFile.CopyToAsync(stream);
+                            model.Picture = Convert.ToBase64String(stream.ToArray());
+                        }
                     }
-                }
 
-                if (identityDocumentFile != null && identityDocumentFile.Length > 0)
-                {
-                    using (var stream = new MemoryStream())
+                    if (identityDocumentFile != null && identityDocumentFile.Length > 0)
                     {
-                        await identityDocumentFile.CopyToAsync(stream);
-                        model.IdentityDocument = Convert.ToBase64String(stream.ToArray());
+                        using (var stream = new MemoryStream())
+                        {
+                            await identityDocumentFile.CopyToAsync(stream);
+                            model.IdentityDocument = Convert.ToBase64String(stream.ToArray());
+                        }
                     }
+
+                    if (model.Id == 0)
+                    {
+                        await _employeeService.AddEmployeeAsync(model);
+                    }
+                    else
+                    {
+                        await _employeeService.UpdateEmployeeAsync(model);
+                    }
+
+                    return RedirectToAction("Index");
                 }
 
-                if (model.Id == 0)
-                {
-                    await _employeeService.AddEmployeeAsync(model);
-                }
-                else
-                {
-                    await _employeeService.UpdateEmployeeAsync(model);
-                }
-
-                return RedirectToAction("Index");
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(Manage)} - ERROR - {ex}");
+                return View("CustomError");
             }
 
-            return View(model);
         }
 
         public IActionResult DownloadDocument(int id)
         {
-            var employee = _employeeService.GetEmployeeByIdAsync(id).Result;
-
-            if (employee == null || string.IsNullOrEmpty(employee.IdentityDocument))
+            try
             {
-                return NotFound();
+
+                var employee = _employeeService.GetEmployeeByIdAsync(id).Result;
+
+                if (employee == null || string.IsNullOrEmpty(employee.IdentityDocument))
+                {
+                    return NotFound();
+                }
+
+                var documentBytes = Convert.FromBase64String(employee.IdentityDocument);
+                var fileName = $"IdentityDocument_{employee.Firstname}_{employee.Lastname}.pdf";
+
+                return File(documentBytes, "application/pdf", fileName);
             }
-
-            var documentBytes = Convert.FromBase64String(employee.IdentityDocument);
-            var fileName = $"IdentityDocument_{employee.Firstname}_{employee.Lastname}.pdf";
-
-            return File(documentBytes, "application/pdf", fileName);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(DownloadDocument)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         #endregion
@@ -155,67 +205,101 @@ namespace Quirke.CRM.Controllers
 
         public async Task<IActionResult> GetEmployeeLeaves(int employeeId)
         {
-            var leaves = await _employeeService.GetEmployeeLeavesByEmployeeIdAsync(employeeId);
-            return Json(new { data = leaves });
+            try
+            {
+                var leaves = await _employeeService.GetEmployeeLeavesByEmployeeIdAsync(employeeId);
+                return Json(new { data = leaves });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetEmployeeList)} - ERROR - {ex}");
+                return Json(null);
+            }
         }
 
         public async Task<IActionResult> ManageLeave(int employeeId, int id = 0)
         {
-            EmployeeLeaveModel model = id == 0
-                ? new EmployeeLeaveModel { EmployeeId = employeeId }
-                : await _employeeService.GetEmployeeLeaveByIdAsync(id);
-
-            if (model == null)
+            try
             {
-                return NotFound();
+                EmployeeLeaveModel model = id == 0
+                    ? new EmployeeLeaveModel { EmployeeId = employeeId }
+                    : await _employeeService.GetEmployeeLeaveByIdAsync(id);
+
+                if (model == null)
+                {
+                    return NotFound();
+                }
+                model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+                return View(model);
             }
-            model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
-            return View(model);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(ManageLeave)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageLeave(EmployeeLeaveModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool isDuplicate = await _employeeService.IsDuplicateLeaveAsync(model.EmployeeId, model.LeaveTypeId, model.Id > 0 ? (int?)model.Id : null);
 
-                if (isDuplicate)
+                if (ModelState.IsValid)
                 {
-                    model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
-                    TempData["ErrorMessage"] = "A leave record already exists for this leave type and employee.";
-                    return View(model);
-                }
+                    bool isDuplicate = await _employeeService.IsDuplicateLeaveAsync(model.EmployeeId, model.LeaveTypeId, model.Id > 0 ? (int?)model.Id : null);
 
-                var result = await _employeeService.AddOrUpdateEmployeeLeaveAsync(model);
-                if (result)
-                {
-                    TempData["SuccessMessage"] = "Employee leave saved successfully.";
-                    return RedirectToAction(nameof(Manage), new { id = model.EmployeeId });
+                    if (isDuplicate)
+                    {
+                        model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+                        TempData["ErrorMessage"] = "A leave record already exists for this leave type and employee.";
+                        return View(model);
+                    }
+
+                    var result = await _employeeService.AddOrUpdateEmployeeLeaveAsync(model);
+                    if (result)
+                    {
+                        TempData["SuccessMessage"] = "Employee leave saved successfully.";
+                        return RedirectToAction(nameof(Manage), new { id = model.EmployeeId });
+                    }
+                    else
+                    {
+                        model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+                        TempData["WarningMessage"] = "Failed to save employee leave.";
+                    }
                 }
-                else
-                {
-                    model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
-                    TempData["WarningMessage"] = "Failed to save employee leave.";
-                }
+                return View(model);
             }
-            return View(model);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(ManageLeave)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         public async Task<IActionResult> DeleteLeave(int employeeId, int id)
         {
-            var result = await _employeeService.DeleteEmployeeLeaveAsync(id);
-            if (result)
+            try
             {
-                TempData["SuccessMessage"] = "Employee leave deleted successfully.";
-            }
-            else
-            {
-                TempData["WarningMessage"] = "Failed to delete employee leave.";
-            }
+                var result = await _employeeService.DeleteEmployeeLeaveAsync(id);
+                if (result)
+                {
+                    TempData["SuccessMessage"] = "Employee leave deleted successfully.";
+                }
+                else
+                {
+                    TempData["WarningMessage"] = "Failed to delete employee leave.";
+                }
 
-            return RedirectToAction(nameof(Manage), new { id = employeeId });
+                return RedirectToAction(nameof(Manage), new { id = employeeId });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(DeleteLeave)} - ERROR - {ex}");
+                return View("CustomError");
+            }
+            
         }
 
         #endregion
@@ -226,134 +310,198 @@ namespace Quirke.CRM.Controllers
 
         public async Task<IActionResult> GetLeaveRequests()
         {
-            var requests = await _leaveRequestService.GetAllLeaveRequestsAsync();
-            return Json(new { data = requests });
+            try
+            {
+                var requests = await _leaveRequestService.GetAllLeaveRequestsAsync();
+                return Json(new { data = requests });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetLeaveRequests)} - ERROR - {ex}");
+                return Json(null);
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> ManageRequest(int? id)
         {
-            var model = new LeaveRequestModel();
-
-            if (id != null && id > 0)
+            try
             {
-                model = await _leaveRequestService.GetLeaveRequestByIdAsync(id.Value);
+                var model = new LeaveRequestModel();
+
+                if (id != null && id > 0)
+                {
+                    model = await _leaveRequestService.GetLeaveRequestByIdAsync(id.Value);
+                }
+                model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
+                model.EmployeeList = await GetEmployeeList();
+                return PartialView("~/Views/Employee/_ManageRequestPartial.cshtml", model);
             }
-            model.LeaveTypeList = await GetLeaveType((int)MasterType.LeaveType);
-            model.EmployeeList = await GetEmployeeList();
-            return PartialView("~/Views/Employee/_ManageRequestPartial.cshtml", model);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(ManageRequest)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> ManageRequests(LeaveRequestModel model, IFormFile frmLeaveFile)
         {
-            ModelState.Remove(nameof(model.Id));
-
-            if (!ModelState.IsValid) { return Json(null); };
-
-            if (model.LeaveDuration == "Half Day")
+            try
             {
-                model.AppliedDays = 0.5m;
-            }
-            else if (model.LeaveDuration == "Full Day")
-            {
-                model.AppliedDays = 1.0m;
-            }
-            else
-            {
-                TimeSpan difference = Convert.ToDateTime(model.EndDate) - Convert.ToDateTime(model.StartDate);
-                model.AppliedDays = difference.Days + 1;
-            }
+                ModelState.Remove(nameof(model.Id));
 
-            decimal remainingDays = await _employeeService.RmainingLeaves(model.EmployeeId, model.LeaveTypeId);
+                if (!ModelState.IsValid) { return Json(null); };
 
-            if (model.AppliedDays > remainingDays)
-            {
-                return Json(new
+                if (model.LeaveDuration == "Half Day")
                 {
-                    result = false,
-                    msg = "Remainig leaves - " + remainingDays
-                });
-            }
-
-            if (frmLeaveFile != null && frmLeaveFile.Length > 0)
-            {
-                using (var stream = new MemoryStream())
-                {
-                    await frmLeaveFile.CopyToAsync(stream);
-                    model.Document = Convert.ToBase64String(stream.ToArray());
+                    model.AppliedDays = 0.5m;
                 }
-            }
-            string strMessage;
-            if (model.Id == 0)
-            {
-                await _leaveRequestService.CreateLeaveRequestAsync(model);
-                strMessage = "Leave request saved successfully!";
-            }
-            else
-            {
-                await _leaveRequestService.UpdateLeaveRequestAsync(model);
-                strMessage = "Leave request updated successfully!";
-            }
+                else if (model.LeaveDuration == "Full Day")
+                {
+                    model.AppliedDays = 1.0m;
+                }
+                else
+                {
+                    TimeSpan difference = Convert.ToDateTime(model.EndDate) - Convert.ToDateTime(model.StartDate);
+                    model.AppliedDays = difference.Days + 1;
+                }
 
-            var empLeave = await _employeeService.GetEmployeeLeavesByEmployeeIdAsync(model.EmployeeId);
+                decimal remainingDays = await _employeeService.RmainingLeaves(model.EmployeeId, model.LeaveTypeId);
 
-            return Json(new { result = true, msg = strMessage });
+                if (model.AppliedDays > remainingDays)
+                {
+                    return Json(new
+                    {
+                        result = false,
+                        msg = "Remainig leaves - " + remainingDays
+                    });
+                }
+
+                if (frmLeaveFile != null && frmLeaveFile.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await frmLeaveFile.CopyToAsync(stream);
+                        model.Document = Convert.ToBase64String(stream.ToArray());
+                    }
+                }
+                string strMessage;
+                if (model.Id == 0)
+                {
+                    await _leaveRequestService.CreateLeaveRequestAsync(model);
+                    strMessage = "Leave request saved successfully!";
+                }
+                else
+                {
+                    await _leaveRequestService.UpdateLeaveRequestAsync(model);
+                    strMessage = "Leave request updated successfully!";
+                }
+
+                var empLeave = await _employeeService.GetEmployeeLeavesByEmployeeIdAsync(model.EmployeeId);
+
+                return Json(new { result = true, msg = strMessage });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(ManageRequests)} - ERROR - {ex}");
+                return Json(new { result = false, msg = ex.Message });
+            }
+            
         }
 
         [HttpGet]
         public async Task<IActionResult> ViewRequest(int id)
         {
-            var model = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
-            return PartialView("~/Views/Employee/_ViewRequestPartial.cshtml", model);
+            try
+            {
+                var model = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
+                return PartialView("~/Views/Employee/_ViewRequestPartial.cshtml", model);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(ViewRequest)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         public async Task<IActionResult> DeleteRequest(int id)
         {
-            var model = await _leaveRequestService.DeleteLeaveRequestAsync(id);
-            return Json(new { result = true, msg = "Leave request successfully deleted." });
+            try
+            {
+                var model = await _leaveRequestService.DeleteLeaveRequestAsync(id);
+                return Json(new { result = true, msg = "Leave request successfully deleted." });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(DeleteRequest)} - ERROR - {ex}");
+                return Json(new { result = false, msg = ex.Message });
+            }
         }
 
         [HttpGet]
         public async Task<JsonResult> GetLeaveTypesByEmployee(int employeeId)
         {
-            var leaveTypes = await _employeeService.GetLeaveTypesForEmployeeAsync(employeeId);
+            try
+            {
+                var leaveTypes = await _employeeService.GetLeaveTypesForEmployeeAsync(employeeId);
 
-            return Json(leaveTypes);
+                return Json(leaveTypes);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(GetLeaveTypesByEmployee)} - ERROR - {ex}");
+                return Json(null);
+            }
         }
 
         public async Task<IActionResult> DownloadLeaveRequestDocument(int id)
         {
-            var lr = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
-
-            if (lr == null || string.IsNullOrEmpty(lr.Document))
+            try
             {
-                return NotFound();
+                var lr = await _leaveRequestService.GetLeaveRequestByIdAsync(id);
+
+                if (lr == null || string.IsNullOrEmpty(lr.Document))
+                {
+                    return NotFound();
+                }
+
+                var documentBytes = Convert.FromBase64String(lr.Document);
+                var fileName = $"Leave_Request_Document.pdf";
+
+                return File(documentBytes, "application/pdf", fileName);
             }
-
-            var documentBytes = Convert.FromBase64String(lr.Document);
-            var fileName = $"Leave_Request_Document.pdf";
-
-            return File(documentBytes, "application/pdf", fileName);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(DownloadLeaveRequestDocument)} - ERROR - {ex}");
+                return View("CustomError");
+            }
+            
         }
         #endregion
 
         public async Task<IActionResult> EmployeeProfile(int page = 1, int pageSize = 6)
         {
-            var employees = await _employeeService.GetAllEmployeesPagingAsync(page,pageSize);
-
-            var totalItems = _context.Employees.Count();
-
-            var pagedResult = new PagedResult<EmployeeModel>
+            try
             {
-                Items = employees,
-                PageNumber = page,
-                PageSize = pageSize,
-                TotalItems = totalItems
-            };
+                var employees = await _employeeService.GetAllEmployeesPagingAsync(page, pageSize);
 
-            return View(pagedResult);
+                var totalItems = _context.Employees.Count();
+
+                var pagedResult = new PagedResult<EmployeeModel>
+                {
+                    Items = employees,
+                    PageNumber = page,
+                    PageSize = pageSize,
+                    TotalItems = totalItems
+                };
+                return View(pagedResult);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(EmployeeProfile)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
-
     }
 }

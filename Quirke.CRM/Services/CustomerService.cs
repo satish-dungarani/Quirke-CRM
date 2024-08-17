@@ -195,6 +195,7 @@ namespace Quirke.CRM.Services
                     Firstname = customer.Firstname,
                     Lastname = customer.Lastname,
                     BirthDate = customer.BirtDate,
+                    DispBirthDate = customer.BirtDate.ToString("dd MMM yyyy"),
                     Mobile = customer.Mobile,
                     Status = compliance.Status,
                     IsIdentityProvided = compliance.IsIdentityProvided,
@@ -209,9 +210,12 @@ namespace Quirke.CRM.Services
                     CanTakeService = compliance.CanTakeService,
                     IsAllergyTestDone = compliance.IsAllergyTestDone,
                     TestScheduleOn = compliance.TestScheduleOn,
+                    DispTestScheduleOn = compliance.TestScheduleOn.HasValue ? compliance.TestScheduleOn?.ToString("dd MMM yyyy") : "",
+                    DispTestDate = compliance.TestDate?.ToString("dd MMM yyyy"),
                     TestDate = compliance.TestDate,
                     ObservedBy = compliance.ObservedBy,
                     CreatedOn = compliance.CreatedOn,
+                    DispCreatedOn = compliance.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = compliance.UpdatedOn,
                     IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
                     SignatureData = compliance.SignatureData,
@@ -244,11 +248,13 @@ namespace Quirke.CRM.Services
                     ProductId = record.product.Id,
                     TreatmentId = record.treatment.Id,
                     ServiceDate = record.record.ServiceDate,
+                    DispServiceDate = record.record.ServiceDate.ToString("dd MMM yyyy"),
                     Strength = record.record.Strength,
                     DevTime = record.record.DevTime,
                     Remark = record.record.Remark,
                     AttendedEmployeeId = record.record.AttendedEmployeeId,
                     CreatedOn = record.record.CreatedOn,
+                    DispCreatedOn = record.record.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = record.record.UpdatedOn,
                     ProductName = record.product.Name ?? "",
                     TreatmentName = record.treatment.Name ?? "",
@@ -272,9 +278,10 @@ namespace Quirke.CRM.Services
                 ProductId = record.ProductId,
                 AttendedEmployeeId = record.AttendedEmployeeId,
                 DevTime = record.DevTime,
-                ServiceDate = record.ServiceDate,
+                DispServiceDate = record.ServiceDate.ToString("dd MMM yyyy"),
                 Strength = record.Strength,
                 CreatedOn = record.CreatedOn,
+                DispCreatedOn = record.CreatedOn.ToString("dd MMM yyyy"),
                 Remark = record.Remark,
                 TreatmentId = record.TreatmentId,
                 UpdatedOn = record.UpdatedOn
@@ -285,8 +292,6 @@ namespace Quirke.CRM.Services
 
         public async Task CreateCustomerRecordAsync(CustomerRecordModel customerRecordModel)
         {
-            try
-            {
                 var record = new CustomerRecord
                 {
                     CustomerId = customerRecordModel.CustomerId,
@@ -302,11 +307,7 @@ namespace Quirke.CRM.Services
 
                 _context.CustomerRecords.Add(record);
                 await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+         
         }
 
         public async Task UpdateCustomerRecordAsync(CustomerRecordModel customerRecordModel)

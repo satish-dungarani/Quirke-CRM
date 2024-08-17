@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 
@@ -26,31 +27,40 @@ namespace Quirke.CRM.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(UserLoginModel userLoginModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var user = await _userManager.FindByEmailAsync(userLoginModel.Email);
-
-                if (user != null)
+                if (ModelState.IsValid)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, userLoginModel.Password, userLoginModel.RememberMe, false);
+                    var user = await _userManager.FindByEmailAsync(userLoginModel.Email);
 
-                    if (result.Succeeded)
+                    if (user != null)
                     {
-                        TempData["SuccessMessage"] = "Successfully login!";
-                        return RedirectToAction("Index", "Home");
+                        var result = await _signInManager.PasswordSignInAsync(user, userLoginModel.Password, userLoginModel.RememberMe, false);
+
+                        if (result.Succeeded)
+                        {
+                            TempData["SuccessMessage"] = "Successfully login!";
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"] = "Invalid password!";
+                        }
                     }
                     else
                     {
-                        TempData["ErrorMessage"] = "Invalid password!";
+                        TempData["ErrorMessage"] = "No user found with this email address!";
                     }
                 }
-                else
-                {
-                    TempData["ErrorMessage"] = "No user found with this email address!";
-                }
+
+                return View(userLoginModel);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(AccountController)} - {nameof(Login)} - ERROR - {ex}");
+                return View("CustomError");
             }
 
-            return View(userLoginModel);
         }
 
         public IActionResult SignUp()
@@ -61,42 +71,51 @@ namespace Quirke.CRM.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(UserRegisterModel userRegisterModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (_userManager.Users.Any(u => u.Email == userRegisterModel.Email))
-                {
-                    TempData["WarningMessage"] = "This email address is already registered.";
-                    return View(userRegisterModel);
-                }
 
-                if (_userManager.Users.Any(u => u.PhoneNumber == userRegisterModel.PhoneNumber))
+                if (ModelState.IsValid)
                 {
-                    TempData["WarningMessage"] = "This phone number is already registered.";
-                    return View(userRegisterModel);
-                }
+                    if (_userManager.Users.Any(u => u.Email == userRegisterModel.Email))
+                    {
+                        TempData["WarningMessage"] = "This email address is already registered.";
+                        return View(userRegisterModel);
+                    }
 
-                var user = new ApplicationUser
-                {
-                    UserName = userRegisterModel.UserName,
-                    Email = userRegisterModel.Email,
-                    PhoneNumber = userRegisterModel.PhoneNumber,
-                    FirstName = userRegisterModel.FirstName,
-                    LastName = userRegisterModel.LastName
-                };
+                    if (_userManager.Users.Any(u => u.PhoneNumber == userRegisterModel.PhoneNumber))
+                    {
+                        TempData["WarningMessage"] = "This phone number is already registered.";
+                        return View(userRegisterModel);
+                    }
 
-                var result = await _userManager.CreateAsync(user, userRegisterModel.Password);
+                    var user = new ApplicationUser
+                    {
+                        UserName = userRegisterModel.UserName,
+                        Email = userRegisterModel.Email,
+                        PhoneNumber = userRegisterModel.PhoneNumber,
+                        FirstName = userRegisterModel.FirstName,
+                        LastName = userRegisterModel.LastName
+                    };
 
-                if (result.Succeeded)
-                {
-                    TempData["SuccessMessage"] = "Registered successfully!";
-                    return RedirectToAction("Index", "Home");
+                    var result = await _userManager.CreateAsync(user, userRegisterModel.Password);
+
+                    if (result.Succeeded)
+                    {
+                        TempData["SuccessMessage"] = "Registered successfully!";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "An error occurred during registration!";
+                    }
                 }
-                else
-                {
-                    TempData["ErrorMessage"] = "An error occurred during registration!";
-                }
+                return View(userRegisterModel);
             }
-            return View(userRegisterModel);
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(AccountController)} - {nameof(SignUp)} - ERROR - {ex}");
+                return View("CustomError");
+            }
         }
 
         public IActionResult LogOut()

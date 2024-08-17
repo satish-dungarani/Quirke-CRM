@@ -54,15 +54,18 @@ namespace Quirke.CRM.Services
                 Lastname = entity.Lastname,
                 Gender = entity.Gender,
                 BirthDate = entity.BirthDate,
+                DispBirthDate = entity.BirthDate.ToString("dd MMM yyyy"),
                 PhoneNumber = entity.PhoneNumber,
                 EmergencyContact = entity.EmergencyContact,
                 Email = entity.Email,
                 HireDate = entity.HireDate,
+                DispHireDate = entity.HireDate.ToString("dd MMM yyyy"),
                 JobTitle = entity.JobTitle,
                 Picture = entity.Picture,
                 IdentityDocument = entity.IdentityDocument,
                 IsDeleted = entity.IsDeleted,
                 CreatedOn = entity.CreatedOn,
+                DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                 UpdatedOn = entity.UpdatedOn
             };
         }
@@ -71,23 +74,26 @@ namespace Quirke.CRM.Services
         {
             return await _context.Employees
            .Where(e => !e.IsDeleted)
-           .Select(e => new EmployeeModel
+           .Select(entity => new EmployeeModel
            {
-               Id = e.Id,
-               Firstname = e.Firstname,
-               Lastname = e.Lastname,
-               Gender = e.Gender,
-               BirthDate = e.BirthDate,
-               PhoneNumber = e.PhoneNumber,
-               EmergencyContact = e.EmergencyContact,
-               Email = e.Email,
-               HireDate = e.HireDate,
-               JobTitle = e.JobTitle,
-               Picture = e.Picture,
-               IdentityDocument = e.IdentityDocument,
-               IsDeleted = e.IsDeleted,
-               CreatedOn = e.CreatedOn,
-               UpdatedOn = e.UpdatedOn
+               Id = entity.Id,
+               Firstname = entity.Firstname,
+               Lastname = entity.Lastname,
+               Gender = entity.Gender,
+               BirthDate = entity.BirthDate,
+               DispBirthDate = entity.BirthDate.ToString("dd MMM yyyy"),
+               PhoneNumber = entity.PhoneNumber,
+               EmergencyContact = entity.EmergencyContact,
+               Email = entity.Email,
+               HireDate = entity.HireDate,
+               DispHireDate = entity.HireDate.ToString("dd MMM yyyy"),
+               JobTitle = entity.JobTitle,
+               Picture = entity.Picture,
+               IdentityDocument = entity.IdentityDocument,
+               IsDeleted = entity.IsDeleted,
+               CreatedOn = entity.CreatedOn,
+               DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
+               UpdatedOn = entity.UpdatedOn
            }).ToListAsync();
         }
         public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesPagingAsync(int page = 1, int pageSize = 10)
@@ -96,23 +102,26 @@ namespace Quirke.CRM.Services
            .Where(e => !e.IsDeleted)
            .Skip((page - 1) * pageSize)
            .Take(pageSize)
-           .Select(e => new EmployeeModel
+           .Select(entity => new EmployeeModel
            {
-               Id = e.Id,
-               Firstname = e.Firstname,
-               Lastname = e.Lastname,
-               Gender = e.Gender,
-               BirthDate = e.BirthDate,
-               PhoneNumber = e.PhoneNumber,
-               EmergencyContact = e.EmergencyContact,
-               Email = e.Email,
-               HireDate = e.HireDate,
-               JobTitle = e.JobTitle,
-               Picture = e.Picture,
-               IdentityDocument = e.IdentityDocument,
-               IsDeleted = e.IsDeleted,
-               CreatedOn = e.CreatedOn,
-               UpdatedOn = e.UpdatedOn
+               Id = entity.Id,
+               Firstname = entity.Firstname,
+               Lastname = entity.Lastname,
+               Gender = entity.Gender,
+               BirthDate = entity.BirthDate,
+               DispBirthDate = entity.BirthDate.ToString("dd MMM yyyy"),
+               PhoneNumber = entity.PhoneNumber,
+               EmergencyContact = entity.EmergencyContact,
+               Email = entity.Email,
+               HireDate = entity.HireDate,
+               DispHireDate = entity.HireDate.ToString("dd MMM yyyy"),
+               JobTitle = entity.JobTitle,
+               Picture = entity.Picture,
+               IdentityDocument = entity.IdentityDocument,
+               IsDeleted = entity.IsDeleted,
+               CreatedOn = entity.CreatedOn,
+               DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
+               UpdatedOn = entity.UpdatedOn
            }).ToListAsync();
         }
 
@@ -163,23 +172,26 @@ namespace Quirke.CRM.Services
         {
             return await _context.Employees
                 .Where(e => e.JobTitle == jobTitle && !e.IsDeleted)
-                .Select(e => new EmployeeModel
+                .Select(entity => new EmployeeModel
                 {
-                    Id = e.Id,
-                    Firstname = e.Firstname,
-                    Lastname = e.Lastname,
-                    Gender = e.Gender,
-                    BirthDate = e.BirthDate,
-                    PhoneNumber = e.PhoneNumber,
-                    EmergencyContact = e.EmergencyContact,
-                    Email = e.Email,
-                    HireDate = e.HireDate,
-                    JobTitle = e.JobTitle,
-                    Picture = e.Picture,
-                    IdentityDocument = e.IdentityDocument,
-                    IsDeleted = e.IsDeleted,
-                    CreatedOn = e.CreatedOn,
-                    UpdatedOn = e.UpdatedOn
+                    Id = entity.Id,
+                    Firstname = entity.Firstname,
+                    Lastname = entity.Lastname,
+                    Gender = entity.Gender,
+                    BirthDate = entity.BirthDate,
+                    DispBirthDate = entity.BirthDate.ToString("dd MMM yyyy"),
+                    PhoneNumber = entity.PhoneNumber,
+                    EmergencyContact = entity.EmergencyContact,
+                    Email = entity.Email,
+                    HireDate = entity.HireDate,
+                    DispHireDate = entity.HireDate.ToString("dd MMM yyyy"),
+                    JobTitle = entity.JobTitle,
+                    Picture = entity.Picture,
+                    IdentityDocument = entity.IdentityDocument,
+                    IsDeleted = entity.IsDeleted,
+                    CreatedOn = entity.CreatedOn,
+                    DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
+                    UpdatedOn = entity.UpdatedOn
                 })
                 .ToListAsync();
         }
@@ -188,23 +200,26 @@ namespace Quirke.CRM.Services
         {
             return await _context.Employees
                 .Where(e => e.HireDate > hireDate && !e.IsDeleted)
-                .Select(e => new EmployeeModel
+                .Select(entity => new EmployeeModel
                 {
-                    Id = e.Id,
-                    Firstname = e.Firstname,
-                    Lastname = e.Lastname,
-                    Gender = e.Gender,
-                    BirthDate = e.BirthDate,
-                    PhoneNumber = e.PhoneNumber,
-                    EmergencyContact = e.EmergencyContact,
-                    Email = e.Email,
-                    HireDate = e.HireDate,
-                    JobTitle = e.JobTitle,
-                    Picture = e.Picture,
-                    IdentityDocument = e.IdentityDocument,
-                    IsDeleted = e.IsDeleted,
-                    CreatedOn = e.CreatedOn,
-                    UpdatedOn = e.UpdatedOn
+                    Id = entity.Id,
+                    Firstname = entity.Firstname,
+                    Lastname = entity.Lastname,
+                    Gender = entity.Gender,
+                    BirthDate = entity.BirthDate,
+                    DispBirthDate = entity.BirthDate.ToString("dd MMM yyyy"),
+                    PhoneNumber = entity.PhoneNumber,
+                    EmergencyContact = entity.EmergencyContact,
+                    Email = entity.Email,
+                    HireDate = entity.HireDate,
+                    DispHireDate = entity.HireDate.ToString("dd MMM yyyy"),
+                    JobTitle = entity.JobTitle,
+                    Picture = entity.Picture,
+                    IdentityDocument = entity.IdentityDocument,
+                    IsDeleted = entity.IsDeleted,
+                    CreatedOn = entity.CreatedOn,
+                    DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
+                    UpdatedOn = entity.UpdatedOn
                 })
                 .ToListAsync();
         }

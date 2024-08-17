@@ -20,6 +20,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
         public DateTime? StartDate { get; set; }
+        public string? DispStartDate { get; set; }
 
         [Required(ErrorMessage = "Leave Duration is required.")]
         [Display(Name = "Leave Duration")]
@@ -30,6 +31,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "End Date")]
         [DataType(DataType.Date)]
         public DateTime? EndDate { get; set; }
+        public string? DispEndDate { get; set; }
 
         [Display(Name = "Note")]
         [StringLength(500, ErrorMessage = "Note cannot exceed 500 characters.")]
@@ -46,7 +48,8 @@ namespace Quirke.CRM.Models
         [Required(ErrorMessage = "Created On is required.")]
         [Display(Name = "Created On")]
         [DataType(DataType.DateTime)]
-        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public DateTime CreatedOn { get; set; }
+        public string? DispCreatedOn { get; set; }
 
         [Display(Name = "Updated On")]
         [DataType(DataType.DateTime)]
