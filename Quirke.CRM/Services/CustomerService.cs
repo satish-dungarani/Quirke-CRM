@@ -20,7 +20,7 @@ namespace Quirke.CRM.Services
         #region Customers
         public async Task<IEnumerable<Customer>> GetAllCustomersAsync()
         {
-            return await _context.Customers.ToListAsync();
+            return await _context.Customers.OrderByDescending(c=>c.Id).ToListAsync();
         }
 
         public async Task<Customer> GetCustomerByIdAsync(int customerId)
@@ -58,7 +58,7 @@ namespace Quirke.CRM.Services
 
         public async Task<IEnumerable<CustomerCompliance>> GetAllCustomerCompliancesAsync()
         {
-            return await _context.CustomerCompliances.ToListAsync();
+            return await _context.CustomerCompliances.OrderByDescending(c => c.Id).ToListAsync();
         }
 
         public async Task<CustomerCompliance> GetCustomerComplianceByIdAsync(int customerComplianceId)
@@ -84,6 +84,7 @@ namespace Quirke.CRM.Services
                 TestDate = model.TestDate,
                 Status = model.Status,
                 SignatureData = model.SignatureData,
+                SalonSignatureData = model.SalonSignatureData,
                 ObservedBy = model.ObservedBy,
                 CanTakeService = model.CanTakeService,
                 IsAllergyTestDone = model.IsAllergyTestDone,
@@ -116,6 +117,7 @@ namespace Quirke.CRM.Services
                 compliance.CanTakeService = model.CanTakeService;
                 compliance.IsAllergyTestDone = model.IsAllergyTestDone;
                 compliance.SignatureData = model.SignatureData;
+                compliance.SalonSignatureData = model.SalonSignatureData;
 
                 _context.CustomerCompliances.Update(compliance);
                 await _context.SaveChangesAsync();
@@ -136,6 +138,7 @@ namespace Quirke.CRM.Services
         {
             return await _context.CustomerCompliances
                                  .Where(cc => cc.CustomerId == customerId)
+                                 .OrderByDescending(c => c.Id)
                                  .ToListAsync();
         }
 
@@ -219,6 +222,8 @@ namespace Quirke.CRM.Services
                     UpdatedOn = compliance.UpdatedOn,
                     IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
                     SignatureData = compliance.SignatureData,
+                    TestDueDate = compliance.TestDate?.AddMonths(6).ToString("dd MMM yyyy"),
+                    SalonSignatureData = compliance.SalonSignatureData,
                 };
             }
         }
@@ -260,6 +265,7 @@ namespace Quirke.CRM.Services
                     TreatmentName = record.treatment.Name ?? "",
                     AttendedEmployeeName = employee == null ? "" : $"{employee.Firstname} {employee.Lastname}"
                 })
+            .OrderByDescending(c => c.Id)
             .ToListAsync();
         }
 

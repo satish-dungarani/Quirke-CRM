@@ -31,7 +31,7 @@ namespace Quirke.CRM.Models
         [Display(Name = "Customer Id")]
         public int CustomerId { get; set; }
 
-        [Display(Name = "Is Over 16?")]
+        [Display(Name = "Over 16?")]
         public bool IsOver16 => BirthDate.HasValue &&
                         (DateTime.Today.Year - BirthDate.Value.Year > 16 ||
                         (DateTime.Today.Year - BirthDate.Value.Year == 16 &&
@@ -99,8 +99,14 @@ namespace Quirke.CRM.Models
 
         public bool IsValid { get; set; }
         [Required(ErrorMessage = "Signature is required.")]
-        [Display(Name = "Signature")]
+        [Display(Name = "Client Signature")]
         public string SignatureData { get; set; }
+
+        [Required(ErrorMessage = "Signature is required.")]
+        [Display(Name = "Salon Signature")]
+        public string SalonSignatureData { get; set; }
+
+        public string TestDueDate { get; set; }
 
     }
 }

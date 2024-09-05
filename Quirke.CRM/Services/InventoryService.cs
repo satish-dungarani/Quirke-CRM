@@ -102,7 +102,8 @@ namespace Quirke.CRM.Services
                 UpdatedOn = product.UpdatedOn,
                 BrandName = product.Brand?.Name,
                 SupplierName = product.Supplier?.Name
-            });
+            })
+            .OrderByDescending(c => c.Id);
         }
 
         public async Task<ProductModel> UpdateProductAsync(ProductModel model)
@@ -199,7 +200,9 @@ namespace Quirke.CRM.Services
                         Id = i.Product.Id,
                         Name = i.Product.Name,
                     }
-                }).ToListAsync();
+                })
+                .OrderByDescending(c => c.Id)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<InventoryHistoryModel>> GetLatestInventoryAsync()
@@ -208,6 +211,7 @@ namespace Quirke.CRM.Services
                 .Include(p => p.Product)
                 .GroupBy(i => i.ProductId)
                 .Select(g => g.OrderByDescending(i => i.CreatedOn).FirstOrDefault())
+                .OrderByDescending(c => c.Id)
                 .ToListAsync();
 
             return latestRecords.Select(i => new InventoryHistoryModel()

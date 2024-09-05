@@ -1,7 +1,7 @@
 ﻿@model CustomerModel
 
 @{
-    ViewData["Title"] = Model.Id == 0 ? "Create Customer" : "Edit Customer";
+    ViewData["Title"] = Model.Id == 0 ? "Create Client" : "Edit Client";
 }
 
 <section class="content pt-3">
@@ -10,7 +10,7 @@
             <div class="card-header">
                 <h1 class="card-title">
                     @* <i class="fas fa-tag"></i> *@
-                    Customers - @ViewData["Title"]
+                    Clients - @ViewData["Title"]
                 </h1>
                 <a class="btn btn-primary  btn-sm float-right ml-2" href="@Url.Action("Index","Customer")">Back to list</a>
 
@@ -90,7 +90,7 @@
         <div class="container-fluid">
             <div class="card card-default color-palette-box">
                 <div class="card-header">
-                    <h1 class="card-title"><b>Customer Compliance</b></h1>
+                    <h1 class="card-title"><b>Client Compliance</b></h1>
                     <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageCompliance","Customer", new {customerId = Model.Id})">Add Compliance</a>
                 </div>
                 <div class="card-body">
@@ -119,7 +119,7 @@
         <div class="container-fluid">
             <div class="card card-default color-palette-box">
                 <div class="card-header">
-                    <h1 class="card-title"><b>Customer Records</b></h1>
+                    <h1 class="card-title"><b>Client Records</b></h1>
                     <button class="btn btn-info  btn-sm float-right ml-2" onclick="funManageCustomerRecord(null);">Add Record</button>
                 </div>
                 <div class="card-body">

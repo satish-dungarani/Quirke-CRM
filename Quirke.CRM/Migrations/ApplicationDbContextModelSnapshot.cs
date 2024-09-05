@@ -248,6 +248,9 @@ namespace Quirke.CRM.Migrations
                     b.Property<string>("SignatureData")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SalonSignatureData")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

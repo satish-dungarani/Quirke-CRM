@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quirke & Co Hairdressers - Customer Compliance</title>
+    <title>Quirke & Co Hairdressers - Client Compliance</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/WebCore/plugins/fontawesome-free/css/all.min.css">
     <style>
@@ -186,7 +186,7 @@
                                     </td>
                                 </tr>
 
-                                <tr></tr>   
+                                <tr></tr>
                                 <tr>
                                     <th style="width:70%">
                                         <label class="form-check-label" asp-for="IsIdentityProvided" style="font-weight: 700 !important;"></label>
@@ -304,23 +304,80 @@
                                         <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
                                     </td>
                                 </tr>
+
+
+                                <!-- observed -->
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="ObservedBy" class="control-label">Reaction Observed by client or Salon</span>
+                                        <textarea asp-for="ObservedBy" class="form-control"></textarea>
+                                        <span asp-validation-for="AllergicProductDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <!-- Allergy -->
+                                <tr>
+                                    <th style="width:70%">
+                                        <label class="form-check-label" asp-for="IsAllergyTestDone" style="font-weight: 700 !important;"></label>
+                                    </th>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergyTestDone" value="true" id="yesIsAllergyTestDone" />
+                                            <label class="form-check-label mr-2" for="yesIsAllergyTestDone">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="IsAllergyTestDone" value="false" id="noIsAllergyTestDone" />
+                                            <label class="form-check-label mr-2" for="noIsAllergyTestDone">No</label>
+                                        </div>
+                                        <span asp-validation-for="IsAllergyTestDone" class="text-danger"></span>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
-                        <div class="form-group mt-2">
-                            <label asp-for="SignatureData" class="form-label"></label>
-                            <div class="">
-                                <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br>
-                                <button type="button" id="accept" class="btn btn-primary btn-sm mt-2">Accept</button>
-                                <button type="button" id="clear" class="btn btn-primary btn-sm mt-2" style="display:none;">Clear</button>
-                            </div>
-                        </div>
-                        <div class="form-group mt-2">
-                            <div class="">
-                                <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.SignatureData"><br>
-                                <input type="text" asp-for="SignatureData" hidden>
-                            </div>
-                        </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group mt-2">
+                                            <label asp-for="SignatureData" class="form-label"></label>
+                                            <div class="">
+                                                <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br>
+                                                <button type="button" id="accept" class="btn btn-primary btn-sm mt-2" style="display:none;">Accept</button>
+                                                <button type="button" id="clear" class="btn btn-primary btn-sm mt-2 float-right"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-2" style="display:none;">
+                                            <div class="">
+                                                <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.SignatureData"><br>
+                                                <input type="text" asp-for="SignatureData" hidden>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group mt-2">
+                                            <label asp-for="SalonSignatureData" class="form-label"></label>
+                                            <div class="">
+                                                <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="salonsignature"></canvas><br>
+                                                <button type="button" id="salonaccept" class="btn btn-primary btn-sm mt-2" style="display:none;">Accept</button>
+                                                <button type="button" id="salonclear" class="btn btn-primary btn-sm mt-2"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-2" style="display:none;">
+                                            <div class="">
+                                                <img class="w-100" style="max-width: 350px; height: auto;" id="salonsavetarget" src="@Model.SalonSignatureData"><br>
+                                                <input type="text" asp-for="SalonSignatureData" hidden>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
 
 
 
@@ -404,8 +461,8 @@
                 $('#savetarget').attr('src', '');
                 $('#SignatureData').val('');
                 pad.on();
-                $('#accept').show();
-                $('#clear').hide();
+                // $('#accept').show();
+                // $('#clear').hide();
             }
 
             $('#accept').click(function () {
@@ -421,8 +478,8 @@
                     $('#savetarget').attr('src', data);
                     $('#SignatureData').val(data);
                     pad.off();
-                    $('#accept').hide();
-                    $('#clear').show();
+                    // $('#accept').hide();
+                    // $('#clear').show();
                 }
             });
 
@@ -431,12 +488,52 @@
                 $('#savetarget').attr('src', '');
                 $('#SignatureData').val('');
                 pad.on();
-                $('#accept').show();
-                $('#clear').hide();
+                // $('#accept').show();
+                // $('#clear').hide();
+            });
+
+
+            var canvas1 = document.querySelector('#salonsignature');
+            var pad1 = new SignaturePad(canvas1);
+
+            if (pad1.isEmpty()) {
+                pad1.clear();
+                $('#salonsavetarget').attr('src', '');
+                $('#SalonSignatureData').val('');
+                pad1.on();
+                // $('#salonaccept').show();
+                // $('#salonclear').hide();
+            }
+
+            $('#salonaccept').click(function () {
+                if (pad1.isEmpty()) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please provide a salon signature before accepting.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    var data = pad1.toDataURL();
+                    $('#salonsavetarget').attr('src', data);
+                    $('#SalonSignatureData').val(data);
+                    pad1.off();
+                    // $('#salonaccept').hide();
+                    // $('#salonclear').show();
+                }
+            });
+
+            $('#salonclear').click(function () {
+                pad1.clear();
+                $('#salonsavetarget').attr('src', '');
+                $('#SalonSignatureData').val('');
+                pad1.on();
+                // $('#salonaccept').show();
+                // $('#salonclear').hide();
             });
 
             $('#complianceForm').submit(function (event) {
-
+                debugger
                 if (!$(this).valid()) {
                     event.preventDefault();
                     return;
@@ -451,8 +548,23 @@
                         confirmButtonText: 'OK'
                     });
                 } else {
-                    var data = pad.toDataURL();
-                    $('#SignatureData').val(data);
+                    $("#accept").click();
+                    // var data = pad.toDataURL();
+                    // $('#SignatureData').val(data);
+                }
+
+                if (pad1.isEmpty() && $('#SalonSignatureData').val() == '') {
+                    event.preventDefault();
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please provide a salon signature before submitting.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    $("#salonaccept").click();
+                    // var data = pad.toDataURL();
+                    // $('#SalonSignatureData').val(data);
                 }
             });
 

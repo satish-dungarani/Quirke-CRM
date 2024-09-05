@@ -18,8 +18,6 @@ namespace Quirke.CRM.Domain.Services
 
         public async Task<IEnumerable<LeaveRequestModel>> GetAllLeaveRequestsAsync()
         {
-            try
-            {
                 var leaveRequests = from leaveRequest in _context.LeaveRequests
                                     join employee in _context.Employees on leaveRequest.EmployeeId equals employee.Id
                                     join master in _context.Masters on leaveRequest.LeaveTypeId equals master.Id
@@ -73,12 +71,10 @@ namespace Quirke.CRM.Domain.Services
                                         LeaveType = master.Name ?? string.Empty
                                     };
 
-                return await leaveRequests.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+                return await leaveRequests
+                    .OrderByDescending(c => c.Id)
+                    .ToListAsync();
+            
         }
 
         public async Task<LeaveRequestModel> GetLeaveRequestByIdAsync(int id)
@@ -134,6 +130,7 @@ namespace Quirke.CRM.Domain.Services
                                       EmployeeName = (employee.Firstname + " " + employee.Lastname) ?? string.Empty,
                                       LeaveType = master.Name ?? string.Empty
                                   }).Where(lr => lr.EmployeeId == employeeId)
+                                  .OrderByDescending(c => c.Id)
                                  .ToListAsync();
 
             return requests;

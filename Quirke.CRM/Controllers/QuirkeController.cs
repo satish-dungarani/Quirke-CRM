@@ -76,7 +76,7 @@ namespace Quirke.CRM.Controllers
                         Lastname = model.Lastname,
                         Mobile = model.Mobile,
                         CreatedOn = DateTime.UtcNow,
-                        Gender = "Female"
+                       // Gender = "Female"
                     };
 
                     customer = await _customerService.CreateCustomerAsync(customer);

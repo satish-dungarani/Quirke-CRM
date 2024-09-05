@@ -94,7 +94,7 @@ namespace Quirke.CRM.Services
                CreatedOn = entity.CreatedOn,
                DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                UpdatedOn = entity.UpdatedOn
-           }).ToListAsync();
+           }).OrderByDescending(c => c.Id).ToListAsync();
         }
         public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesPagingAsync(int page = 1, int pageSize = 10)
         {
@@ -122,7 +122,9 @@ namespace Quirke.CRM.Services
                CreatedOn = entity.CreatedOn,
                DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                UpdatedOn = entity.UpdatedOn
-           }).ToListAsync();
+           })
+           .OrderByDescending(c => c.Id)
+           .ToListAsync();
         }
 
         public async Task<bool> UpdateEmployeeAsync(EmployeeModel employee)
@@ -193,6 +195,7 @@ namespace Quirke.CRM.Services
                     DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = entity.UpdatedOn
                 })
+                .OrderByDescending(c => c.Id)
                 .ToListAsync();
         }
 
@@ -221,6 +224,7 @@ namespace Quirke.CRM.Services
                     DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = entity.UpdatedOn
                 })
+                .OrderByDescending(c => c.Id)
                 .ToListAsync();
         }
 
@@ -271,6 +275,7 @@ namespace Quirke.CRM.Services
                          UpdatedOn = leave.UpdatedOn
                      }
                  )
+                 .OrderByDescending(c => c.Id)
                  .ToListAsync();
         }
 

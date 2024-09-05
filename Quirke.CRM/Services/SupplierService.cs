@@ -59,29 +59,20 @@ namespace Quirke.CRM.Domain.Services
 
         public async Task<IEnumerable<SupplierModel>> GetAllSuppliersAsync()
         {
-            
-            try
+            var suppliers = await _context.Suppliers.ToListAsync();
+            return suppliers.Select(s => new SupplierModel
             {
-                var suppliers = await _context.Suppliers.ToListAsync();
-                return suppliers.Select(s => new SupplierModel
-                {
-                    Id = s.Id,
-                    Name = s.Name ?? string.Empty,
-                    ContactName = s.ContactName ?? string.Empty,
-                    ContactEmail = s.ContactEmail ?? string.Empty,
-                    ContactPhone = s.ContactPhone ?? string.Empty,
-                    Address = s.Address ?? string.Empty,
-                    IsActive = s.IsActive,
-                    CreatedOn = s.CreatedOn,
-                    UpdatedOn = s.UpdatedOn
-                });
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-           
+                Id = s.Id,
+                Name = s.Name ?? string.Empty,
+                ContactName = s.ContactName ?? string.Empty,
+                ContactEmail = s.ContactEmail ?? string.Empty,
+                ContactPhone = s.ContactPhone ?? string.Empty,
+                Address = s.Address ?? string.Empty,
+                IsActive = s.IsActive,
+                CreatedOn = s.CreatedOn,
+                UpdatedOn = s.UpdatedOn
+            })
+                .OrderByDescending(c => c.Id);
         }
 
         public async Task<SupplierModel> UpdateSupplierAsync(SupplierModel model)

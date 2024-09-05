@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quirke & Co Hairdressers - Customer Compliance</title>
+    <title>Quirke & Co Hairdressers - Client Compliance</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
@@ -209,6 +209,15 @@
                                     }
                                 </div>
                                 <br />
+                                @if (Model.Status == "Completed")
+                                {
+                                    <div class="form-group">
+                                        <label style="font-weight: 700;">Due on Date:</label>
+                                        <p>@Model.TestDueDate</p>
+                                    </div>
+                                    <br />
+                                }
+                                
                                 <div class="form-group">
                                     <label style="font-weight: 700;" asp-for="ObservedBy"></label>
                                     <p>@Model.ObservedBy</p>
@@ -235,6 +244,14 @@
                                 <div class="form-group">
                                     <label style="font-weight: 700;" asp-for="SignatureData"></label>:
                                     <img class="ml-5" width="300" height="150" id="savetarget" src="@Model.SignatureData"><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label style="font-weight: 700;" asp-for="SalonSignatureData"></label>:
+                                    <img class="ml-5" width="300" height="150" id="savetarget" src="@Model.SalonSignatureData"><br>
                                 </div>
                             </div>
                         </div>

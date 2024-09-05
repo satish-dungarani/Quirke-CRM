@@ -210,13 +210,13 @@
                     <hr />
                     <br />
                     <div class="row">
-                        <div class="col-md-3">
+                        @* <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="TestScheduleOn" class="control-label">Test Schedule On</label>
                                 <input asp-for="TestScheduleOn" class="form-control" />
                                 <span asp-validation-for="TestScheduleOn" class="text-danger"></span>
                             </div>
-                        </div>
+                        </div> *@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="TestDate" class="control-label">Test Date</label>
@@ -291,7 +291,7 @@
                             <div class="form-group">
                                 <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br />
                                 <span asp-validation-for="SignatureData" class="text-danger"></span>
-                                <button type="button" id="clear" class="btn btn-primary btn-sm mt-2" style="display:none;">Clear</button>
+                                <button type="button" id="clear" class="btn btn-primary btn-sm mt-2  float-right"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
                                 <input type="text" asp-for="SignatureData" hidden required>
                             </div>
                         }
@@ -300,6 +300,26 @@
                             <div class="form-group">
                                 <img class="w-100" id="savetarget" src="@Model.SignatureData" style="max-width: 350px; height: auto;"><br>
                                 <input type="text" asp-for="SignatureData" hidden required>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="row">
+                        <label asp-for="SalonSignatureData" class="form-label mr-3"></label>
+                        @if (string.IsNullOrEmpty(Model.SalonSignatureData))
+                        {
+                            <div class="form-group">
+                                <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="salonsignature"></canvas><br />
+                                <span asp-validation-for="SalonSignatureData" class="text-danger"></span>
+                                <button type="button" id="salonclear" class="btn btn-primary btn-sm mt-2 float-right"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
+                                <input type="text" asp-for="SalonSignatureData" hidden required>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <img class="w-100" id="salonsavetarget" src="@Model.SalonSignatureData" style="max-width: 350px; height: auto;"><br>
+                                <input type="text" asp-for="SalonSignatureData" hidden required>
                             </div>
                         }
                     </div>
@@ -322,94 +342,92 @@
 
 <script>
     $(function () {
-        $("#isOver16Row input").attr("disabled", true);
+
         var canvas = document.querySelector('#signature');
         var pad = new SignaturePad(canvas);
 
-        if ($('#SignatureData').val()) {
-            var img = new Image();
-            img.src = $('#SignatureData').val();
-            img.onload = function () {
-                var ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0);
-            };
-            $('#clear').show();
-            pad.off();
+        if (pad.isEmpty()) {
+            pad.clear();
+            $('#savetarget').attr('src', '');
+            $('#SignatureData').val('');
+            pad.on();
+            // $('#accept').show();
+            // $('#clear').hide();
         }
 
-        function toggleClearButton() {
-            if (pad.isEmpty() && $('#SignatureData').val() === '') {
-                pad.clear();
-                $('#SignatureData').val('');
-                pad.on();
-                $('#clear').hide();
+        $('#accept').click(function () {
+            if (pad.isEmpty()) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please provide a signature before accepting.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             } else {
                 var data = pad.toDataURL();
+                $('#savetarget').attr('src', data);
                 $('#SignatureData').val(data);
                 pad.off();
-                $('#clear').show();
+                // $('#accept').hide();
+                // $('#clear').show();
             }
-        }
-
-        // canvas.addEventListener('mouseup', toggleClearButton);
-        // canvas.addEventListener('touchend', toggleClearButton);
+        });
 
         $('#clear').click(function () {
             pad.clear();
+            $('#savetarget').attr('src', '');
             $('#SignatureData').val('');
             pad.on();
-            $('#clear').hide();
+            // $('#accept').show();
+            // $('#clear').hide();
         });
 
-        $('#complianceForm').submit(function (event) {
-            if (pad.isEmpty() && $('#SignatureData').val() === '') {
-                // event.preventDefault();
-                // Swal.fire({
-                //     title: 'Error!',
-                //     text: 'Please provide a signature before submitting.',
-                //     icon: 'error',
-                //     confirmButtonText: 'OK'
-                // });
-            } else {
-                var data = pad.toDataURL();
-                $('#SignatureData').val(data);
-            }
-        });
 
-        toggleClearButton();
-    });
-</script>
+        var canvas1 = document.querySelector('#salonsignature');
+        var pad1 = new SignaturePad(canvas1);
 
-
-
-@* <script>
-    $(function () {
-        var canvas = document.querySelector('#signature');
-        var pad = new SignaturePad(canvas);
-
-        function toggleClearButton() {
-            if (pad.isEmpty() && $('#SignatureData').val() == '') {
-                pad.clear();
-                $('#SignatureData').val('');
-                pad.on();
-                $('#clear').hide();
-            } else {
-                var data = pad.toDataURL();
-                $('#SignatureData').val(data);
-                pad.off();
-                $('#clear').show();
-            }
+        if (pad1.isEmpty()) {
+            pad1.clear();
+            $('#salonsavetarget').attr('src', '');
+            $('#SalonSignatureData').val('');
+            pad1.on();
+            // $('#salonaccept').show();
+            // $('#salonclear').hide();
         }
 
-        $('#clear').click(function () {
-            pad.clear();
-            $('#SignatureData').val('');
-            pad.on();
-            $('#accept').show();
-            $('#clear').hide();
+        $('#salonaccept').click(function () {
+            if (pad1.isEmpty()) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please provide a salon signature before accepting.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                var data = pad1.toDataURL();
+                $('#salonsavetarget').attr('src', data);
+                $('#SalonSignatureData').val(data);
+                pad1.off();
+                // $('#salonaccept').hide();
+                // $('#salonclear').show();
+            }
+        });
+
+        $('#salonclear').click(function () {
+            pad1.clear();
+            $('#salonsavetarget').attr('src', '');
+            $('#SalonSignatureData').val('');
+            pad1.on();
+            // $('#salonaccept').show();
+            // $('#salonclear').hide();
         });
 
         $('#complianceForm').submit(function (event) {
+            debugger
+            if (!$(this).valid()) {
+                event.preventDefault();
+                return;
+            }
 
             if (pad.isEmpty() && $('#SignatureData').val() == '') {
                 event.preventDefault();
@@ -420,10 +438,25 @@
                     confirmButtonText: 'OK'
                 });
             } else {
-                var data = pad.toDataURL();
-                $('#SignatureData').val(data);
+                $("#accept").click();
+                // var data = pad.toDataURL();
+                // $('#SignatureData').val(data);
+            }
+
+            if (pad1.isEmpty() && $('#SalonSignatureData').val() == '') {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please provide a salon signature before submitting.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                $("#salonaccept").click();
+                // var data = pad.toDataURL();
+                // $('#SalonSignatureData').val(data);
             }
         });
 
     });
-</script> *@
+</script>

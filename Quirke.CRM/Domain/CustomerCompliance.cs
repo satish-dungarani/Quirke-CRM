@@ -24,5 +24,6 @@
         public DateTime CreatedOn { get; set; } 
         public DateTime? UpdatedOn { get; set; } 
         public string SignatureData { get; set; } 
+        public string SalonSignatureData { get; set; } 
     }
 }

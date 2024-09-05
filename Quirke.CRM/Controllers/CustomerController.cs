@@ -242,6 +242,7 @@ namespace Quirke.CRM.Controllers
                     model.CreatedOn = compliance.CreatedOn;
                     model.UpdatedOn = compliance.UpdatedOn;
                     model.SignatureData = compliance.SignatureData;
+                    model.SalonSignatureData = compliance.SalonSignatureData;
                 }
 
                 return View(model);
@@ -324,7 +325,9 @@ namespace Quirke.CRM.Controllers
                     DispCreatedOn = compliance.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = compliance.UpdatedOn,
                     IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
-                    SignatureData = compliance.SignatureData
+                    SignatureData = compliance.SignatureData,
+                    SalonSignatureData = compliance.SalonSignatureData,
+                    TestDueDate = compliance.TestDate?.AddMonths(6).ToString("dd MMM yyyy"),
                 };
 
                 return View(model);

@@ -1,7 +1,7 @@
 ﻿@model CustomerRecordModel
 
 @{
-    var title = Model.Id == 0 ? "Create Customer Record" : "Edit Customer Record";
+    var title = Model.Id == 0 ? "Create Client Record" : "Edit Client Record";
 }
 <link href="~/lib/jquery/select2/select2.min.css" rel="stylesheet" />
 <link href="~/webcore/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
@@ -140,7 +140,7 @@
                     } else {
                         Swal.fire({
                             title: 'Error!',
-                            text: 'Failed to save customer record.',
+                            text: 'Failed to save Client record.',
                             icon: 'error',
                             confirmButtonText: 'OK'
                         });

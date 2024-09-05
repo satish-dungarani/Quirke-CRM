@@ -98,6 +98,8 @@ namespace Quirke.CRM.DataContext
                       .IsRequired(false);
                 entity.Property(e => e.SignatureData)
                       .IsRequired(false);
+                entity.Property(e => e.SalonSignatureData)
+                      .IsRequired(false);
                 entity.Property(e => e.CreatedOn)
                       .IsRequired()
                       .HasColumnType("datetime");
