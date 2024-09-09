@@ -1,0 +1,79 @@
+﻿<div class="container-fluid">
+    <h2 class="text-center display-4">Search</h2>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="input-group">
+                <input type="search" class="form-control form-control-lg" placeholder="Search Client" id="searchBox">
+                <div class="input-group-text">
+                    <span class="fa fa-search"></span> &nbsp; Search
+                </div>
+            </div>
+            <input type="hidden" id="selectedClientId" />
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 col-6 mt-5 clsclientbox" style="display:none;">
+    <a href="/compliance">
+        <div class="small-box bg-info" style="height: 250px;">
+            <div class="inner">
+                <h3>Compliance</h3>
+            </div>
+            <div class="icon">
+                <i class="ion ion-edit"></i>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="col-lg-6 col-6 mt-5 clsclientbox" style="display:none;">
+    <a href="/records">
+        <div class="small-box bg-success" style="height: 250px;">
+            <div class="inner">
+                <h3>Records</h3>
+            </div>
+            <div class="icon">
+                <i class="ion ion-document-text"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<script>
+    $(function () {
+        $("#searchBox").autocomplete({
+            
+            source: function (request, response) {
+                $(".clsclientbox").hide()
+                if (request.term.length >= 3) {
+                    $.ajax({
+                        url: '@Url.Action("Search", "home")',
+                        type: 'GET',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                $("#selectedClientId").val(item.value);
+                                return {
+                                    label: item.label,
+                                    value: item.label, 
+                                };
+                            }));
+                        },
+                        error: function () {
+                            alert('Error while fetching data.');
+                        }
+                    });
+                }
+            },
+            minLength: 3, 
+            select: function (event, ui) {
+                var clientId = $("#selectedClientId").val();
+                if (clientId > 0) {
+                    $("a[href='/compliance']").attr("href", "/home/compliance/" + clientId);
+                    $("a[href='/records']").attr("href", "home/records/" + clientId);
+
+                    $(".clsclientbox").show();
+                }
+            }
+        });
+    });
+</script>

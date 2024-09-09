@@ -3,145 +3,88 @@
 @{
     ViewData["Title"] = "Dashboard";
 }
-
-
-
-<section class="content pt-3">
-    <!-- Info boxes -->
-   @*  <div class="row">
-        <!-- Total Customers -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <a href="/Customer">
-                <div class="info-box" style="height: 250%;">
-                    <span class="info-box-icon bg-gradient-gray"><i class="fa fa-users"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Total Cliants</span>
-                        <span class="info-box-number">@Model.TotalCustomers</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- Total Products -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-
-            <a href="/Inventory/Products">
-                <div class="info-box" style="height: 250%;">
-                    <span class="info-box-icon bg-red"><i class="fa fa-cubes"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Inventory</span>
-                        <span class="info-box-number">@Model.TotalProducts</span>
-                        <span class="label label-danger">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
-                        </span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- Total Employees -->
-        <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:200px">
-            <a href="/Employee">
-                <div class="info-box" style="height: 250%;">
-                    <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Total Employees</span>
-                        <span class="info-box-number">@Model.TotalEmployees</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- Pending Leave Requests -->
-        <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:200px">
-            <a href="/Employee/LeaveRequest">
-                <div class="info-box" style="height: 250%;">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-calendar"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Pending Leave Requests</span>
-                        <span class="info-box-number">@Model.PendingLeaveRequests</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
+<div class="content-header">
+    <div class="container-fluid">
     </div>
- *@
+</div>
 
-    <div class="row">
-        <!-- Total Customers -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <a href="/Customer">
-                <div class="info-box" style="font-size: 50px;">
-                    <span class="info-box-icon bg-gradient-gray"><i class="fa fa-users"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Cliants</span>
-                        <span class="info-box-number">@Model.TotalCustomers</span>
-                    </div>
+<div class="row" id="divHomeDashboard">
+    <div class="col-lg-6 col-6">
+        <a href="javascript:void(0)" onclick="funGetCustomer()">
+            <div class="small-box bg-info" style="height: 250px;">
+                <div class="inner">
+                    <h3>Clients</h3>
+                    <p>Total @Model.TotalCustomers Clients</p>
                 </div>
-            </a>
-        </div>
-        <!-- Total Products -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <a href="/Inventory/Products">
-                <div class="info-box" style="font-size: 50px;">
-                    <span class="info-box-icon bg-red"><i class="fa fa-cubes"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Inventory</span>
-                        <span class="info-box-number">@Model.TotalProducts
-                            <text class="label label-danger float-right" style="font-size: 20px;color:red;">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
-                            </text>
-                        </span>
-                        
-                    </div>
+                <div class="icon">
+                    <i class="ion ion-person"></i>
                 </div>
-            </a>
-        </div>
-       @*  <!-- Total Employees -->
-        <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:200px">
-            <a href="/Employee">
-                <div class="info-box" style="font-size: 50px;">
-                    <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Total Employees</span>
-                        <span class="info-box-number">@Model.TotalEmployees</span>
-                    </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-6 col-6">
+        <a href="/Inventory/Products">
+            <div class="small-box bg-success" style="height: 250px;">
+                <div class="inner">
+                    <h3>Inventory</h3>
+                    <p>Total @Model.TotalProducts Products</p>
+                    <p>
+                        <i class="fas fa-exclamation-triangle" style="color:yellow;"></i>
+                        There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
+                    </p>
                 </div>
-            </a>
-        </div>
-        <!-- Pending Leave Requests -->
-        <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:200px">
-            <a href="/Employee/LeaveRequest">
-                <div class="info-box" style="font-size: 50px;">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-calendar"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Pending Leave Requests</span>
-                        <span class="info-box-number">@Model.PendingLeaveRequests</span>
-                    </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
                 </div>
-            </a>
-        </div> *@
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-6 col-6">
+        <a href="/Employee">
+            <div class="small-box bg-warning" style="height: 250px;">
+                <div class="inner">
+                    <h3>Employees</h3>
+                    <p>Total @Model.TotalEmployees Active Employees</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-6 col-6">
+        <a href="/Employee/LeaveRequest">
+            <div class="small-box bg-danger" style="height: 250px;">
+                <div class="inner">
+                    <h3>Leave Requests</h3>
+                    <p>Total @Model.PendingLeaveRequests Pending Requests</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 
-    </div>
 
-    <!-- Low Stock Products -->
-    @*  <div class="row">
-    <div class="col-md-12">
-    <div class="box box-danger">
-    <div class="box-header with-border">
-    <h3 class="box-title">Low Stock Products</h3>
-    <div class="box-tools pull-right">
-    <span class="label label-danger">@Model.LowStockProductsCount</span>
-    </div>
-    </div>
-    <div class="box-body">
-    <p>
-    There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
-    </p>
-    <!-- You could add a table or a list here to display more detailed low stock information if needed -->
-    </div>
-    </div>
-    </div>
-    </div> *@
-</section>
-<!-- /.content -->
+
+<script>
+
+
+    function funGetCustomer() {
+
+        $.ajax({
+            url: '@Url.Action("GetCustomerPartial", "Home")',
+            type: 'GET',
+            dataType: 'html',
+            success: function (data) {
+                $("#divHomeDashboard").html('');
+                $("#divHomeDashboard").html(data);
+            },
+            error: function (response) {
+
+            }
+        });
+    }
+</script>

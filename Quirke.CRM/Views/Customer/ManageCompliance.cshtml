@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = Model.Id == 0 ? "Create Compliance" : "Edit Compliance";
-
+ 
+    var today = DateTime.Now.ToString("yyyy-MM-dd");
+    var maxDate = DateTime.Now.AddDays(7).ToString("yyyy-MM-dd");
 }
 
 <style>
@@ -220,7 +222,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="TestDate" class="control-label">Test Date</label>
-                                <input asp-for="TestDate" class="form-control" />
+                                <input asp-for="TestDate" class="form-control" type="date" min="@today" max="@maxDate" />
                                 <span asp-validation-for="TestDate" class="text-danger"></span>
                             </div>
                         </div>

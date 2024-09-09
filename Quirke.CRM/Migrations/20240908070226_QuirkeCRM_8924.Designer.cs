@@ -12,8 +12,8 @@ using Quirke.CRM.DataContext;
 namespace Quirke.CRM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240813225713_QuirkeCRM_01")]
-    partial class QuirkeCRM_01
+    [Migration("20240908070226_QuirkeCRM_8924")]
+    partial class QuirkeCRM_8924
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,13 @@ namespace Quirke.CRM.Migrations
                     b.Property<bool>("IsDamagedScalp")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsIdentityProvided")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ObservedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalonSignatureData")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ScalpDetails")
@@ -423,6 +429,35 @@ namespace Quirke.CRM.Migrations
                     b.HasIndex("LeaveTypeId");
 
                     b.ToTable("EmployeeLeaves");
+                });
+
+            modelBuilder.Entity("Quirke.CRM.Domain.InventoryHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantityInStock")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("UpdatedQuantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("InventoryHistories");
                 });
 
             modelBuilder.Entity("Quirke.CRM.Domain.LeaveRequest", b =>
@@ -781,6 +816,17 @@ namespace Quirke.CRM.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("LeaveType");
+                });
+
+            modelBuilder.Entity("Quirke.CRM.Domain.InventoryHistory", b =>
+                {
+                    b.HasOne("Quirke.CRM.Domain.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Quirke.CRM.Domain.LeaveRequest", b =>

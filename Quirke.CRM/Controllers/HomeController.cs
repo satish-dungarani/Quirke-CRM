@@ -14,11 +14,13 @@ namespace Quirke.CRM.Controllers
     public class HomeController : BaseController
     {
         private readonly ICommonService _commonService;
+        private readonly ICustomerService _customerService;
 
         public HomeController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context,
-           RoleManager<IdentityRole> roleManager, ICommonService commonService) : base(userManager, null, _context, roleManager)
+           RoleManager<IdentityRole> roleManager, ICommonService commonService, ICustomerService customerService) : base(userManager, null, _context, roleManager)
         {
             _commonService = commonService;
+            _customerService = customerService;
         }
 
         public async Task<IActionResult> Index()
@@ -47,6 +49,52 @@ namespace Quirke.CRM.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult GetCustomerPartial()
+        {
+            return PartialView("~/Views/Home/_ClientPartial.cshtml");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string term)
+        {
+            var results = await _commonService.SearchCustomerAsync(term);
+            return Json(results);
+        }
+
+        public async Task<IActionResult> Compliance(int id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(id);
+            var model = new CustomerModel
+            {
+                Id = customer.Id,
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                BirtDate = customer.BirtDate,
+                Gender = customer.Gender,
+                Mobile = customer.Mobile,
+                Email = customer.Email,
+                CreatedOn = customer.CreatedOn
+            };
+            return View(model);
+        }
+  
+        public async Task<IActionResult> Records(int id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(id);
+            var model = new CustomerModel
+            {
+                Id = customer.Id,
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                BirtDate = customer.BirtDate,
+                Gender = customer.Gender,
+                Mobile = customer.Mobile,
+                Email = customer.Email,
+                CreatedOn = customer.CreatedOn
+            };
+            return View(model);
         }
     }
 }

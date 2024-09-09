@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Services
 {
@@ -35,6 +37,34 @@ namespace Quirke.CRM.Services
         public async Task<int> GetLowStockProductsCountAsync(int threshold)
         {
             return await _context.Products.CountAsync(p => p.QuantityInStock <= threshold);
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetCustomerListAsync()
+        {
+            return await _context.Customers
+                .Select(e => new SelectListItem
+                {
+                    Value = e.Id.ToString(),
+                    Text = $"{e.Firstname} {e.Lastname}"
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<object>> SearchCustomerAsync(string term)
+        {
+            var terms = term.Split(' ');
+
+            return await _context.Customers
+                .Where(c =>
+                    terms.All(t => c.Firstname.Contains(t) || c.Lastname.Contains(t))
+                    || c.Mobile.Contains(term)
+                )
+                .Select(e => new
+                {
+                    label = e.Firstname + " " + e.Lastname,
+                    value = e.Id
+                })
+                .ToListAsync();
         }
     }
 }
