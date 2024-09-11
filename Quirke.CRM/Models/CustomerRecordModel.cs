@@ -19,11 +19,11 @@ namespace Quirke.CRM.Models
 
         [Required(ErrorMessage = "Product is required.")]
         [Display(Name = "Product")]
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
 
         [Required(ErrorMessage = "Treatment is required.")]
         [Display(Name = "Treatment")]
-        public int TreatmentId { get; set; }
+        public int? TreatmentId { get; set; }
 
         [Required(ErrorMessage = "Service Date is required.")]
         [Display(Name = "Service Date")]

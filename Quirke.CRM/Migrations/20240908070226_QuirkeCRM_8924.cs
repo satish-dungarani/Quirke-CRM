@@ -382,8 +382,8 @@ namespace Quirke.CRM.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    TreatmentId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    TreatmentId = table.Column<int>(type: "int", nullable: true),
                     AttendedEmployeeId = table.Column<int>(type: "int", nullable: true),
                     ServiceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Strength = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -406,19 +406,19 @@ namespace Quirke.CRM.Migrations
                         column: x => x.AttendedEmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CustomerRecords_Masters_TreatmentId",
                         column: x => x.TreatmentId,
                         principalTable: "Masters",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CustomerRecords_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(

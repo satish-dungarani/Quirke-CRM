@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain.Services;
@@ -7,6 +8,7 @@ using Quirke.CRM.Services;
 
 namespace Quirke.CRM.Controllers
 {
+    [Authorize]
     public class MasterController : BaseController
     {
         protected readonly IMasterService _masterService;

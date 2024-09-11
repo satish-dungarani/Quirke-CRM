@@ -7,8 +7,8 @@ namespace Quirke.CRM.Domain
     {
         public int Id { get; set; } // Primary key
         public int CustomerId { get; set; } // Foreign key to Customer
-        public int ProductId { get; set; } // Foreign key to Product
-        public int TreatmentId { get; set; } // Foreign key to Treatment
+        public int? ProductId { get; set; } // Foreign key to Product
+        public int? TreatmentId { get; set; } // Foreign key to Treatment
         public int? AttendedEmployeeId { get; set; } // Nullable foreign key to Employee
         public DateTime ServiceDate { get; set; } // Date and time of the service
         public string Strength { get; set; } // Nullable NVARCHAR(100)

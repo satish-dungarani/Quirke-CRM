@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
@@ -6,6 +7,7 @@ using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : BaseController
     {
         private readonly UserManager<ApplicationUser> _userManager;

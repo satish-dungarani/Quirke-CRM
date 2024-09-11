@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Filters\CheckUserLoggedInFilter.cs" />
     <Compile Remove="Migrations\_20240806141530_InitialCreate.cs" />
     <Compile Remove="Migrations\_20240806141530_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\_20240813221719_QuirkeCRM.cs" />
@@ -29,6 +30,7 @@
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="jQuery.Validation" Version="1.21.0" />
     <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.7" />
@@ -52,6 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Filters\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\quirke\css\" />
     <Folder Include="wwwroot\quirke\js\" />

@@ -28,10 +28,13 @@
                 <div class="inner">
                     <h3>Inventory</h3>
                     <p>Total @Model.TotalProducts Products</p>
-                    <p>
-                        <i class="fas fa-exclamation-triangle" style="color:yellow;"></i>
-                        There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
-                    </p>
+                    @if (Model.LowStockProductsCount > 0)
+                    {
+                        <p>
+                            <i class="fas fa-exclamation-triangle" style="color:yellow;"></i>
+                            There are <strong>@Model.LowStockProductsCount</strong> products with low stock.
+                        </p>
+                    }
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>

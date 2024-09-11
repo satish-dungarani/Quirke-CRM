@@ -211,7 +211,6 @@ namespace Quirke.CRM.Services
                 .Include(p => p.Product)
                 .GroupBy(i => i.ProductId)
                 .Select(g => g.OrderByDescending(i => i.CreatedOn).FirstOrDefault())
-                .OrderByDescending(c => c.Id)
                 .ToListAsync();
 
             return latestRecords.Select(i => new InventoryHistoryModel()

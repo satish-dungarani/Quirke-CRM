@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 
 namespace Quirke.CRM.DataContext
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDataProtectionKeyContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-
+        public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerCompliance> CustomerCompliances { get; set; }
         public DbSet<Employee> Employees { get; set; }
@@ -330,17 +331,17 @@ namespace Quirke.CRM.DataContext
                 entity.HasOne<Product>()
                       .WithMany() 
                       .HasForeignKey(e => e.ProductId)
-                      .OnDelete(DeleteBehavior.Cascade);
+                      .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne<Master>()
                       .WithMany() 
                       .HasForeignKey(e => e.TreatmentId)
-                      .OnDelete(DeleteBehavior.Cascade); 
+                      .OnDelete(DeleteBehavior.NoAction); 
 
                 entity.HasOne<Employee>()
                       .WithMany()
                       .HasForeignKey(e => e.AttendedEmployeeId)
-                      .OnDelete(DeleteBehavior.SetNull); 
+                      .OnDelete(DeleteBehavior.NoAction); 
 
                 // Configure the properties
                 entity.Property(e => e.Strength)

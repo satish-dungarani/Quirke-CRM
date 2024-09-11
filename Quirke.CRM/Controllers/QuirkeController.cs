@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Quirke.CRM.Common;
@@ -8,6 +9,7 @@ using Quirke.CRM.Services;
 
 namespace Quirke.CRM.Controllers
 {
+    [AllowAnonymous]
     public class QuirkeController : Controller
     {
         protected readonly ICustomerService _customerService;

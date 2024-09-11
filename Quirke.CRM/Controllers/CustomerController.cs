@@ -391,7 +391,7 @@ namespace Quirke.CRM.Controllers
             {
                 var model = id.HasValue
                     ? await _customerService.GetCustomerRecordByIdAsync(id.Value)
-                    : new CustomerRecordModel() { CustomerId = customerId };
+                    : new CustomerRecordModel() { CustomerId = customerId, ServiceDate = DateTime.UtcNow };
 
                 model.ProductList = await _customerService.GetProductListAsync();
                 model.TreatmentList = await _customerService.GetTreatmentListAsync();
