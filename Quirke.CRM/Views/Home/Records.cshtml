@@ -5,7 +5,11 @@
         <div class="card card-default color-palette-box">
             <div class="card-header">
                 <h1 class="card-title"><b>Client Records</b></h1>
-                <button class="btn btn-info  btn-sm float-right ml-2" onclick="funManageCustomerRecord(null);">Add Record</button>
+                <button class="btn btn-info  btn-sm float-right ml-2" onclick="funManageCustomerRecord(null);">Add Record  <i class="fas fa-plus"></i></button>
+                <button class="btn btn-primary btn-sm float-right ml-2" onclick="window.location.href='@Url.Action("DownloadCustomerRecordPdf", "Customer", new { customerId = Model.Id })'">
+                    Download Card &nbsp; <i class="fas fa-file-pdf"></i>
+                </button>
+
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -31,7 +35,7 @@
 </section>
 
 <div class="modal fade" id="commonModalCenter" tabindex="-1" role="dialog" aria-labelledby="commonModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: none;width: 800px;">
         <div class="modal-content" id="divCommonModel"></div>
     </div>
 </div>
@@ -99,7 +103,7 @@
             scrollX: true,
             deferRender: true,
             scroller: true,
-            autoWidth: true,
+            autoWidth: false,
             searching: false,
             pageLength: 10,
             lengthChange: false,

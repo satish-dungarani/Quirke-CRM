@@ -14,9 +14,10 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-    <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/icheck-bootstrap/icheck-bootstrap.min.css" asp-append-version="true" />
+    <link href="~/quirke/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/quirke/login/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/quirke/login/css/icheck-bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body class="login-page bg-body-secondary app-loaded">
     <div class="login-box">
@@ -67,8 +68,6 @@
                     </div>
                 </form>
 
-
-
                 @*  <p class="mb-1">
                 <a asp-action="ForgotPassword">I forgot my password</a>
                 </p> *@
@@ -79,12 +78,16 @@
             <!-- /.login-card-body -->
         </div>
     </div>
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/WebCore/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation/additional-methods.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/webcore/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="~/quirke/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Add jQuery UI JS -->
+    <script src="~/quirke/js/jquery-ui.min.js"></script>
+    <script src="~/quirke/js/jquery.validate.min.js"></script>
+    <script src="~/quirke/js/additional-methods.min.js"></script>
+    <script src="~/quirke/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/quirke/js/sweetalert2.all.min.js"></script>
 
     <script>
         $(document).ready(function () {

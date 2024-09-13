@@ -7,6 +7,7 @@ using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
+using Rotativa.AspNetCore;
 
 namespace Quirke.CRM.Controllers
 {
@@ -454,6 +455,26 @@ namespace Quirke.CRM.Controllers
                 logger.Error($"{nameof(CustomerController)} - {nameof(DeleteCustomerRecord)} - ERROR - {ex}");
                 return Json(new { result = false, msg = "Failed to delete customer record." });
             }
+        }
+
+
+        public async Task<IActionResult> DownloadCustomerRecordPdf(int customerId)
+        {
+            // Fetch customer data
+            var customer = await _customerService.GetCustomerByIdModelAsync(customerId);
+            var records = await _customerService.GetAllCustomerRecordsByCustomerIdAsync(customerId);
+
+            var model = new CustomerViewModel
+            {
+                Customer = customer,
+                CustomerRecords = records
+            };
+
+            return new ViewAsPdf("CustomerRecordPdf", model)
+            {
+                FileName = $"{customer.Firstname}_CustomerRecord.pdf",
+                PageSize = Rotativa.AspNetCore.Options.Size.A4
+            };
         }
         #endregion
     }

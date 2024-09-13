@@ -9,24 +9,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- FontAwesome and Ionicons via CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="~/quirke/css/all.min.css" rel="stylesheet" />
+    <link href="~/quirke/css/ionicons.min.css" rel="stylesheet" />
 
     <!-- Bootstrap and AdminLTE Core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+    <link href="~/quirke/css/adminlte.min.css" rel="stylesheet" />
 
     <!-- External Plugins -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css">
-    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OverlayScrollbars/1.13.0/css/OverlayScrollbars.min.css"> *@
+    <link href="~/quirke/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link href="~/quirke/css/overlayscrollbars.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.1/daterangepicker.min.css">
+    <link href="~/quirke/css/daterangepicker.min.css" rel="stylesheet" />
 
     <!-- Datatables and SweetAlert2 via CDN -->
-    <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/quirke/css/jquery.datatables.min.css" rel="stylesheet" />
+    <link href="~/quirke/css/sweetalert2.min.css" rel="stylesheet" />
 
     <!-- Add jQuery UI CSS -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link href="~/quirke/css/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/lib/jquery/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/webcore/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -160,20 +162,32 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Add jQuery UI JS -->
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="~/quirke/js/jquery-3.6.0.min.js"></script>
 
-    @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script> *@
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Add jQuery UI JS -->
+    <script src="~/quirke/js/jquery-ui.min.js"></script>
+
+
+    <script src="~/quirke/js/jquery.validate.min.js"></script>
+    <script src="~/quirke/js/additional-methods.min.js"></script>
+    <script src="~/quirke/js/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- sweetalert -->
+    <script src="~/quirke/js/sweetalert2.all.min.js"></script>
+
+   
+   @*  <script src="~/quirke/js/sweetalert2@11.js"></script> *@
 
     <!-- Plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1/daterangepicker.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="~/quirke/js/moment.min.js"></script>
+    <script src="~/quirke/js/daterangepicker.min.js"></script>
+    <script src="~/quirke/js/jquery.datatables.min.js"></script>
+
 
     <!-- AdminLTE App -->
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/js/adminlte.min.js"></script>
+    <script src="~/quirke/js/adminlte.min.js"></script>
+
+    <script src="~/lib/jquery/select2/select2.full.js"></script>
 
     <script>
         // Input restriction on mobile number

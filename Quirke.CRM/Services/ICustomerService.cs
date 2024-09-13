@@ -31,5 +31,7 @@ namespace Quirke.CRM.Services
         Task<IEnumerable<SelectListItem>> GetProductListAsync();
         Task<IEnumerable<SelectListItem>> GetTreatmentListAsync();
         Task<IEnumerable<SelectListItem>> GetEmployeeListAsync();
+
+        Task<CustomerModel> GetCustomerByIdModelAsync(int customerId);
     }
 }

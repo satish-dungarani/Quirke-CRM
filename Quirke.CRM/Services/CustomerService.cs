@@ -27,6 +27,22 @@ namespace Quirke.CRM.Services
         {
             return await _context.Customers.FindAsync(customerId);
         }
+        public async Task<CustomerModel> GetCustomerByIdModelAsync(int customerId)
+        {
+            var client =  await GetCustomerByIdAsync(customerId) ?? throw new KeyNotFoundException($"Client with ID {customerId} not found.");
+
+            return new CustomerModel()
+            {
+                Id = client.Id,
+                Firstname = client.Firstname,
+                Lastname = client.Lastname,
+                BirtDate = client.BirtDate,
+                Gender = client.Gender,
+                Mobile = client.Mobile,
+                Email = client.Email,
+                DispCreatedOn = client.CreatedOn.ToString("dd MMM yyyy")
+            };
+        }
 
         public async Task<Customer> CreateCustomerAsync(Customer customer)
         {
@@ -233,25 +249,35 @@ namespace Quirke.CRM.Services
 
         public async Task<IEnumerable<CustomerRecordModel>> GetAllCustomerRecordsByCustomerIdAsync(int customerId)
         {
-            return await _context.CustomerRecords
-            .Where(record => record.CustomerId == customerId)
-            .Join(_context.Products,
-                record => record.ProductId,
-                product => product.Id,
-                (record, product) => new { record, product })
-            .Join(_context.Masters,
-                record => record.record.TreatmentId,
-                treatment => treatment.Id,
-                (record, treatment) => new { record.record, record.product, treatment })
-            .Join(_context.Employees,
-                record => record.record.AttendedEmployeeId,
-                employee => employee.Id,
-                (record, employee) => new CustomerRecordModel
+            var customerRecords = await _context.CustomerRecords
+                .Where(record => record.CustomerId == customerId)
+                .ToListAsync(); // Pull the data from the database first
+
+            var result = customerRecords
+                .GroupJoin(
+                    _context.Products.AsEnumerable(), // Join in-memory
+                    record => record.ProductId,
+                    product => product.Id,
+                    (record, productGroup) => new { record, product = productGroup.FirstOrDefault() }
+                )
+                .GroupJoin(
+                    _context.Masters.AsEnumerable(), // Join in-memory
+                    record => record.record.TreatmentId,
+                    treatment => treatment.Id,
+                    (record, treatmentGroup) => new { record.record, record.product, treatment = treatmentGroup.FirstOrDefault() }
+                )
+                .GroupJoin(
+                    _context.Employees.AsEnumerable(), // Join in-memory
+                    record => record.record.AttendedEmployeeId,
+                    employee => employee.Id,
+                    (record, employeeGroup) => new { record.record, record.product, record.treatment, employee = employeeGroup.FirstOrDefault() }
+                )
+                .Select(record => new CustomerRecordModel
                 {
                     Id = record.record.Id,
                     CustomerId = record.record.CustomerId,
-                    ProductId = record.product.Id,
-                    TreatmentId = record.treatment.Id,
+                    ProductId = record.product?.Id,
+                    TreatmentId = record.treatment?.Id,
                     ServiceDate = record.record.ServiceDate,
                     DispServiceDate = record.record.ServiceDate.ToString("dd MMM yyyy"),
                     Strength = record.record.Strength,
@@ -261,13 +287,18 @@ namespace Quirke.CRM.Services
                     CreatedOn = record.record.CreatedOn,
                     DispCreatedOn = record.record.CreatedOn.ToString("dd MMM yyyy"),
                     UpdatedOn = record.record.UpdatedOn,
-                    ProductName = record.product.Name ?? "",
-                    TreatmentName = record.treatment.Name ?? "",
-                    AttendedEmployeeName = employee == null ? "" : $"{employee.Firstname} {employee.Lastname}"
+                    ProductName = record.product?.Name ?? "",
+                    TreatmentName = record.treatment?.Name ?? "",
+                    AttendedEmployeeName = record.employee != null ? $"{record.employee.Firstname} {record.employee.Lastname}" : ""
                 })
-            .OrderByDescending(c => c.Id)
-            .ToListAsync();
+                .OrderByDescending(c => c.Id)
+                .ToList();
+
+            return result;
         }
+
+
+
 
         public async Task<CustomerRecordModel> GetCustomerRecordByIdAsync(int id)
         {

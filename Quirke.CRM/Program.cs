@@ -8,6 +8,7 @@ using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain.Services;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
+using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -116,6 +117,10 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+RotativaConfiguration.Setup(environment.WebRootPath, "Rotativa");
+
+app.UseStaticFiles();
 
 // Default route configuration
 app.MapControllerRoute(

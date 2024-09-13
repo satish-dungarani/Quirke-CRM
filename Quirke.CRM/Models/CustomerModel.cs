@@ -24,7 +24,7 @@ namespace Quirke.CRM.Models
 
         [Required(ErrorMessage = "Gender is required.")]
         [Display(Name = "Gender")]
-        public string Gender { get; set; } = null!;
+        public string? Gender { get; set; } = null!;
 
         [Required(ErrorMessage = "Mobile number is required.")]
         [Display(Name = "Mobile Number")]

@@ -25,52 +25,71 @@
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CustomerId" />
 
-            <div class="form-group">
-                <label asp-for="ServiceDate" class="control-label"></label>
-                <input asp-for="ServiceDate" class="form-control" type="date" />
-                <span asp-validation-for="ServiceDate" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ServiceDate" class="control-label"></label>
+                        <input asp-for="ServiceDate" class="form-control" type="date" />
+                        <span asp-validation-for="ServiceDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Strength" class="control-label"></label>
+                        <input asp-for="Strength" class="form-control" />
+                        <span asp-validation-for="Strength" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Strength" class="control-label"></label>
-                <input asp-for="Strength" class="form-control" />
-                <span asp-validation-for="Strength" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ProductId" class="control-label"></label>
+                        <select asp-for="ProductId" class="form-control" asp-items="Model.ProductList">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="TreatmentId" class="control-label"></label>
+                        <select asp-for="TreatmentId" class="form-control" asp-items="Model.TreatmentList">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="TreatmentId" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                <select asp-for="ProductId" class="form-control" asp-items="Model.ProductList">
-                    <option></option>
-                </select>
-                <span asp-validation-for="ProductId" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AttendedEmployeeId" class="control-label"></label>
+                        <select asp-for="AttendedEmployeeId" class="form-control" asp-items="Model.AttendedEmployeeList">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="AttendedEmployeeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DevTime" class="control-label"></label>
+                        <input asp-for="DevTime" class="form-control" />
+                        <span asp-validation-for="DevTime" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="TreatmentId" class="control-label"></label>
-                <select asp-for="TreatmentId" class="form-control" asp-items="Model.TreatmentList">
-                    <option></option>
-                </select>
-                <span asp-validation-for="TreatmentId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="AttendedEmployeeId" class="control-label"></label>
-                <select asp-for="AttendedEmployeeId" class="form-control" asp-items="Model.AttendedEmployeeList">
-                    <option></option>
-                </select>
-                <span asp-validation-for="AttendedEmployeeId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="DevTime" class="control-label"></label>
-                <input asp-for="DevTime" class="form-control" />
-                <span asp-validation-for="DevTime" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Remark" class="control-label"></label>
-                <textarea asp-for="Remark" class="form-control"></textarea>
-                <span asp-validation-for="Remark" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Remark" class="control-label"></label>
+                        <textarea asp-for="Remark" class="form-control"></textarea>
+                        <span asp-validation-for="Remark" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -82,11 +101,8 @@
     </div>
 </form>
 
-<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
+
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/lib/jquery/select2/select2.full.js"></script>
-<script src="~/lib/sweetalert2/sweetalert2.all.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -111,51 +127,51 @@
             outerHeight: 'resolve',
         });
 
-        $('#customerRecordForm').submit(function (e) {
-            e.preventDefault();
+        // $('#customerRecordForm').submit(function (e) {
+        //     e.preventDefault();
 
-            var form = $(this);
-            var formData = new FormData(this);
+        //     var form = $(this);
+        //     var formData = new FormData(this);
 
-            $.ajax({
-                url: form.attr('action'),
-                type: form.attr('method'),
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    if (response == null) {
-                        return false;
-                    }
+        //     $.ajax({
+        //         url: form.attr('action'),
+        //         type: form.attr('method'),
+        //         data: formData,
+        //         processData: false,
+        //         contentType: false,
+        //         success: function (response) {
+        //             if (response == null) {
+        //                 return false;
+        //             }
 
-                    if (response.result) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: response.msg,
-                            icon: 'success',
-                            confirmButtonText: 'OK'
-                        }).then(() => {
-                            funCloseModal();
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Failed to save Client record.',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
-                    }
-                },
-                error: function (xhr, status, error) {
-                    console.error("Submission failed: ", error);
-                    Swal.fire({
-                        title: 'Submission Failed!',
-                        text: "There was an issue submitting your request. Please try again.",
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                }
-            });
-        });
+        //             if (response.result) {
+        //                 Swal.fire({
+        //                     title: 'Success!',
+        //                     text: response.msg,
+        //                     icon: 'success',
+        //                     confirmButtonText: 'OK'
+        //                 }).then(() => {
+        //                     funCloseModal();
+        //                 });
+        //             } else {
+        //                 Swal.fire({
+        //                     title: 'Error!',
+        //                     text: 'Failed to save Client record.',
+        //                     icon: 'error',
+        //                     confirmButtonText: 'OK'
+        //                 });
+        //             }
+        //         },
+        //         error: function (xhr, status, error) {
+        //             console.error("Submission failed: ", error);
+        //             Swal.fire({
+        //                 title: 'Submission Failed!',
+        //                 text: "There was an issue submitting your request. Please try again.",
+        //                 icon: 'error',
+        //                 confirmButtonText: 'OK'
+        //             });
+        //         }
+        //     });
+        // });
     });
 </script>
