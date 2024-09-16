@@ -9,6 +9,7 @@
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" asp-for="Name" placeholder="Enter name">
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
         </div>
     </div>
@@ -18,3 +19,7 @@
     </div>
 </form>
 
+
+<script src="~/quirke/js/jquery.validate.min.js"></script>
+<script src="~/quirke/js/additional-methods.min.js"></script>
+<script src="~/quirke/js/jquery.validate.unobtrusive.min.js"></script>

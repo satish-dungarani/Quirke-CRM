@@ -57,8 +57,6 @@
   <ItemGroup>
     <Folder Include="Filters\" />
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\quirke\css\" />
-    <Folder Include="wwwroot\quirke\js\" />
   </ItemGroup>
 
   <ItemGroup>

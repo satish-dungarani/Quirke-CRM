@@ -274,6 +274,7 @@
                                 <td style="width:30%">
                                     <div class="d-inline custom-radio-as-checkbox">
                                         <input type="radio" class="form-check-input" asp-for="IsAllergyTestDone" value="true" id="yesIsAllergyTestDone" />
+                                        <button type="button" id="salonaccept" class="btn btn-primary btn-sm mt-2" style="display:none;">Accept</button>
                                         <label class="form-check-label mr-2" for="yesIsAllergyTestDone">Yes</label>
                                     </div>
                                     <div class="d-inline custom-radio-as-checkbox">
@@ -293,6 +294,7 @@
                             <div class="form-group">
                                 <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="signature"></canvas><br />
                                 <span asp-validation-for="SignatureData" class="text-danger"></span>
+                                <button type="button" id="accept" class="btn btn-primary btn-sm mt-2" style="display:none;">Accept</button>
                                 <button type="button" id="clear" class="btn btn-primary btn-sm mt-2  float-right"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
                                 <input type="text" asp-for="SignatureData" hidden required>
                             </div>
@@ -313,6 +315,7 @@
                             <div class="form-group">
                                 <canvas class="w-100" style="max-width: 350px; height: auto; border:1px solid black" id="salonsignature"></canvas><br />
                                 <span asp-validation-for="SalonSignatureData" class="text-danger"></span>
+                                <button type="button" id="salonaccept" class="btn btn-primary btn-sm mt-2" style="display:none;">Accept</button>
                                 <button type="button" id="salonclear" class="btn btn-primary btn-sm mt-2 float-right"><i class="fas fa-sync-alt"></i> &nbsp; Reset</button>
                                 <input type="text" asp-for="SalonSignatureData" hidden required>
                             </div>
@@ -335,12 +338,17 @@
     </div>
 </section>
 
-<script src="~/lib/jquery/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation/additional-methods.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js" integrity="sha512-Hx7mfz/FnwNfy+erC6kvUftuP4gdTf/qNnDjLOcbQuHR9b8xZn2cWZ8GbdgCWZx5VpbxUZ2UzJWBl/vukUJ68A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Scripts -->
+<script src="~/quirke/js/jquery-3.6.0.min.js"></script>
+
+<!-- Add jQuery UI JS -->
+<script src="~/quirke/js/jquery-ui.min.js"></script>
+<script src="~/quirke/js/jquery.validate.min.js"></script>
+<script src="~/quirke/js/additional-methods.min.js"></script>
+<script src="~/quirke/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/quirke/js/sweetalert2.all.min.js"></script>
+<script src="~/quirke/js/signature_pad.min.js"></script>
 
 <script>
     $(function () {
@@ -439,6 +447,7 @@
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
+                return;
             } else {
                 $("#accept").click();
                 // var data = pad.toDataURL();
@@ -453,6 +462,7 @@
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
+                return;
             } else {
                 $("#salonaccept").click();
                 // var data = pad.toDataURL();

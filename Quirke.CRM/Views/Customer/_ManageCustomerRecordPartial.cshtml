@@ -3,8 +3,9 @@
 @{
     var title = Model.Id == 0 ? "Create Client Record" : "Edit Client Record";
 }
-<link href="~/lib/jquery/select2/select2.min.css" rel="stylesheet" />
-<link href="~/webcore/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+<link href="~/quirke/css/select2.min.css" rel="stylesheet" />
+<link href="~/quirke/css/select2-bootstrap4.min.css" rel="stylesheet" />
+<script src="~/quirke/js/select2.min.js"></script>
 
 <style>
     .select2-selection {
@@ -101,8 +102,7 @@
     </div>
 </form>
 
-
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/quirke/js/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -127,51 +127,58 @@
             outerHeight: 'resolve',
         });
 
-        // $('#customerRecordForm').submit(function (e) {
-        //     e.preventDefault();
+        $('#customerRecordForm').submit(function (e) {
+            debugger
+            if (!$(this).valid()) {
+                e.preventDefault();
+                return;
+            }
 
-        //     var form = $(this);
-        //     var formData = new FormData(this);
+            var form = $(this);
+            var formData = new FormData(this);
 
-        //     $.ajax({
-        //         url: form.attr('action'),
-        //         type: form.attr('method'),
-        //         data: formData,
-        //         processData: false,
-        //         contentType: false,
-        //         success: function (response) {
-        //             if (response == null) {
-        //                 return false;
-        //             }
+            $.ajax({
+                url: form.attr('action'),
+                type: form.attr('method'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    debugger
+                    if (response == null) {
+                        return false;
+                    }
 
-        //             if (response.result) {
-        //                 Swal.fire({
-        //                     title: 'Success!',
-        //                     text: response.msg,
-        //                     icon: 'success',
-        //                     confirmButtonText: 'OK'
-        //                 }).then(() => {
-        //                     funCloseModal();
-        //                 });
-        //             } else {
-        //                 Swal.fire({
-        //                     title: 'Error!',
-        //                     text: 'Failed to save Client record.',
-        //                     icon: 'error',
-        //                     confirmButtonText: 'OK'
-        //                 });
-        //             }
-        //         },
-        //         error: function (xhr, status, error) {
-        //             console.error("Submission failed: ", error);
-        //             Swal.fire({
-        //                 title: 'Submission Failed!',
-        //                 text: "There was an issue submitting your request. Please try again.",
-        //                 icon: 'error',
-        //                 confirmButtonText: 'OK'
-        //             });
-        //         }
-        //     });
-        // });
+                    if (response.result) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.msg,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            funCloseModal();
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to save Client record.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Submission failed: ", error);
+                    Swal.fire({
+                        title: 'Submission Failed!',
+                        text: "There was an issue submitting your request. Please try again.",
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+            e.preventDefault();
+            return;
+        });
     });
 </script>
