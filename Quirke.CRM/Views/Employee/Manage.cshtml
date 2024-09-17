@@ -11,7 +11,7 @@
                 <h1 class="card-title">
                     Employees - @ViewData["Title"]
                 </h1>
-                <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("Index", "Employee")">Back to list</a>
+                <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("EmployeeProfile", "Employee")">Back to list</a>
                 @if (Model.Id > 0)
                 {
                     <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageLeave","Employee", new {employeeId = Model.Id})">Add Leave</a>
