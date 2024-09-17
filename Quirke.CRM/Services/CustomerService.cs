@@ -181,6 +181,51 @@ namespace Quirke.CRM.Services
             return isActive;
         }
 
+        public async Task<CustomerComplianceModel> GetCustomerComplianceModelByIdAsync(int id)
+        {
+            var compliance = await _context.CustomerCompliances.FindAsync(id);
+            var customer = await _context.Customers.FindAsync(compliance?.Id);
+
+            if (customer == null)
+            {
+                return new CustomerComplianceModel();
+            }
+            return new CustomerComplianceModel()
+                {
+                    Id = compliance.Id,
+                    CustomerId = customer.Id,
+                    Firstname = customer.Firstname,
+                    Lastname = customer.Lastname,
+                    BirthDate = customer.BirtDate,
+                    DispBirthDate = customer.BirtDate.ToString("dd MMM yyyy"),
+                    Mobile = customer.Mobile,
+                    Status = compliance.Status,
+                    IsIdentityProvided = compliance.IsIdentityProvided,
+                    IsAllergicToColour = compliance.IsAllergicToColour,
+                    AllergicColourDetails = compliance.AllergicColourDetails,
+                    IsDamagedScalp = compliance.IsDamagedScalp,
+                    ScalpDetails = compliance.ScalpDetails,
+                    HasTattoo = compliance.HasTattoo,
+                    TattooDetails = compliance.TattooDetails,
+                    IsAllergicToProduct = compliance.IsAllergicToProduct,
+                    AllergicProductDetails = compliance.AllergicProductDetails,
+                    CanTakeService = compliance.CanTakeService,
+                    IsAllergyTestDone = compliance.IsAllergyTestDone,
+                    TestScheduleOn = compliance.TestScheduleOn,
+                    DispTestScheduleOn = compliance.TestScheduleOn.HasValue ? compliance.TestScheduleOn?.ToString("dd MMM yyyy") : "",
+                    DispTestDate = compliance.TestDate?.ToString("dd MMM yyyy"),
+                    TestDate = compliance.TestDate,
+                    ObservedBy = compliance.ObservedBy,
+                    CreatedOn = compliance.CreatedOn,
+                    DispCreatedOn = compliance.CreatedOn.ToString("dd MMM yyyy"),
+                    UpdatedOn = compliance.UpdatedOn,
+                    IsValid = compliance.TestDate == null || compliance.TestDate > DateTime.Now.AddMonths(-6),
+                    SignatureData = compliance.SignatureData,
+                    TestDueDate = compliance.TestDate?.AddMonths(6).ToString("dd MMM yyyy"),
+                    SalonSignatureData = compliance.SalonSignatureData,
+                };
+            
+        }
         public async Task<CustomerComplianceModel?> GetCustomerComplianceByMobile(string mobile)
         {
             var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Mobile == mobile);

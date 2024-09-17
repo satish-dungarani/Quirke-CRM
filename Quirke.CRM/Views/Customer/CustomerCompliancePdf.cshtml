@@ -1,0 +1,346 @@
+﻿@model CustomerViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Compliance</title>
+    <link href="~/quirke/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/quirke/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #555;
+            }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            /*  margin-bottom: 20px; */
+        }
+
+        .form-check-label {
+            font-weight: 700 !important;
+        }
+
+        .content {
+            padding-top: 50px;
+        }
+
+        .signature-canvas {
+            border: 1px solid black;
+            width: 100%;
+            height: auto;
+        }
+
+        .custom-radio-as-checkbox label {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-radio-as-checkbox input[type="radio"] {
+            display: none;
+        }
+
+        .custom-radio-as-checkbox label::before {
+            content: "\f00c";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            /* border: 2px solid #007bff; */
+            background-color: #fff;
+            /* border-radius: 4px; */
+            margin-right: 10px;
+            vertical-align: middle;
+            transition: background-color 0.3s, border-color 0.3s;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 18px;
+            text-align: center;
+            color: transparent;
+            border: 2px solid #D3CFC8;
+        }
+
+        .custom-radio-as-checkbox input[type="radio"]:checked + label::before {
+            /*  background-color: #007bff; */
+            border-color: #007bff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+    <div class="container">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <div class="text-center">
+                            @* <img src="../quirke/img/quirke_logo.png" alt="Quirke & Co Hairdressers Logo" class="logo img-fluid"> *@
+                            <h1>Quirke & Co Hairdressers Logo</h1>
+                            <br />
+                            <small style="font-size:0.60em;color:#adad9f;">72 Taff Street, Pontypridd, CF37 4SU, t.01443 401 012</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <form asp-action="ComplianceSubmit" method="post" id="complianceForm">
+                        <table class="table mb-3" width="100%">
+                            <tr>
+                                <td width="40%"><strong>Client Name:</strong> @Model.Compliance.Firstname @Model.Compliance.Lastname</td>
+                                <td width="30%"> <strong>Birth Date:</strong> @Model.Compliance.BirthDate?.ToString("dd MMM yyyy")</td>
+                                <td width="30%"><strong>Mobile:</strong> @Model.Compliance.Mobile</td>
+                            </tr>
+                        </table>
+                        <table class="table mb-3">
+                            <tbody>
+                                <tr id="isOver16Row">
+                                    <td style="width:70%" class="pull-left">
+                                        <label asp-for="Compliance.IsOver16"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsOver16" value="true" id="yesOver16" />
+                                            <label class="form-check-label mr-2" for="yesOver16">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsOver16" value="false" id="noOver16" />
+                                            <label class="form-check-label mr-2" for="noOver16">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsOver16" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <tr></tr>
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.IsIdentityProvided" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsIdentityProvided" value="true" id="yesIsIdentityProvided" />
+                                            <label class="form-check-label mr-2" for="yesIsIdentityProvided">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsIdentityProvided" value="false" id="noIsIdentityProvided" />
+                                            <label class="form-check-label mr-2" for="noIsIdentityProvided">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsIdentityProvided" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <tr></tr>
+                                <!-- Allergic to Colour -->
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.IsAllergicToColour" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergicToColour" value="true" id="yesColour" />
+                                            <label class="form-check-label mr-2" for="yesColour">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergicToColour" value="false" id="noColour" />
+                                            <label class="form-check-label mr-2" for="noColour">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsAllergicToColour" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="Compliance.AllergicColourDetails" class="control-label">Details</span>
+                                        <textarea asp-for="Compliance.AllergicColourDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="Compliance.AllergicColourDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Damaged Scalp -->
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.IsDamagedScalp" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsDamagedScalp" value="true" id="yesScalp" />
+                                            <label class="form-check-label mr-2" for="yesScalp">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsDamagedScalp" value="false" id="noScalp" />
+                                            <label class="form-check-label mr-2" for="noScalp">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsDamagedScalp" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="Compliance.ScalpDetails" class="control-label">Details</span>
+                                        <textarea asp-for="Compliance.ScalpDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="Compliance.ScalpDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Has Tattoo -->
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.HasTattoo" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.HasTattoo" value="true" id="yesTattoo" />
+                                            <label class="form-check-label mr-2" for="yesTattoo">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.HasTattoo" value="false" id="noTattoo" />
+                                            <label class="form-check-label mr-2" for="noTattoo">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.HasTattoo" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="Compliance.TattooDetails" class="control-label">Details</span>
+                                        <textarea asp-for="Compliance.TattooDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="Compliance.TattooDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+                                <!-- Allergic to Product -->
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.IsAllergicToProduct" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergicToProduct" value="true" id="yesProduct" />
+                                            <label class="form-check-label mr-2" for="yesProduct">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergicToProduct" value="false" id="noProduct" />
+                                            <label class="form-check-label mr-2" for="noProduct">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsAllergicToProduct" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <span asp-for="Compliance.AllergicProductDetails" class="control-label">Details</span>
+                                        <textarea asp-for="Compliance.AllergicProductDetails" class="form-control"></textarea>
+                                        <span asp-validation-for="Compliance.AllergicProductDetails" class="text-danger"></span>
+                                    </td>
+                                </tr>
+
+
+                                <!-- observed -->
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="form-check-label" asp-for="Compliance.ObservedBy" style="font-weight: 700 !important;"></label>
+                                        <textarea asp-for="Compliance.ObservedBy" class="form-control"></textarea>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <!-- Allergy -->
+                                <tr>
+                                    <td style="width:70%">
+                                        <label class="form-check-label" asp-for="Compliance.IsAllergyTestDone" style="font-weight: 700 !important;"></label>
+                                    </td>
+                                    <td style="width:30%">
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergyTestDone" value="true" id="yesIsAllergyTestDone" />
+                                            <label class="form-check-label mr-2" for="yesIsAllergyTestDone">Yes</label>
+                                        </div>
+                                        <div class="d-inline custom-radio-as-checkbox">
+                                            <input type="radio" class="form-check-input" asp-for="Compliance.IsAllergyTestDone" value="false" id="noIsAllergyTestDone" />
+                                            <label class="form-check-label mr-2" for="noIsAllergyTestDone">No</label>
+                                        </div>
+                                        <span asp-validation-for="Compliance.IsAllergyTestDone" class="text-danger"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table mb-3" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td><label class="form-check-label" asp-for="Compliance.SignatureData" style="font-weight: 700 !important;"></label></td>
+                                    <td><label class="form-check-label" asp-for="Compliance.SalonSignatureData" style="font-weight: 700 !important;"></label></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <img class="w-100" style="max-width: 350px; height: auto;" id="savetarget" src="@Model.Compliance.SignatureData"><br>
+                                    </td>
+                                    <td width="50%">
+                                        <img class="w-100" style="max-width: 350px; height: auto;" id="salonsavetarget" src="@Model.Compliance.SalonSignatureData"><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            function calculateAge(birthDate) {
+                const today = new Date();
+                const birthDateObj = new Date(birthDate);
+                let age = today.getFullYear() - birthDateObj.getFullYear();
+                const monthDiff = today.getMonth() - birthDateObj.getMonth();
+
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+                    age--;
+                }
+
+                return age;
+            }
+        });
+    </script>
+</body>
+</html>

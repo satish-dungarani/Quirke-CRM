@@ -80,7 +80,7 @@
                     "render": function (data, type, full, meta) {
                         var _html = '';
                         _html += '<a class="btn btn-secondary btn-sm mr-2" href="/employee/manage/' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>';
-                        _html += '<a class="btn btn-danger btn-sm" href="/employee/delete/' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                        _html += '<a class="btn btn-danger btn-sm delete-button" href="/employee/delete/' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
                         return _html;
                     }
                 }

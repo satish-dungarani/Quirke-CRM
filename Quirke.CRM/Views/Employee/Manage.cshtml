@@ -220,7 +220,7 @@
                         "className": "",
                         "render": function (data, type, full, meta) {
                             return '<a class="btn btn-secondary btn-sm mr-2" href="/Employee/ManageLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>' +
-                                   '<a class="btn btn-danger btn-sm" href="/Employee/DeleteLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                                '<a class="btn btn-danger btn-sm delete-button" href="/Employee/DeleteLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
                         }
                     }
                 ],

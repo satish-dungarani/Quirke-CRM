@@ -122,27 +122,41 @@
 
 
     function funDeleteCustomer(_id) {
-
-        $.ajax({
-            url: '@Url.Action("DeleteCustomer", "Customer")',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                id: _id,
-            },
-            success: function (response) {
-                if (response.result) {
-                    funCustomerGrid();
-                    Swal.fire({
-                        title: 'Success!',
-                        text: response.msg,
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
-                }
-            },
-            error: function (response) {
-
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you really want to delete this record? This action cannot be undone.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '@Url.Action("DeleteCustomer", "Customer")',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        id: _id,
+                    },
+                    success: function (response) {
+                        if (response.result) {
+                            funCustomerGrid();
+                            Swal.fire({
+                                title: 'Success!',
+                                text: response.msg,
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function (response) {
+                        Swal.fire('Error', 'Something went wrong!', 'error');
+                    }
+                });
+            } else {
+                Swal.fire('Cancelled', 'Your data is safe', 'info');
             }
         });
     }

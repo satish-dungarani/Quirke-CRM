@@ -172,7 +172,6 @@
     }
 
     function funManageRequest(_id) {
-
         $.ajax({
             url: '@Url.Action("ManageRequest", "Employee")',
             type: 'GET',
@@ -210,29 +209,44 @@
             }
         });
     }
-
+     
     function funDeleteRequest(_id) {
-
-        $.ajax({
-            url: '@Url.Action("DeleteRequest", "Employee")',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                id: _id,
-            },
-            success: function (response) {
-                if (response.result) {
-                    funGridRequest();
-                    Swal.fire({
-                        title: 'Success!',
-                        text: response.msg,
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
-                }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you really want to delete this record? This action cannot be undone.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '@Url.Action("DeleteRequest", "Employee")',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        id: _id,
+                    },
+                    success: function (response) {
+                        if (response.result) {
+                            funGridRequest();
+                            Swal.fire({
+                                title: 'Success!',
+                                text: response.msg,
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            } else {
+                Swal.fire('Cancelled', 'Your data is safe', 'info');
             }
         });
-    }
+
+    };
 
     function funCloseModal() {
         funGridRequest();

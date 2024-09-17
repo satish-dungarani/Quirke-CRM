@@ -367,6 +367,27 @@ namespace Quirke.CRM.Controllers
                 return View("CustomError");
             }
         }
+
+
+
+        public async Task<IActionResult> DownloadCustomerCompliancePdf(int id)
+        {
+            // Fetch customer compliance data
+            var compliance = await _customerService.GetCustomerComplianceModelByIdAsync(id);
+            var customer = await _customerService.GetCustomerByIdModelAsync(compliance.CustomerId);
+
+            var model = new CustomerViewModel
+            {
+                Customer = customer,
+                Compliance = compliance
+            };
+
+            return new ViewAsPdf("CustomerCompliancePdf", model)
+            {
+                FileName = $"{customer.Firstname}_ComplianceForm.pdf",
+                PageSize = Rotativa.AspNetCore.Options.Size.A4
+            };
+        }
         #endregion
 
         #region Record
