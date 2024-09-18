@@ -1,8 +1,6 @@
-using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
@@ -13,6 +11,7 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class HomeController : BaseController
     {
+        #region PRoperties
         private readonly ICommonService _commonService;
         private readonly ICustomerService _customerService;
 
@@ -22,6 +21,10 @@ namespace Quirke.CRM.Controllers
             _commonService = commonService;
             _customerService = customerService;
         }
+
+        #endregion
+
+        #region Actions
 
         public async Task<IActionResult> Index()
         {
@@ -79,7 +82,7 @@ namespace Quirke.CRM.Controllers
             };
             return View(model);
         }
-  
+
         public async Task<IActionResult> Records(int id)
         {
             var customer = await _customerService.GetCustomerByIdAsync(id);
@@ -96,5 +99,7 @@ namespace Quirke.CRM.Controllers
             };
             return View(model);
         }
+        #endregion
+
     }
 }

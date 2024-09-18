@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
-using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -12,12 +11,15 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class InventoryController : BaseController
     {
+        #region Properties
         protected readonly IInventoryService _inventoryService;
         public InventoryController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context,
             RoleManager<IdentityRole> roleManager, IInventoryService inventoryService) : base(userManager, null, _context, roleManager)
         {
             _inventoryService = inventoryService;
         }
+
+        #endregion
 
         #region Poducts
         public IActionResult Products()

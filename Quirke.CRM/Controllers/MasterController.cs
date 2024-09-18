@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.DataContext;
-using Quirke.CRM.Domain.Services;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -11,6 +10,7 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class MasterController : BaseController
     {
+        #region Properties
         protected readonly IMasterService _masterService;
         protected readonly ISupplierService _supplierService;
         public MasterController(UserManager<ApplicationUser> userManager, ApplicationDbContext _context, RoleManager<IdentityRole> roleManager, IMasterService masterService, ISupplierService supplierService) : base(userManager, null, _context, roleManager)
@@ -18,7 +18,7 @@ namespace Quirke.CRM.Controllers
             _masterService = masterService;
             _supplierService = supplierService;
         }
-
+        #endregion
 
         #region Masters
 

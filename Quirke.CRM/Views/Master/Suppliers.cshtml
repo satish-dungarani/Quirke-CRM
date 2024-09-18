@@ -11,7 +11,7 @@
                 <h1 class="card-title">
                     <b>Supplier List</b>
                 </h1>
-                <button class="btn btn-primary btn-sm float-right" onclick="funManageSupplier(null)"><i class="fas fa-plus"></i> Add Supplier</button>
+                <button class="btn btn-primary btn-sm float-right" onclick="funManageSupplier(null)">Add Supplier &nbsp; <i class="fas fa-plus"></i></button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -96,8 +96,8 @@
                 },
                 {
                     "render": function (data, type, full, meta) {
-                        return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageSupplier(' + full.Id + ')" ><i class="fas fa-pen"></i> Edit</button>' +
-                            '<button class="btn btn-danger btn-sm" onclick="funDeleteSupplier(' + full.Id + ')" ><i class="fas fa-trash"></i> Delete</button>';
+                        return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageSupplier(' + full.Id + ')" >Edit  &nbsp; <i class="fas fa-pen"></i></button>' +
+                            '<button class="btn btn-danger btn-sm" onclick="funDeleteSupplier(' + full.Id + ')" >Delete  &nbsp; <i class="fas fa-trash"></i></button>';
                     }
                 }
             ],

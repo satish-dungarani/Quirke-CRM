@@ -1,13 +1,9 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json.Linq;
 using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
-using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;
 
@@ -16,7 +12,7 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class EmployeeController : BaseController
     {
-        #region MyRegion
+        #region Properties
 
         protected readonly IEmployeeService _employeeService;
         protected readonly IMasterService _masterService;
@@ -76,8 +72,6 @@ namespace Quirke.CRM.Controllers
         #endregion
 
         #region Employee
-
-
         public IActionResult Index()
         {
             return View();
@@ -175,6 +169,20 @@ namespace Quirke.CRM.Controllers
 
         }
 
+        public async Task<IActionResult> DeleteEmployee(int id)
+        {
+            try
+            {
+                await _employeeService.DeleteEmployeeAsync(id);
+                return Json(new { result = true, msg = "Leave request successfully deleted." });
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(DeleteRequest)} - ERROR - {ex}");
+                return Json(new { result = false, msg = ex.Message });
+            }
+        }
+
         public IActionResult DownloadDocument(int id)
         {
             try
@@ -199,6 +207,29 @@ namespace Quirke.CRM.Controllers
             }
         }
 
+        public async Task<IActionResult> EmployeeProfile(int page = 1, int pageSize = 6)
+        {
+            try
+            {
+                var employees = await _employeeService.GetAllEmployeesPagingAsync(page, pageSize);
+
+                var totalItems = _context.Employees.Count();
+
+                var pagedResult = new PagedResult<EmployeeModel>
+                {
+                    Items = employees,
+                    PageNumber = page,
+                    PageSize = pageSize,
+                    TotalItems = totalItems
+                };
+                return View(pagedResult);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(EmployeeProfile)} - ERROR - {ex}");
+                return View("CustomError");
+            }
+        }
         #endregion
 
         #region Employee Leave
@@ -480,28 +511,5 @@ namespace Quirke.CRM.Controllers
         }
         #endregion
 
-        public async Task<IActionResult> EmployeeProfile(int page = 1, int pageSize = 6)
-        {
-            try
-            {
-                var employees = await _employeeService.GetAllEmployeesPagingAsync(page, pageSize);
-
-                var totalItems = _context.Employees.Count();
-
-                var pagedResult = new PagedResult<EmployeeModel>
-                {
-                    Items = employees,
-                    PageNumber = page,
-                    PageSize = pageSize,
-                    TotalItems = totalItems
-                };
-                return View(pagedResult);
-            }
-            catch (Exception ex)
-            {
-                LogHelper.logger.Error($"{nameof(EmployeeController)} - {nameof(EmployeeProfile)} - ERROR - {ex}");
-                return View("CustomError");
-            }
-        }
     }
 }

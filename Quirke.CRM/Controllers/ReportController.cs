@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Quirke.CRM.Controllers
 {
+    [Obsolete]
     [Authorize]
     public class ReportController : Controller
     {

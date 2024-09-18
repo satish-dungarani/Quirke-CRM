@@ -100,6 +100,7 @@ namespace Quirke.CRM.Services
         {
             return await _context.Employees
            .Where(e => !e.IsDeleted)
+           .OrderByDescending(c => c.Id)
            .Skip((page - 1) * pageSize)
            .Take(pageSize)
            .Select(entity => new EmployeeModel
@@ -123,7 +124,6 @@ namespace Quirke.CRM.Services
                DispCreatedOn = entity.CreatedOn.ToString("dd MMM yyyy"),
                UpdatedOn = entity.UpdatedOn
            })
-           .OrderByDescending(c => c.Id)
            .ToListAsync();
         }
 

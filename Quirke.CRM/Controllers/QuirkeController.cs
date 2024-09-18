@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Quirke.CRM.Common;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
@@ -12,12 +10,15 @@ namespace Quirke.CRM.Controllers
     [AllowAnonymous]
     public class QuirkeController : Controller
     {
+        #region Properties
         protected readonly ICustomerService _customerService;
         public QuirkeController(ICustomerService customerService)
         {
             _customerService = customerService;
         }
+        #endregion
 
+        #region Actions
         public IActionResult Index()
         {
             return View();
@@ -50,6 +51,7 @@ namespace Quirke.CRM.Controllers
             }
 
         }
+
         [HttpPost]
         public async Task<IActionResult> ComplianceSubmit(CustomerComplianceModel model)
         {
@@ -78,7 +80,7 @@ namespace Quirke.CRM.Controllers
                         Lastname = model.Lastname,
                         Mobile = model.Mobile,
                         CreatedOn = DateTime.UtcNow,
-                       // Gender = "Female"
+                        // Gender = "Female"
                     };
 
                     customer = await _customerService.CreateCustomerAsync(customer);
@@ -106,7 +108,7 @@ namespace Quirke.CRM.Controllers
                 return View("CustomError");
             }
         }
-
+        #endregion
 
     }
 }

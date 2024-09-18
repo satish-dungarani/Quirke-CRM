@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Quirke.CRM.Domain
+﻿namespace Quirke.CRM.Domain
 {
     public class CustomerRecord
     {

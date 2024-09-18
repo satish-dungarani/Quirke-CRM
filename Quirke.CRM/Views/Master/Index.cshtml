@@ -9,7 +9,7 @@
         <div class="card card-default color-palette-box">
             <div class="card-header">
                 <h1 class="card-title">Master - @type</h1>
-                <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#commonModalCenter" onclick="funManageMaster(null)"><i class="fas fa-plus"></i> Add @type</button>
+                <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#commonModalCenter" onclick="funManageMaster(null)">Add @type  &nbsp; <i class="fas fa-plus"></i></button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -87,8 +87,8 @@
                     "data": null,
                     "className": "",
                     "render": function (data, type, full, meta) {
-                        return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageMaster(' + full.Id + ')" ><i class="fas fa-pen"></i> Edit</button>' +
-                            '<button class="btn btn-danger btn-sm" onclick="funDeleteMaster(' + full.Id + ')" ><i class="fas fa-trash"></i> Delete</button>';
+                        return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageMaster(' + full.Id + ')" >Edit  &nbsp; <i class="fas fa-pen"></i></button>' +
+                            '<button class="btn btn-danger btn-sm" onclick="funDeleteMaster(' + full.Id + ')" >Delete  &nbsp; <i class="fas fa-trash"></i></button>';
                     }
                 }
             ],

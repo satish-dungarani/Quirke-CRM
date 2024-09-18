@@ -4,7 +4,6 @@ using Quirke.CRM.Common;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Domain;
 using Quirke.CRM.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Quirke.CRM.Services
 {
@@ -184,7 +183,7 @@ namespace Quirke.CRM.Services
         public async Task<CustomerComplianceModel> GetCustomerComplianceModelByIdAsync(int id)
         {
             var compliance = await _context.CustomerCompliances.FindAsync(id);
-            var customer = await _context.Customers.FindAsync(compliance?.Id);
+            var customer = await _context.Customers.FindAsync(compliance?.CustomerId);
 
             if (customer == null)
             {

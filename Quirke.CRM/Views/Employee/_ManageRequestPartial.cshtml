@@ -106,8 +106,8 @@
         </div>
     </div>
     <div class="modal-footer  text-center">
-        <button type="button" class="btn btn-danger" onclick="funCloseModal()">Close</button>
-        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
+        <button type="button" class="btn btn-danger" onclick="funCloseModal()">Close &nbsp;<i class="fas fa-times"></i></button>
+        <button type="submit" class="btn btn-success">Save &nbsp;<i class="fas fa-save"></i></button>
     </div>
 </form>
 
@@ -119,23 +119,25 @@
 <script>
     $(document).ready(function () {
 
+        // File input display logic
         $('.custom-file-input').on('change', function () {
             var fileName = $(this).val().split('\\').pop();
             $(this).next('.custom-file-label').addClass("selected").html(fileName);
         });
 
+        // Initialize select2 for Employee and LeaveType dropdowns
         $("#EmployeeId").select2({
             placeholder: "Select Employee",
             allowClear: true,
             width: 'resolve',
-            outerHeight: 'resolve',
+            minimumResultsForSearch: 0 // Ensure the search bar appears
         });
 
         $("#LeaveTypeId").select2({
             placeholder: "Select Leave Type",
             allowClear: true,
             width: 'resolve',
-            outerHeight: 'resolve',
+            minimumResultsForSearch: 0 // Ensure the search bar appears
         });
 
         $("#EmployeeId").on('change', function () {

@@ -1,7 +1,7 @@
-﻿using Quirke.CRM.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Quirke.CRM.DataContext;
+using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Controllers
 {

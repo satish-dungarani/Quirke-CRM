@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +11,6 @@ using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuration and Environment setup
 var configuration = builder.Configuration;
 var environment = builder.Environment;
 
@@ -41,11 +39,6 @@ builder.Services.AddControllersWithViews(options =>
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
 });
-
-// Data protection configuration
-//builder.Services.AddDataProtection()
-//    .PersistKeysToDbContext<ApplicationDbContext>()
-//    .SetApplicationName("QuirkeCRM");
 
 // JSON serializer settings
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -84,7 +77,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 // Scoped services registration
-//builder.Services.AddScoped<CheckUserLoggedInFilter>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IMasterService, MasterService>();
@@ -92,12 +84,6 @@ builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<ICommonService, CommonService>();
-
-// MVC with filters
-//builder.Services.AddControllersWithViews(options =>
-//{
-//    options.Filters.Add<CheckUserLoggedInFilter>();
-//});
 
 // Application build and middleware pipeline setup
 var app = builder.Build();

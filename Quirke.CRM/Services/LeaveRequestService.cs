@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Quirke.CRM.Common;
+﻿using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
 using Quirke.CRM.Models;
 using Quirke.CRM.Services;

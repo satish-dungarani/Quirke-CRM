@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Quirke.CRM.DataContext;
-using Quirke.CRM.Models;
 
 namespace Quirke.CRM.Services
 {
@@ -21,7 +20,7 @@ namespace Quirke.CRM.Services
 
         public async Task<int> GetTotalEmployeesAsync()
         {
-            return await _context.Employees.CountAsync();
+            return await _context.Employees.CountAsync(x=> !x.IsDeleted);
         }
 
         public async Task<int> GetPendingLeaveRequestsAsync()

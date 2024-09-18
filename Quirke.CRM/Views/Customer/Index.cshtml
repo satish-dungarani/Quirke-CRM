@@ -80,8 +80,8 @@
                 {
                     "render": function (data, type, full, meta) {
                         var _html = '';
-                        _html += '<a class="btn btn-secondary  btn-sm mr-2" href="/customer/manage/' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>';
-                        _html += '<button class="btn btn-danger  btn-sm" onclick="funDeleteCustomer(' + full.Id + ')"><i class="fas fa-trash"></i> Delete</button>';
+                        _html += '<a class="btn btn-secondary  btn-sm mr-2" href="/customer/manage/' + full.Id + '">Edit  &nbsp; <i class="fas fa-pen"></i></a>';
+                        _html += '<button class="btn btn-danger  btn-sm" onclick="funDeleteCustomer(' + full.Id + ')">Delete  &nbsp; <i class="fas fa-trash"></i></button>';
                         return _html;
                     }
                 }

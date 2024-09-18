@@ -6,6 +6,15 @@
 
 <section class="content pt-3">
     <div class="card card-solid">
+        <div class="card-header">
+            <h1 class="card-title">
+                @* <i class="fas fa-tag"></i> *@
+                <b>Employee List</b>
+            </h1>
+            <a class="btn btn-primary btn-sm float-right" href="@Url.Action("Manage", "Employee")">
+                Add Employee &nbsp;<i class="fas fa-plus"></i>
+            </a>
+        </div>
         <div class="card-body pb-0">
             <div class="row">
                 @foreach (var employee in Model.Items)
@@ -41,7 +50,7 @@
                             <div class="card-footer">
                                 <div class="text-left">
                                     <a href="@Url.Action("Manage", "Employee", new { id = employee.Id })" class="btn btn-sm btn-primary">
-                                        <i class="fas fa-user"></i> &nbsp; View Profile
+                                        View Profile &nbsp; <i class="fas fa-user"></i>
                                     </a>
                                 </div>
                             </div>

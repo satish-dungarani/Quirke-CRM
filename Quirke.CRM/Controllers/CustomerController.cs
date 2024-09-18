@@ -14,6 +14,7 @@ namespace Quirke.CRM.Controllers
     [Authorize]
     public class CustomerController : BaseController
     {
+        #region Properties
         protected readonly ICustomerService _customerService;
         private static readonly ILog logger = LogHelper.logger;
 
@@ -22,6 +23,7 @@ namespace Quirke.CRM.Controllers
         {
             _customerService = customerService;
         }
+        #endregion
 
         #region Customer
 

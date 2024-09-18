@@ -14,7 +14,9 @@
                 <a class="btn btn-primary btn-sm float-right ml-2" href="@Url.Action("EmployeeProfile", "Employee")">Back to list</a>
                 @if (Model.Id > 0)
                 {
-                    <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageLeave","Employee", new {employeeId = Model.Id})">Add Leave</a>
+                    <a class="btn btn-warning  btn-sm float-right ml-2" href="@Url.Action("ManageLeave","Employee", new {employeeId = Model.Id})">Add Leave &nbsp; <i class="fas fa-plus"></i></a>
+                    <button type="button" class="btn btn-danger btn-sm float-right ml-2" onclick="funDeleteEmployee(@Model.Id)">Delete &nbsp; <i class="fas fa-trash"></i></button>
+
                 }
             </div>
             <div class="card-body">
@@ -149,7 +151,7 @@
 
                     </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-save mr-2"></i>Save</button>
+                        <button type="submit" class="btn btn-success">Save &nbsp;<i class="fas fa-save"></i></button>
                     </div>
                 </form>
             </div>
@@ -219,8 +221,8 @@
                         "data": null,
                         "className": "",
                         "render": function (data, type, full, meta) {
-                            return '<a class="btn btn-secondary btn-sm mr-2" href="/Employee/ManageLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-pen"></i> Edit</a>' +
-                                '<a class="btn btn-danger btn-sm delete-button" href="/Employee/DeleteLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '"><i class="fas fa-trash"></i> Delete</a>';
+                            return '<a class="btn btn-secondary btn-sm mr-2" href="/Employee/ManageLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '">Edit  &nbsp; <i class="fas fa-pen"></i></a>' +
+                                '<a class="btn btn-danger btn-sm delete-button" href="/Employee/DeleteLeave?employeeId=' + full.EmployeeId + '&id=' + full.Id + '">Delete  &nbsp; <i class="fas fa-trash"></i></a>';
                         }
                     }
                 ],
@@ -243,5 +245,45 @@
                 }, 200);
             });
         });
+
+        function funDeleteEmployee(_id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to delete this record? This action cannot be undone.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '@Url.Action("DeleteEmployee", "Employee")',
+                        type: 'GET',
+                        dataType: 'json',
+                        data: {
+                            id: _id,
+                        },
+                        success: function (response) {
+                            if (response.result) {
+                                
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: response.msg,
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                });
+
+                                location.href = '@Url.Action("EmployeeProfile", "Employee")';
+                            }
+                        }
+                    });
+                } else {
+                    Swal.fire('Cancelled', 'Your data is safe', 'info');
+                }
+            });
+
+        };
     </script>
 }

@@ -9,7 +9,7 @@
                 <h1 class="card-title">
                     <b>Leave Request List</b>
                 </h1>
-                <button class="btn btn-primary btn-sm float-right" onclick="funManageRequest(null)"><i class="fas fa-plus"></i> Request For Leave</button>
+                <button class="btn btn-primary btn-sm float-right" onclick="funManageRequest(null)">Request For Leave &nbsp; <i class="fas fa-plus"></i></button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -88,13 +88,13 @@
                 {
                     "data": "DispStartDate",
                     "render": function (data) {
-                        return moment(data).format('MM/DD/YYYY');
+                        return data;  //moment(data).format('DD MMM YYYY');
                     }
                 },
                 {
                     "data": "DispEndDate",
                     "render": function (data) {
-                        return moment(data).format('MM/DD/YYYY');
+                        return data;  // moment(data).format('DD MMM YYYY');
                     }
                 },
                 {
@@ -116,22 +116,22 @@
                 {
                     "data": "DispCreatedOn",
                     "render": function (data) {
-                        return moment(data).format('MM/DD/YYYY');
+                        return moment(data).format("DD MMM YYYY")
                     }
                 },
                 {
                     "data": "UpdatedOn",
                     "render": function (data) {
-                        return moment(data).format('MM/DD/YYYY');
+                        return moment(data).format('DD MMM YYYY');
                     }
                 },
                 {
                     "render": function (data, type, full, meta) {
                         if (full.RequestStatus == "Pending") {
-                            return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageRequest(' + full.Id + ')" ><i class="fas fa-pen"></i> Edit</button>' +
-                                '<button class="btn btn-danger btn-sm" onclick="funDeleteRequest(' + full.Id + ')" ><i class="fas fa-trash"></i> Delete</button>';
+                            return '<button class="btn btn-secondary btn-sm mr-2" onclick="funManageRequest(' + full.Id + ')" >Edit  &nbsp; <i class="fas fa-pen"></i></button>' +
+                                '<button class="btn btn-danger btn-sm" onclick="funDeleteRequest(' + full.Id + ')" >Delete  &nbsp; <i class="fas fa-trash"></i></button>';
                         } else {
-                            return '<button class="btn btn-info btn-sm mr-2" onclick="funViewRequest(' + full.Id + ')" ><i class="fas fa-eye"></i> View</button>';
+                            return '<button class="btn btn-info btn-sm mr-2" onclick="funViewRequest(' + full.Id + ')">View  &nbsp; <i class="fas fa-eye"></i></button>';
 
                         }
                     }
