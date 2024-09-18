@@ -162,7 +162,7 @@ namespace Quirke.CRM.Controllers
                         await _employeeService.UpdateEmployeeAsync(model);
                     }
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("EmployeeProfile");
                 }
 
                 return View(model);
