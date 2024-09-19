@@ -58,7 +58,7 @@ namespace Quirke.CRM.Services
         {
             var compliances = await _context.CustomerCompliances.Where(x => x.CustomerId == id).ToListAsync();
 
-            if (compliances != null && compliances.Any())
+            if (compliances != null && compliances.Count != 0)
             {
                 _context.CustomerCompliances.RemoveRange(compliances);
                 await _context.SaveChangesAsync();

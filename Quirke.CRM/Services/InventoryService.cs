@@ -169,7 +169,7 @@ namespace Quirke.CRM.Services
         public async Task<IEnumerable<SelectListItem>> GetBrandListAsync()
         {
             return await _context.Masters
-                .Where(m => m.MasterTypeId == (int)MasterType.Brand)
+                .Where(m => m.MasterTypeId == (int)MasterType.Brand && !m.IsDeleted)
                 .Select(m => new SelectListItem
                 {
                     Value = m.Id.ToString(),
@@ -177,7 +177,6 @@ namespace Quirke.CRM.Services
                 })
                 .ToListAsync();
         }
-
 
         public async Task<IEnumerable<InventoryHistoryModel>> GetAllInventoryHistoryByProductsAsync(int productId)
         {
@@ -228,6 +227,7 @@ namespace Quirke.CRM.Services
                 }
             });
         }
+
         public async Task<IEnumerable<InventoryHistoryModel>> GetAllInventoryHistoryAsync()
         {
             return await _context.InventoryHistories

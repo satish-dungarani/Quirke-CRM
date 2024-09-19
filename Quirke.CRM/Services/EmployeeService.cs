@@ -96,6 +96,7 @@ namespace Quirke.CRM.Services
                UpdatedOn = entity.UpdatedOn
            }).OrderByDescending(c => c.Id).ToListAsync();
         }
+
         public async Task<IEnumerable<EmployeeModel>> GetAllEmployeesPagingAsync(int page = 1, int pageSize = 10)
         {
             return await _context.Employees
@@ -311,6 +312,7 @@ namespace Quirke.CRM.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
         public async Task<bool> IsDuplicateLeaveAsync(int employeeId, int leaveTypeId, int? excludeId = null)
         {
             return await _context.EmployeeLeaves
@@ -318,6 +320,7 @@ namespace Quirke.CRM.Services
                             && e.LeaveTypeId == leaveTypeId
                             && (excludeId == null || e.Id != excludeId));
         }
+
         public async Task<bool> DeleteEmployeeLeaveAsync(int id)
         {
             var leave = await _context.EmployeeLeaves.FindAsync(id);
@@ -344,6 +347,7 @@ namespace Quirke.CRM.Services
                 ).ToListAsync();
 
         }
+
         public async Task<decimal> RmainingLeaves(int employeeId, int leaveTypeId)
         {
             var empLeave = await _context.EmployeeLeaves
