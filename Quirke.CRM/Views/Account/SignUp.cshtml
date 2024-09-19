@@ -170,5 +170,58 @@
             }
         }
     </script>
+    <script>
+        // Function to remove the unwanted elements
+        function removeUnwantedElements() {
+            // Remove the specific unwanted <center> tag with somee.com
+            const unwantedElements = document.querySelectorAll("center a[href*='somee.com']");
+            unwantedElements.forEach(function (element) {
+                element.parentNode.remove();  // Remove <center> and its child <a>
+            });
+
+
+            // Remove divs with inline styles added by the server
+            const unwantedDivs = document.querySelectorAll("div[style*='z-index: 2147483647'], div[style*='height: 65px']");
+            unwantedDivs.forEach(function (div) {
+                div.remove();
+            });
+
+            // Optionally, if you want to remove any remaining elements by text content
+            const unwantedLinks = document.querySelectorAll("a[href*='somee.com']");
+            unwantedLinks.forEach(function (link) {
+                link.closest("div").remove();  // Remove the parent div containing the link
+            });
+
+
+            // Remove the specific <script> tag by matching part of its src attribute
+            const unwantedScript = document.querySelector("script[src*='ads.mgmt.somee.com']");
+            if (unwantedScript) {
+                unwantedScript.remove();
+            }
+        }
+
+        // Run the function initially to catch any elements already loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            removeUnwantedElements();  // Remove any unwanted elements initially
+        });
+
+        // Use MutationObserver to monitor for dynamically inserted elements
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                // Check each added node if it matches the unwanted content
+                mutation.addedNodes.forEach(function (node) {
+                    if (node.nodeType === 1) {  // Only process element nodes
+                        removeUnwantedElements();  // Re-run the removal function
+                    }
+                });
+            });
+        });
+
+        // Observe changes to the entire document's body
+        observer.observe(document.body, {
+            childList: true,  // Monitor for added/removed elements
+            subtree: true     // Monitor the entire subtree
+        });
+    </script>
 </body>
 </html>
