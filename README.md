@@ -87,3 +87,22 @@ To start using the application, follow these steps:
 - **Backend**: ASP.NET Core MVC
 - **Database**: Microsoft SQL Server
 - **ORM**: Entity Framework Core
+
+
+## Testing Environments
+
+### UAT (Trial Hosting Server)
+
+- URL: [http://quirkecrm-001-site1.ftempurl.com](http://quirkecrm-001-site1.ftempurl.com)
+-  Free trial host Credentials:
+   - **User Name**: 11189767
+   - **Password**: 60-dayfreetrial
+- Admin Credential
+   - **User Name**: admin@quirke.com
+   - **Password**: Admin@123
+- Compliance QR: [Quirke & Co QR Code](http://quirkecrm-001-site1.ftempurl.com/quirke/qr-code.png)
+
+### Client Hosting
+
+- URL: [https://www.quirke.somee.com](https://www.quirke.somee.com)
+
