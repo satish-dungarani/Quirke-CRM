@@ -1,4 +1,4 @@
-# MSc Computer Science - Final Project
+# MSc Computer Science - Project
 - **Name**: Satishkumar Raghavbhai Dungarani
 - **Student Id**: 30073102
 
